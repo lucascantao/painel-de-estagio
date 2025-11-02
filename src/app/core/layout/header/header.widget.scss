@@ -1,0 +1,57 @@
+:host {
+  background: #121926;
+  width: 100%;
+  display: flex;
+}
+
+.header {
+  background: #121926;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 96.1%;
+  margin-left: 3.9%;
+
+  span {
+    color: #59FF88;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.32px;
+    margin-right: 10px;
+  }
+
+  small {
+    color: #58616C;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.32px;
+    position: absolute;
+    top: 41px;
+  }
+
+  img {
+    height: 16px;
+    margin-right: 16px;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  &__name {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    padding-right: 16px;
+  }
+
+  &__avatar {
+    cursor: pointer;
+  }
+}

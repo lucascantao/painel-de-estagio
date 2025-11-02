@@ -1,0 +1,22 @@
+<div class="header" *ngIf="appModule">
+  <span>{{ appModule.title }}</span>
+  <small>v2.0.0</small>
+  <img src="/assets/img/sidenavNew/about-icon.svg" matTooltip="Acesso ao controle de todos os kits do conexão" matTooltipPosition="right" />
+  <mat-progress-spinner diameter=30 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+
+  <section class="user">
+    <a class="user__name">{{ userName() }}</a>
+    <ngx-avatars
+      class="user__avatar"
+      [matMenuTriggerFor]="menu"
+      [name]="userName()"
+      size="40"
+    ></ngx-avatars>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button (click)="logout()" mat-menu-item>
+        <mat-icon style="color: var(--app-primary-color);">exit_to_app</mat-icon>
+        <span class="menu-item">Sair</span>
+      </button>
+    </mat-menu>
+  </section>
+</div>

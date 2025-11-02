@@ -1,0 +1,182 @@
+#app-sidenav{
+  background-color: #121926;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  min-height: 56px;
+  position: absolute;
+  z-index: 999;
+  box-shadow: 0px 2px 2px 0px #BDD4FF;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.c-logo-container{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-top: 30px;
+
+  .brand {
+    display: none;
+  }
+}
+
+.c-module-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  background: #1A2334;
+  // width: 140%;
+  width: 40px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 5px 6px 5px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: all 0.2s ease !important;
+  overflow: hidden;
+
+  a {
+    visibility: hidden;
+    position: absolute;
+    color: #58616C;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 33px;
+  }
+}
+
+.c-module-container--active {
+  background: #004C3D;
+  pointer-events: none;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(76deg) brightness(102%) contrast(102%);
+  }
+
+  a {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(76deg) brightness(102%) contrast(102%);
+  }
+}
+
+.c-module-container--active:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.module-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 32px;
+}
+
+.module-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .module-title {
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+    color: #343a40;
+    letter-spacing: .5px;
+  }
+}
+
+.item-linebox {
+  width: 40px;
+  border: 1px solid #404653;
+  margin: 30px 0;
+  transition: all 0.2s ease;
+}
+
+.c-modules-tools {
+  position: absolute;
+  bottom: 0;
+  // left: 10px;
+  // width: 48%;
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep {
+  .mat-toolbar-row {
+    padding: 0 !important;
+    flex-direction: column !important;
+    // background-color: var(--app-alternative-background-color) !important;
+    // height: 100% !important;
+  }
+}
+
+.expand-test {
+  height: 100vh !important;
+  // width: 60px !important;
+  width: 3.91% !important;
+  padding: 0 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.expand-test:hover {
+  width: 203px !important;
+  // padding: 16px !important;
+
+  .c-logo-container {
+    margin-top: 30px;
+
+    .icon {
+      display: none;
+    }
+
+    .brand {
+      display: block;
+      height: 100px;
+    }
+  }
+
+  .c-module-container {
+    justify-content: flex-start;
+    width: 163px;
+
+    img {
+      margin-left: 6px;
+    }
+
+    a {
+      visibility: visible;
+    }
+  }
+
+  .item-linebox {
+    width: 183px;
+  }
+
+  .c-modules-tools {
+    left: 18px;
+    width: 65% !important;
+  }
+}
+
+.c-module-container:hover {
+  cursor: pointer;
+
+  img {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(76deg) brightness(102%) contrast(102%);
+  }
+
+  a {
+    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(76deg) brightness(102%) contrast(102%);
+  }
+}

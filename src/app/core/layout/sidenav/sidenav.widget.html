@@ -1,0 +1,44 @@
+<mat-toolbar id="app-sidenav" class="expand-test">
+  <mat-toolbar-row>
+    <div class="c-logo-container">
+      <img class="icon" src="/assets/img/sidenavNew/povos-icon.svg"/>
+      <img class="brand" src="/assets/img/sidenavNew/povos-brand.svg">
+    </div>
+    <span class="item-linebox"></span>
+    <div
+      class="c-module-container"
+      [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
+      (click)="onModuleClick('estagios', true)"
+      [routerLink]="[MODULES['estagios'].route]"
+      >
+      <img src="/assets/img/sidenavNew/regist-ctrl-icon.svg"/>
+      <a>{{ MODULES['estagios'].sidenavTitle }}</a>
+    </div>
+    <!-- <div
+      class="c-module-container"
+      [ngClass]="{'c-module-container--active': isActiveModule('logistica')}"
+      (click)="onModuleClick('logistica', true)"
+      [routerLink]="[MODULES['logistica'].route]"
+      >
+      <img src="/assets/img/sidenavNew/logistica-icon.svg"/>
+      <a>{{  MODULES['logistica'].sidenavTitle }}</a>
+    </div> -->
+    <!-- Bottom buttons -->
+    <!-- <div class="c-modules-tools">
+      <div
+        class="c-module-container"
+        [ngClass]="{'c-module-container--active': isActiveModule('access-control')}"
+        (click)="onModuleClick('access-control', true)"
+        [routerLink]="[MODULES['access-control'].route]"
+      >
+        <img src="/assets/img/sidenavNew/settings-icon.svg"/>
+        <a>Configurações</a>
+      </div> -->
+      <!-- Não descomentar -->
+      <!-- <div class="c-module-container" (click)="projectInformationDialog()">
+        <img src="/assets/img/sidenavNew/about-icon.svg"/>
+        <a>Sobre a plataforma</a>
+      </div> -->
+    <!-- </div> -->
+  </mat-toolbar-row>
+</mat-toolbar>
