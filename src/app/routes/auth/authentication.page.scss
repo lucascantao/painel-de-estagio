@@ -1,11 +1,12 @@
 .c-login-background {
   height: 100vh;
   width: 100%;
-  // background-image: url("src/assets/img/auth/auth-background.png");
-  background-size: cover;
+  // background-color: black;
+  background-color: #192743;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   &__logo {
     height: 25%;

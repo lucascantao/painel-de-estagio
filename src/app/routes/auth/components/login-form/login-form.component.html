@@ -1,5 +1,5 @@
 <section class="c-login-area">
-  <span>Gestão de Estágio - FACOMP</span>
+  <span>Gestão de Estágio</span>
   <section class="c-login">
     <span>Entre na sua conta.</span>
     <form class="c-login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -19,7 +19,7 @@
       <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a>
       <button [disabled]="isLoading" type="submit">
         <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
-        <b *ngIf="!isLoading">Enviar</b>
+        <b *ngIf="!isLoading">Entrar</b>
       </button>
     </form>
   </section>
