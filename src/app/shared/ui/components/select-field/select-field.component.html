@@ -1,0 +1,37 @@
+<div class="c-selectable-field-box" [ngStyle]="{ 'height': height }" [ngClass]="{ 'c-selectable-field-box--with-error': validateField() !== null }">
+  <ng-select
+    #ngSelect
+    appendTo="body"
+    [id]="id"
+    [disabled]="disabled"
+    [labelForId]="labelForId"
+    [placeholder]="placeholder"
+    [searchable]="searchable"
+    [clearable]="clearable"
+    [(ngModel)]="value"
+    [dropdownPosition]="dropdownPosition"
+    (change)="handleChange($event)"
+    (open)="onDropdownOpen()"
+    (close)="onDropdownClose()"
+    (clear)="clear.emit()"
+    [multiple]="multiple"
+    [readonly]="readonly"
+  >
+    <ng-template *ngIf="multiple" ng-multi-label-tmp let-items="items">
+      <span class="ng-value-label">+{{ getItem(items) }}</span>
+    </ng-template>
+    <ng-template *ngIf="!multiple" ng-label-tmp let-item="item">
+      <span class="ng-value-label">{{ getItem(item) }}</span>
+    </ng-template>
+    @for (option of options; track valueTrack ? option : option[valueTrackKey]) {
+      <ng-option [value]="option">{{ valueOption ? option : option[valueOptionKey] }} &nbsp;</ng-option>
+    }
+  </ng-select>
+  <label [ngClass]="labelClass">{{ label }}</label>
+  <span
+      class="c-selectable-field-box__error-message"
+      [ngStyle]="{'display': !validateField() ? 'none' : 'flex'}"
+    >
+        {{ validateField() }}
+    </span>
+</div>

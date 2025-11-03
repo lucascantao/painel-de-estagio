@@ -1,0 +1,560 @@
+@use '@angular/material' as mat;
+
+:root {
+  @include mat.select-overrides((
+    panel-background-color: var(--app-primary-dark-color),
+    enabled-trigger-text-color: var(--app-primary-color),
+    disabled-trigger-text-color: var(--app-primary-color),
+    placeholder-text-color: var(--app-primary-color),
+    focused-arrow-color: var(--app-primary-color),
+    disabled-arrow-color: var(--app-primary-color),
+    enabled-arrow-color: var(--app-primary-color),
+  ));
+  @include mat.menu-overrides((
+    container-color: var(--app-blue-dark-color),
+    item-label-text-color: var(--app-primary-color)
+  ));
+  @include mat.dialog-overrides((
+    container-color: orange,
+    subhead-color: var(--app-primary-color),
+  ));
+  @include mat.button-overrides((
+    filled-container-color: var(--app-primary-color),
+    filled-label-text-color: var(--app-blue-alternative-dark-color),
+    outlined-label-text-color: var(--app-primary-color)
+  ));
+}
+
+:root {
+
+  .mdc-switch__handle-track {
+    transition: transform 400ms 0ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mat Snackbar */
+  .mdc-snackbar {
+    --mdc-snackbar-supporting-text-color: var(--app-neutral-dark-color);
+    // --mdc-snackbar-container-shape: ;
+    --mdc-snackbar-container-color: var(--app-neutral-light-variant-color);
+  }
+
+  /* Mat Form Field */
+  .mat-mdc-form-field {
+    --mat-form-field-container-height: 40px;
+    --mat-form-field-container-vertical-padding: 10px;
+    --mdc-filled-text-field-input-text-color: var(--app-neutral-dark-color);
+    --mat-form-field-state-layer-color: white;
+
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* Mat Slide Toggle  */
+  .mat-mdc-slide-toggle {
+    // --mdc-switch-selected-focus-state-layer-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-handle-color: var(--app-alternative-background-color);
+    // --mdc-switch-selected-hover-state-layer-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-pressed-state-layer-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-focus-handle-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-hover-handle-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-pressed-handle-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-focus-track-color: var(--app-primary-color);
+    --mdc-switch-selected-hover-track-color: var(--app-secondary-color);
+    --mdc-switch-selected-pressed-track-color: var(--app-primary-color);
+    --mdc-switch-selected-track-color: var(--app-primary-color);
+    --mdc-switch-disabled-selected-handle-color: #424242;
+    --mdc-switch-disabled-selected-icon-color: #fff;
+    --mdc-switch-disabled-selected-track-color: #424242;
+    --mdc-switch-disabled-unselected-handle-color: #424242;
+    --mdc-switch-disabled-unselected-icon-color: #fff;
+    --mdc-switch-disabled-unselected-track-color: #424242;
+    --mdc-switch-handle-surface-color: var(--app-alternative-background-color);
+    --mdc-switch-selected-icon-color: var(--app-alternative-background-color);
+    --mdc-switch-unselected-focus-handle-color: #fff !important;
+    --mdc-switch-unselected-focus-state-layer-color: #424242;
+    --mdc-switch-unselected-focus-track-color: rgba(0, 0, 0, 0.4);
+    --mdc-switch-unselected-handle-color: #fff !important;
+    --mdc-switch-unselected-hover-handle-color: #fff !important;
+    --mdc-switch-unselected-hover-state-layer-color: #424242;
+    --mdc-switch-unselected-hover-track-color: rgba(0, 0, 0, 0.2);
+    --mdc-switch-unselected-icon-color: #fff;
+    --mdc-switch-unselected-pressed-handle-color: #fff !important;
+    --mdc-switch-unselected-pressed-state-layer-color: #424242;
+    --mdc-switch-unselected-pressed-track-color: rgba(0, 0, 0, 0.4);
+    --mdc-switch-unselected-track-color: #868E96;
+    --mdc-switch-handle-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --mdc-switch-disabled-handle-elevation-shadow: 0px 0px 0px 0px
+        rgba(0, 0, 0, 0.2),
+      0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+    --mdc-switch-disabled-label-text-color: rgba(0, 0, 0, 0.4);
+    --mdc-switch-track-width: 28px;
+    --mdc-switch-track-height: 16px;
+    --mdc-switch-handle-width: 14px;
+    --mdc-switch-track-shape: 8px;
+    --mdc-switch-unselected-focus-track-color: rgba(0, 0, 0, 0.38);
+    --mat-switch-track-outline-width: 1px;
+    --mat-switch-track-outline-color: var(--app-neutral-color);
+    --mat-switch-pressed-handle-size: 12px;
+    --mat-switch-selected-handle-size: 10px;
+    --mat-switch-selected-pressed-handle-size: 10px;
+    --mat-switch-selected-handle-horizontal-margin: 0;
+    --mat-switch-selected-pressed-handle-horizontal-margin: 0;
+    --mat-switch-unselected-handle-size: 10px;
+    --mat-switch-unselected-pressed-handle-size: 10px;
+    --mat-switch-unselected-handle-horizontal-margin: 0 2px;
+    --mat-switch-unselected-pressed-handle-horizontal-margin: 0 2px;
+  }
+
+  .mat-mdc-button {
+    --mdc-text-button-label-text-color: var(--app-primary-color);
+  }
+
+  /* Mat Radio button */
+  .mat-mdc-radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mat Radio button */
+  .mat-mdc-radio-button {
+    --mdc-radio-selected-icon-color: var(--app-secondary-color);
+    --mat-radio-checked-ripple-color: var(--app-secondary-color);
+    --mdc-radio-selected-hover-icon-color: var(--app-secondary-color);
+    --mdc-radio-selected-focus-icon-color: var(--app-secondary-color);
+    --mdc-radio-selected-pressed-icon-color: var(--app-secondary-color);
+  }
+
+  /* Mat Drawer */
+  .mat-drawer {
+    --mat-sidenav-container-background-color: var(--app-alternative-background-color);
+    --mat-sidenav-container-width: 200px;
+    --mat-sidenav-container-shape: 0px;
+  }
+
+  .mat-drawer-inner-container {
+    overflow: hidden;
+  }
+
+  /* Mat Nav List */
+  .mat-mdc-nav-list {
+    --mat-list-indicator-shape: 0px;
+    --mat-list-active-indicator-shape: 0px;
+  }
+
+  .mat-mdc-list-item {
+    --mdc-list-list-item-one-line-container-height: 80px;
+
+    padding: 0;
+  }
+
+  /* Mat Dialog */
+  .mat-mdc-dialog-component-host {
+    display: block;
+  }
+
+  .mat-mdc-dialog-surface{
+    width: 100% !important;
+    --mdc-dialog-container-shape: 12px;
+    --mdc-dialog-container-color: var(--app-blue-dark-light-color);
+    overflow: hidden;
+  }
+  .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 100%;
+  }
+
+  /* Mat Datepicker */
+  .mat-datepicker-content {
+    transform-origin: left bottom;
+  }
+
+  /* Mat Form Field */
+  .mat-mdc-form-field{
+    --mdc-filled-text-field-container-color: var(--app-alternative-background-color);
+
+    .mat-mdc-form-field-infix {
+      left: -5px;
+      padding-top: 7px;
+      width: auto;
+    }
+
+    .mat-mdc-form-field-icon-prefix {
+      left: -4px;
+      padding: 0 !important;
+    }
+  }
+
+  .mdc-text-field {
+    background: transparent !important;
+    height: 36px !important;
+    padding: 0 !important;
+    // border: 1px solid #58616C;
+    border-radius: 4px;
+
+    &__input {
+      color: #FFFFFF !important;
+      font-weight: 300 !important;
+    }
+
+    &--filled:not(.mdc-text-field--disabled) {
+      .mdc-line-ripple::after {
+        border-bottom-color: var(--app-primary-color);
+      }
+
+      .mdc-text-field__input {
+        caret-color: #FFFFFF;
+      }
+    }
+  }
+
+  // Mat Paginator
+  .mat-mdc-header-cell {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .mat-mdc-paginator {
+    position: sticky;
+    bottom: 0;
+    --mat-paginator-container-background-color: #24314A;
+    border: 1px solid #5D6A83;
+    border-radius: 0 0 8px 8px;
+    color: #FFFFFF !important;
+    height: 40px;
+  }
+
+  .mat-mdc-paginator-container {
+    min-height: 0 !important;
+  }
+
+  .mat-mdc-paginator-icon {
+    --mat-paginator-enabled-icon-color: var(--app-primary-color);
+    fill: var(--app-primary-color);
+  }
+
+  .mdc-notched-outline {
+    display: none !important;
+  }
+
+  .mat-mdc-select {
+    color: #FFFFFF !important;
+  }
+
+  .mat-mdc-select-arrow {
+    color: #FFFFFF !important;
+  }
+
+  .mat-mdc-select-panel {
+    background-color: #24314A !important;
+  }
+
+  .mat-mdc-option {
+    .mdc-list-item__primary-text {
+      color: #FFFFFF !important;
+    }
+  }
+
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+    background-color: #121926 !important;
+
+  }
+
+  .mdc-text-field {
+    border: 1px solid #58616C;
+    width: 120px;
+
+    &--outlined {
+      border: none !important;
+      width: 55px !important;
+    }
+  }
+
+  /* Mat Divider */
+  .mat-divider {
+    --mat-divider-color: var(--app-neutral-light-color);
+  }
+
+  /* Mtx Datepicker */
+  .mtx-datetimepicker-content {
+    --mtx-datetimepicker-container-background-color: #121926;
+    --mtx-datetimepicker-calendar-date-outline-color: var(--app-alternative-background-color);
+    --mtx-datetimepicker-calendar-date-text-color: var(--app-neutral-dark-color);
+    --mtx-datetimepicker-calendar-date-hover-state-background-color: #0000001a;
+    --mtx-datetimepicker-calendar-text-size: 13px;
+    --mtx-datetimepicker-container-shape: 8px;
+
+    margin: 8px 0;
+
+    .mtx-calendar {
+      opacity: 1 !important;
+      display: flex;
+      flex-direction: column;
+      width: 296px !important;
+      height: auto !important;
+      max-height: 354px;
+    }
+
+    .mtx-calendar .mtx-calendar-header {
+      display: flex;
+      flex-direction: row-reverse;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+      padding: 0 0 0 10px;
+    }
+
+
+    .mtx-calendar .mtx-calendar-header-date-time,
+    .mtx-calendar .mtx-calendar-header-year  {
+      font-size: 16px;
+      line-height: normal;
+    }
+
+    .mtx-calendar .mtx-calendar-header-year {
+      margin: 1px 0 -2px -40px !important;
+      // background: var(--app-alternative-background-color);
+      z-index: 2;
+      padding: 0;
+    }
+
+    .mtx-calendar .mtx-calendar-header-date-time {
+      margin: 0 !important;
+    }
+
+    .mtx-calendar-period-button {
+      color: var(--app-primary-color);
+    }
+
+    .mtx-calendar-body-cell-content {
+      color: #FFFFFF;
+      border-color: transparent !important;
+      box-shadow: none;
+    }
+
+    .mtx-calendar-body-selected {
+      background-color: #59FF88 !important;
+      color: #000000;
+    }
+  }
+
+  /* Mat Expansion Panel */
+  .mat-expansion-panel {
+    --mat-expansion-container-background-color: #24314A;
+    --mat-expansion-header-expanded-state-height: 40px;
+    --mat-expansion-header-text-color: var(--app-neutral-dark-color);
+  }
+
+  .mat-expansion-panel-content {
+    --mat-expansion-container-background-color: white;
+
+  }
+
+  .primary {
+    --mdc-text-button-label-text-color: var(--app-primary-dark-color) !important;
+    --mat-text-button-state-layer-color: var(--app-primary-color) !important;
+    background-color: var(--app-danger-color);
+    color: white !important;
+    border-radius: 8px;
+    min-width: 175px;
+    letter-spacing: 0.5px;
+    height: 35px;
+  }
+
+  .primary:hover {
+    box-shadow: var(--mdc-protected-button-hover-container-elevation-shadow, var(--mat-app-level2));
+  }
+
+  .secondary {
+    --mdc-text-button-label-text-color: var(--app-secondary-dark-color) !important;
+    --mat-text-button-state-layer-color: var(--app-secondary-color) !important;
+    background-color: var(--app-secondary-color);
+    color: white !important;
+    border-radius: 8px;
+    min-width: 175px;
+    letter-spacing: 0.5px;
+    height: 35px;
+  }
+
+  .secondary:hover {
+    box-shadow: var(--mdc-protected-button-hover-container-elevation-shadow, var(--mat-app-level2));
+  }
+
+
+  /* Mat Tab */
+  .mat-mdc-tab .mdc-tab__text-label {
+    font-size: 16px;
+  }
+
+  .mat-mdc-tab-group {
+    --mat-tab-header-label-text-font: 'Open Sans';
+    --mat-tab-header-label-text-size: 20px;
+    --mat-tab-header-label-text-line-height: 36px;
+    --mat-tab-header-label-text-weight: 600;
+    --mat-tab-header-label-text-tracking: 0.5px;
+    --mat-tab-header-active-focus-label-text-color: var(--app-primary-color);
+    --mat-tab-header-active-ripple-color: var(--app-primary-color);
+    --mat-tab-header-active-hover-label-text-color: var(--app-primary-color);
+    --mat-tab-header-inactive-hover-label-text-color: var(--app-primary-dark-color);
+    --mat-tab-header-active-label-text-color: var(--app-primary-color);
+    --mat-tab-header-inactive-label-text-color: var(--app-neutral-color);
+    --mat-tab-header-inactive-focus-label-text-color: var(--app-primary-dark-color);
+    --mat-tab-header-divider-color: transparent;
+    --mdc-tab-indicator-active-indicator-height: 3px;
+  }
+
+  .mat-mdc-tab-labels {
+    gap: 0px 10px;
+  }
+
+  .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: var(--app-primary-color) !important;
+  }
+
+  /* New theme workarounds */
+  // .mat-mdc-text-field-wrapper {
+  //   background-color: var(--app-blue-alternative-dark-color) !important;
+  // }
+
+  .mat-mdc-icon-button {
+    color: #A1A6B0;
+  }
+
+  .mat-mdc-input-element {
+    font-family: 'Open Sans', sans-serif !important;
+  }
+
+  .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator svg {
+    fill: #A1A6B0;
+  }
+
+  .mdc-label {
+    color: #ffffff;
+    letter-spacing: 0.32px;
+    font-weight: 300;
+  }
+
+  .mat-mdc-tooltip-surface {
+    background-color: #0D121D !important;
+    text-align: left;
+  }
+}
+
+.ng-dropdown-panel,
+.ng-dropdown-panel-items {
+  // width: max-content !important;
+  min-width: inherit;
+  width: auto !important;
+  background: #121926;
+
+  .ng-option {
+    color: #ffffff !important;
+    font-weight: 200;
+
+    &.ng-option-marked {
+      background: #ffffff10 !important;
+    }
+  }
+
+  .ng-option.ng-option-selected {
+    color: var(--app-primary-color) !important;
+  }
+
+  .ng-optgroup {
+    color: #aeaeae !important;
+    font-weight: 200;
+
+    &.ng-option-marked {
+      background: #ffffff10 !important;
+    }
+  }
+
+  .ng-optgroup.ng-option-selected {
+    color: var(--app-primary-color) !important;
+  }
+}
+
+.ng-select .ng-select-container .ng-value-container .ng-input>input {
+  padding: 5px 0px 5px 15px;
+  font-size: 16px;
+}
+
+.popup-table-field {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.leaflet-div-icon {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+// Icon sort table material ui
+.mat-sort-header-arrow {
+    color: var(--app-primary-color) !important;
+}
+.mat-sort-header-button:hover .mat-sort-header-arrow {
+    color: var(--app-primary-color) !important;
+}
+
+.mat-sort-header-active .mat-sort-header-arrow {
+    color: var(--app-primary-color) !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  // background: white !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--app-primary-color) !important;
+  border-radius: 10px;
+  min-height: 40px !important;
+}
+
+::-webkit-scrollbar-button {
+  color: white;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 10px !important;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.leaflet-bar {
+  border: none !important;
+}
+
+a.polyline-measure-unicode-icon {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+  margin-bottom: 9px;
+  font-size: 0.0001em;
+  text-indent: -9999px;
+  background-image: url('/assets/img/map-controls/polyline-measurer-icon.svg');
+  border-radius: 5px !important;
+}
+
+a.polyline-measure-unicode-icon:hover {
+  transition: 0.1s ease-in;
+  background-color: #B60005 !important;
+  filter: brightness(1.1);
+  background-image: url('/assets/img/map-controls/polyline-measurer-icon--white.svg');
+}
+
+a.polyline-measure-unicode-icon.active,
+a.polyline-measure-controlOnBgColor
+{
+  background-color: #B60005 !important;
+  background-image: url('/assets/img/map-controls/polyline-measurer-icon--white.svg');
+}

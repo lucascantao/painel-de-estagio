@@ -36,39 +36,39 @@ export class UserApiService {
   //   }
   // }
 
-  public getRoles(): Promise<Role[]> {
-    return firstValueFrom(this.http.get<Role[]>(`${API_BASE_URL}/${this.PATH}/roles`));
-  }
+  // public getRoles(): Promise<Role[]> {
+  //   return firstValueFrom(this.http.get<Role[]>(`${API_BASE_URL}/${this.PATH}/roles`));
+  // }
 
-  public getPartners(): Promise<Partners[]> {
-    return firstValueFrom(this.http.get<Partners[]>(`${API_BASE_URL}/${this.PATH}/partners`));
-  }
+  // public getPartners(): Promise<Partners[]> {
+  //   return firstValueFrom(this.http.get<Partners[]>(`${API_BASE_URL}/${this.PATH}/partners`));
+  // }
 
-  public async getUser(userId: number): Promise<User> {
-    return firstValueFrom(this.http.get<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
-  }
+  // public async getUser(userId: number): Promise<User> {
+  //   return firstValueFrom(this.http.get<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
+  // }
 
-  public async createUser(payload: UserRegister): Promise<User> {
-    return firstValueFrom(this.http.post<User>(`${API_BASE_URL}/${this.PATH}`, payload))
-  }
+  // public async createUser(payload: UserRegister): Promise<User> {
+  //   return firstValueFrom(this.http.post<User>(`${API_BASE_URL}/${this.PATH}`, payload))
+  // }
 
-  public async updatePassword(userId: number, currentPassword: string, password: string, passwordConfirmation: string): Promise<User> {
-    return firstValueFrom(this.http.patch<User>(`${API_BASE_URL}/${this.PATH}/update-password`, { userId, currentPassword, password, passwordConfirmation }))
-  }
+  // public async updatePassword(userId: number, currentPassword: string, password: string, passwordConfirmation: string): Promise<User> {
+  //   return firstValueFrom(this.http.patch<User>(`${API_BASE_URL}/${this.PATH}/update-password`, { userId, currentPassword, password, passwordConfirmation }))
+  // }
 
-  public async updateUser(payload: { email?: string, name: string, userId: number, modifiedBy: number }): Promise<User> { // { email: string, name: string, userId: number, modifiedBy: string }): Promise<User> {
-    return firstValueFrom(this.http.put<User>(`${API_BASE_URL}/${this.PATH}`, payload))
-  }
+  // public async updateUser(payload: { email?: string, name: string, userId: number, modifiedBy: number }): Promise<User> { // { email: string, name: string, userId: number, modifiedBy: string }): Promise<User> {
+  //   return firstValueFrom(this.http.put<User>(`${API_BASE_URL}/${this.PATH}`, payload))
+  // }
 
-  public async updateUserByAdmin(payload: { email: string, name: string, password?: string, modifiedBy: number, partnerId: number, address?: string, phone?: string, roleId: number }): Promise<User> {
-    return firstValueFrom(this.http.put<User>(`${API_BASE_URL}/${this.PATH}`, payload))
-  }
+  // public async updateUserByAdmin(payload: { email: string, name: string, password?: string, modifiedBy: number, partnerId: number, address?: string, phone?: string, roleId: number }): Promise<User> {
+  //   return firstValueFrom(this.http.put<User>(`${API_BASE_URL}/${this.PATH}`, payload))
+  // }
 
-  public async deleteUser(userId: number): Promise<User> {
-    return firstValueFrom(this.http.delete<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
-  }
+  // public async deleteUser(userId: number): Promise<User> {
+  //   return firstValueFrom(this.http.delete<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
+  // }
 
-  public async activateUser(userId: number): Promise<User> {
-    return firstValueFrom(this.http.patch<User>(`${API_BASE_URL}/${this.PATH}/${userId}/activate`, { userId }));
-  }
+  // public async activateUser(userId: number): Promise<User> {
+  //   return firstValueFrom(this.http.patch<User>(`${API_BASE_URL}/${this.PATH}/${userId}/activate`, { userId }));
+  // }
 }

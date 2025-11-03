@@ -1,0 +1,30 @@
+<div
+  class="c-field-box"
+  [ngClass]="{ 'c-field-box--disabled': disabled || readOnly, 'c-field-box--with-error': validateField() !== null }"
+  [ngStyle]="{ height: height }"
+>
+  @if (label) {
+  <label
+    class="c-field-box__label"
+    [ngClass]="{ 'c-field-box__label--disabled': disabled || readOnly }"
+    [ngStyle]="labelColor !== '' ? {'background-color': labelColor} : {}"
+  >{{ label }}</label>
+  }
+  <input
+    class="c-field-box__input"
+    #input
+    [type]="type"
+    [readOnly]="readOnly"
+    [placeholder]="placeholder"
+    [min]="min"
+    [max]="max"
+    [(ngModel)]="value"
+    (keyup)="onInputChange($event)"
+    [disabled]="disabled"
+  />
+  <span
+  class="c-field-box__error-message"
+  [ngStyle]="{'display': !validateField() ? 'none' : 'flex'}" >
+    {{ validateField() }}
+  </span>
+</div>

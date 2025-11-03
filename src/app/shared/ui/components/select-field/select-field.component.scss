@@ -1,0 +1,250 @@
+.c-selectable-field-box {
+  height: 36px;
+  width: 100%;
+  position: relative;
+  z-index: 999;
+
+    &--disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    &--with-error {
+      ::ng-deep {
+        .ng-select-container {
+          border: solid 1px #ff4516 !important;
+        }
+      }
+    }
+
+    &__label {
+      position: absolute;
+      background: var(--app-blue-dark-light-color);
+      top: -10px;
+      z-index: 1000;
+      padding: 0 4px;
+      margin-left: 5px;
+
+      color: var(--app-neutral-light-variant-color);
+      font-family: 'Open Sans';
+      letter-spacing: 0.25px;
+      font-size: 12px;
+
+      &--especial {
+        background-color: var(--app-blue-dark-light-color);
+        color: var(--app-neutral-light-variant-color) !important;
+        border-radius: 4px 4px 4px 0;
+        margin-left: 0;
+        z-index: 1000;
+        font-weight: 600;
+      }
+    }
+
+    &__error-message {
+      position: absolute;
+      display: flex;
+      font-size: 12px;
+      font-weight: 300;
+      bottom: -13px;
+      left: 3px;
+      color: #ff4516;
+    }
+
+    // Selectable Input
+    ::ng-deep {
+      .ng-select {
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      }
+
+      .ng-select.ng-select.ng-select-disabled {
+        opacity: 0.6;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+
+      .ng-select.ng-select.ng-select-disabled+label {
+        color: rgba(73, 80, 87, 0.5);
+      }
+
+      .ng-select.ng-select-opened+label {
+        color: var(--app-primary-color) !important;
+      }
+
+      .ng-select.ng-select-opened+label.c-selectable-field-box__label--especial {
+        color: #FFFFFF !important;
+      }
+
+      .ng-select.ng-select-opened .ng-select-container:hover {
+        border-color: var(--app-primary-color) !important;
+      }
+
+      .mat-step-header:hover:not([aria-disabled]) {
+        background-color: #FFFFFF !important;
+      }
+
+      .ng-placeholder {
+        background-color: var(--app-blue-dark-light-color);
+        transition: opacity 0.3s ease !important;
+        transform: none !important;
+        color: #F8F9FA60 !important;
+
+        font-family: "Open Sans";
+        font-size: 15px;
+      }
+
+      .ng-select .ng-has-value .ng-placeholder,
+      .ng-select.ng-select-filtered .ng-placeholder {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      #bufferRegion .ng-select-container {
+        border: solid 1px var(--app-primary-color);
+      }
+
+      .ng-select-container {
+        border: solid 1px var(--app-neutral-light-color);
+        border-radius: 4px;
+        min-height: auto;
+        height: 100%;
+        padding-right: 10px;
+        transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        align-items: center !important;
+        gap: 4px;
+
+        .ng-arrow-wrapper .ng-arrow {
+          border-color: none !important;
+          border-style: none !important;
+          border-width: 0 !important;
+        }
+
+        .ng-arrow-wrapper {
+          background-image: url(/../assets/img/filter/arrow-down-white.svg);
+          background-repeat: no-repeat;
+          background-size: 100%;
+          width: 12px;
+          height: 8px;
+          margin-top: 2px;
+          align-self: center !important;
+          bottom: 0 !important;
+          border-top: 0 !important;
+        }
+      }
+
+      .ng-select-multiple {
+        // .ng-has-value .ng-input {
+        //   width: auto !important;
+        // }
+
+        .ng-input>input {
+          padding: 0 !important
+        }
+
+        .ng-value-label {
+          margin: 0 5px;
+          background-color: #41979533;
+          border-radius: 4px;
+          display: flex;
+          width: auto;
+          padding: 5px;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.3s ease;
+
+          letter-spacing: 0.25px;
+          font-family: "Open Sans";
+          font-size: 16px;
+        }
+      }
+
+      .ng-select .ng-select-container .ng-clear-wrapper {
+        border: none !important;
+        display: flex;
+        align-self: auto !important;
+        bottom: unset;
+        width: auto;
+
+        .ng-clear {
+          font-size: 20px !important;
+          line-height: normal;
+        }
+      }
+
+
+      .ng-select.ng-select-disabled .ng-select-container .ng-arrow-wrapper {
+        display: none !important;
+      }
+
+      .ng-select .ng-select-container .ng-arrow-wrapper {
+        transition: transform 0.5s ease;
+      }
+
+      .ng-select .ng-select-container .ng-arrow-wrapper.rotateArrowWrapper {
+        transform: rotate(180deg);
+      }
+
+      .ng-select .ng-select-container .ng-arrow-wrapper.openSingleSelect {
+        transform: rotate(180deg);
+      }
+
+      .ng-select .ng-select-container .ng-arrow-wrapper.openMultiSelect {
+        transform: rotate(180deg);
+      }
+
+      .ng-select-container::after {
+        border: 0;
+      }
+
+      .ng-value-container {
+        border-top: 0 !important;
+        padding: 0 0 0 10px !important;
+        align-items: center !important;
+        display: flex !important;
+        flex: 1 !important;
+        flex-direction: row;
+
+        .ng-input {
+          height: 100%;
+          bottom: 0 !important;
+          position: relative !important;
+          left: 0 !important;
+          width: 100% !important;
+          flex: 1 !important;
+          z-index: inherit !important;
+
+          line-height: 100% !important;
+        }
+
+        input {
+          color: var(--app-alternative-background-color);
+          box-sizing: border-box !important;
+
+          font-family: "Open Sans";
+          letter-spacing: 0.25px;
+        }
+      }
+
+      .ng-value {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 78% !important;
+        background-color: none;
+        position: absolute;
+
+        .ng-value-icon {
+          display: none !important;
+        }
+      }
+
+      .ng-value-label {
+        color: var(--app-alternative-background-color);
+        font-family: "Open Sans";
+        font-size: 16px;
+        letter-spacing: 0.25px;
+      }
+    }
+  }

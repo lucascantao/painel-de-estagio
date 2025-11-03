@@ -1,0 +1,19 @@
+<section class="c-email-area">
+  <a [routerLink]="['../login']"><img src="assets/img/close-icon--gray.svg"></a>
+  <img src="assets/img/auth/password-gif.gif">
+  <span>
+    Para recuperar sua senha, adicione no campo abaixo para receber a alteração de senha no seu e-mail cadastrado na plataforma.
+  </span>
+  <form [formGroup]="recoveryEmailForm">
+    <app-input-field
+      formControlName="email"
+      [label]="'Endereço de e-mail'"
+      [type]="'email'"
+      [placeholder]="'Digite seu endereço de e-mail aqui'"
+    ></app-input-field>
+  </form>
+  <button [disabled]="isLoading" (click)="onSubmit($event)">
+    <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+    <a *ngIf="!isLoading">Enviar</a>
+  </button>
+</section>

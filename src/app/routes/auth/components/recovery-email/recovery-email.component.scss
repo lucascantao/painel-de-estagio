@@ -1,0 +1,75 @@
+.c-email-area {
+  display: flex;
+  flex-direction: column;
+  border: solid 3px #FFFFFF;
+  border-radius: 25px;
+  padding: 60px 75px;
+  width: 480px;
+  background-color: #0D121D;
+  box-shadow: 0px 0px 0px 1000px #00000060;
+  position: relative;
+
+  a {
+    img {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      height: 8%;
+      width: 12%;
+      transition: color 0.3s ease;
+    }
+
+    img:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    height: 220px;
+    width: 270px;
+    margin: 0px auto 20px auto;
+  }
+
+  span {
+    color: #FFFFFF;
+    font-size: 14px;
+  }
+
+  button {
+    width: 30%;
+    background-color: #59FF88;
+    border: 0px;
+    border-radius: 25px;
+    height: 35px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin: 20px auto 0px auto;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button:hover {
+    background-color: #31ac54;
+  }
+}
+
+:host ::ng-deep .c-field-box {
+  border: solid 2px #bccad8 !important;
+  border-radius: 25px !important;
+  margin-top: 35px !important;
+
+  &__label{
+    color: #FFFFFF !important;
+    background: #0D121D !important;
+    margin-left: 20px !important;
+  }
+
+  &__input {
+    color: #FFFFFF !important;
+    padding: 0 0 0 24px !important;
+  }
+}

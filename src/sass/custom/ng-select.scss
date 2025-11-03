@@ -1,0 +1,39 @@
+
+.ng-select {
+  display: flex !important;
+  padding-bottom: 0 !important;
+}
+.ng-select.custom {
+  border:0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+.ng-select-container  {
+  height: 36px !important;
+  font-family: Open Sans !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+  letter-spacing: 0.2px !important;
+  color: var(--app-neutral-color) !important;
+}
+
+.ng-dropdown-panel-items{
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--app-neutral-dark-color);
+}
+
+.ng-clear-wrapper {
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  top: 0 !important;
+  margin-bottom: 8px !important;
+}

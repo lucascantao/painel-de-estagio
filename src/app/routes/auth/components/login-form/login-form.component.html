@@ -1,0 +1,26 @@
+<section class="c-login-area">
+  <span>Gestão de Estágio - FACOMP</span>
+  <section class="c-login">
+    <span>Entre na sua conta.</span>
+    <form class="c-login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <app-input-field
+        formControlName="email"
+        [label]="'Endereço de e-mail'"
+        [type]="'email'"
+        [placeholder]="'Digite seu endereço de e-mail aqui'"
+      ></app-input-field>
+      <app-input-field
+        formControlName="password"
+        [label]="'Senha'"
+        [type]="'password'"
+        [placeholder]="'Digite sua senha aqui'"
+      ></app-input-field>
+      <span *ngIf="!formDataValid">E-mail ou senha incorretos</span>
+      <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a>
+      <button [disabled]="isLoading" type="submit">
+        <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+        <b *ngIf="!isLoading">Enviar</b>
+      </button>
+    </form>
+  </section>
+</section>

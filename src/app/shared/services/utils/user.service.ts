@@ -24,10 +24,11 @@ export class UserService {
 
   private user: User | null = null;
 
-  // public getUser(): User | null {
-  //   this.user = this.user === null ? this.storageService.load('user', 'local', null) : this.user;
-  //   return this.user;
-  // }
+  public getUser(): User | null {
+    this.user = this.user === null ? this.storageService.load('user', 'local', null) : this.user;
+    console.log(this.user);
+    return this.user;
+  }
 
   // public getUserName(): string | null {
   //   this.user = this.user === null ? this.storageService.load('user', 'local', null) : this.user;

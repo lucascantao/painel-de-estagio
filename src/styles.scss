@@ -1,1 +1,80 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './sass/theme/sass_theme-colors.scss' as custom-theme;
+@use '../node_modules/@ng-select/ng-select/themes/material.theme.css';
+
+@use './sass/theme/material-styles.scss';
+@use './sass/theme/variables.scss';
+@use './sass/custom/ng-select.scss';
+
+html {
+  @include mat.theme((
+    color: (
+      primary: custom-theme.$primary-palette
+    ),
+    typography: sans-serif
+  ))
+}
+
+* {
+  font-family: 'Roboto Flex';
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  position: relative;
+  height: calc(100vh - 60px);
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 96.1%;
+  margin-left: 3.9%;
+  background: #24314A;
+}
+
+// .container {
+//   flex-direction: column;
+//   box-sizing: border-box;
+//   display: flex;
+//   height: 100%;
+//   min-height: 100%;
+//   width: 100%;
+// }
+
+.custom-marker {
+  width: 32px;
+  height: 60px;
+}
+
+.img-marker-icon:hover {
+  transition: transform 0.3s !important;
+  transform: scale(1.1) !important;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.loading-background {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: darkgray;
+  background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  position: relative;
+}
