@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ModulesService } from 'src/app/shared/services/utils/modules.service';
+import { InternshipsTableComponent } from "./components/table/table.component";
 
 @Component({
   selector: 'app-internships',
-  imports: [CommonModule],
+  imports: [CommonModule, InternshipsTableComponent],
   templateUrl: './internships.page.html',
   styleUrls: ['./internships.page.scss'],
 })
