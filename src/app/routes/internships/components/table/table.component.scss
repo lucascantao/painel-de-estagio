@@ -1,5 +1,5 @@
 
-.c-logistics-requests {
+.c-logistics-internships {
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -8,66 +8,66 @@
 }
 
 /* Status Menu */
-.c-request-header{
+.c-internships-header{
   display: flex;
   justify-content: space-between;
 
-  &__status-menu{
-    display: flex;
+  // &__status-menu{
+  //   display: flex;
 
-    .c-menu-item {
-      color: #A1A6B0;
-      margin-right: 36px;
-      padding: 0px 3px;
-    }
+  //   .c-menu-item {
+  //     color: #A1A6B0;
+  //     margin-right: 36px;
+  //     padding: 0px 3px;
+  //   }
 
-    .c-menu-item:hover {
-      cursor: pointer;
-    }
+  //   .c-menu-item:hover {
+  //     cursor: pointer;
+  //   }
 
-    .c-menu-item--active {
-      color: #fff;
-      border-bottom: 2px solid #59FF88;
-    }
+  //   .c-menu-item--active {
+  //     color: #fff;
+  //     border-bottom: 2px solid #59FF88;
+  //   }
 
-  }
+  // }
 
-  &__actions {
-    display: flex;
+  // &__actions {
+  //   display: flex;
 
-  }
+  // }
 
-  &__create-request{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #232c36;
-    border: 1px solid #404653;
-    border-radius: 24px;
-    margin-right: 12px;
-    width: 167px;
-    height: 36px;
-    gap: 8px;
-    color: white;
-    font-size: 14px;
+  // &__create-request{
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   background: #232c36;
+  //   border: 1px solid #404653;
+  //   border-radius: 24px;
+  //   margin-right: 12px;
+  //   width: 167px;
+  //   height: 36px;
+  //   gap: 8px;
+  //   color: white;
+  //   font-size: 14px;
 
-    mat-icon{
-      height: 16px;
-      width: 16px;
-    }
-  }
+  //   mat-icon{
+  //     height: 16px;
+  //     width: 16px;
+  //   }
+  // }
 
-  &__create-request:hover {
-    cursor: pointer;
-    border-color: #59FF88;
-  }
+  // &__create-request:hover {
+  //   cursor: pointer;
+  //   border-color: #59FF88;
+  // }
 
   &__search {
     display: flex;
     align-items: center;
-    background: #232c36;
+    // background: #232c36;
     border: 1px solid #404653;
-    border-radius: 24px;
+    border-radius: 3px;
     padding: 4px 12px;
     width: 250px;
     height: 28px;
@@ -81,7 +81,7 @@
     &-input {
       background: transparent;
       border: none;
-      color: #fff;
+      // color: #fff;
       font-size: 14px;
       flex: 1;
       outline: none;
@@ -93,8 +93,8 @@
       align-items: center;
       background: none;
       border: 1.5px solid #404653;
-      color: #00ff99;
-      border-radius: 20px;
+      // color: var(--app-primary-color);
+      border-radius: 3px;
       padding: 2px 14px;
       font-weight: 500;
       font-size: 14px;
@@ -130,7 +130,7 @@
 
 
 /* Table */
-.c-request-list{
+.c-internships-list{
   position: relative;
   flex: 1;
   overflow-y: auto;
@@ -169,8 +169,8 @@
   }
 
   &__header-row {
-    background-color: #1A2334;
-    color: #fff;
+    background-color: #7592c6;
+    color: #000000;
     font-size: 14px;
     font-weight: 600;
     height: 40px;
@@ -184,7 +184,7 @@
 
   &__cell{
     font-family: "Inter", sans-serif !important;
-    color: #fff;
+    // color: #fff;
     font-size: 12px;
     font-weight: 400;
 
@@ -215,18 +215,21 @@
 }
 
 /* Footer */
-.c-request-footer {
+.c-internships-footer {
   display: flex;
   justify-content: space-between;
+  height: 22px;
   align-items: center;
   margin-top: 16px;
-  margin-bottom: 90px;
-  border: 1px solid #5D6A83;
+  margin-bottom: 40px;
+  // border: 1px solid #5D6A83;
+  border-radius: 8px;
   width: 100%;
   padding: 12px  6px;
 
   font-size: 14px;
   color: #fff;
+  background-color: #7592c6;
 
   &__info {
     display: flex;

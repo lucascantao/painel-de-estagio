@@ -56,6 +56,10 @@
     text-align: left;
   }
 
+  &__input::placeholder {
+    color: #00000055 !important;
+  }
+
   &__input::after {
     content: none;
   }
