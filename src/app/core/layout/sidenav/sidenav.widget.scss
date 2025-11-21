@@ -1,8 +1,9 @@
 #app-sidenav{
-  background-color: #121926;
-  background-color: #7592c6;
-  // background-color: #fff;
-  border: 1px solid #58616C;
+  // background-color: #121926;
+  // background-color: #7592c6;
+  background-color: var(--app-dark-color);
+  color: var(--app-primary-color);
+  // border: 1px solid #58616C;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;

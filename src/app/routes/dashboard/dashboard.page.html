@@ -55,13 +55,23 @@
         </div>
       </div>
   
-      <!-- Estágio -->
-      <div *ngIf="user.internship">
-        <div class="header" >
+      <!-- Área do ALuno -->
+      <div *ngIf="getUserRole() === 'Aluno'">
+
+        <!-- Estágio -->
+         <div class="header">
           <span class="title">Estágio</span>
           <div class="underline"></div>
         </div>
-        <div class="info-section">
+
+        <div class="actions">
+          <span 
+            class="actions__button"
+            *ngIf="!user.internship"
+          >Cadastrar Estágio</span>
+        </div>
+
+        <div class="info-section" *ngIf="user.internship">
           <!-- Status -->
           <div class="field">
             <label>Status</label>
@@ -87,6 +97,23 @@
             <label>Empresa</label>
             <div>{{ user.internship.company.name ?? '--' }}</div>
           </div>
+        </div>
+
+        <!-- Perfil de Aluno -->
+        <div class="header">
+          <span class="title">Competências do Aluno</span>
+          <div class="underline"></div>
+        </div>
+
+        <div class="actions">
+          <span 
+            class="actions__button"
+            *ngIf="true"
+          >Completar Perfil de Aluno</span>
+        </div>
+
+        <div class="info-section">
+
         </div>
       </div>
     </div>

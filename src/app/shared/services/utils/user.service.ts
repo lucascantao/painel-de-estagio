@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from "@angular/core";
 import { StorageRepositoryService } from "./storage.repository.service";
 import { Partners, Role, User } from "../../domain/interfaces/User.interface";
 import { UserApiService } from "../api/user-api.service";
-// import { profilePermissionsMap, profileRolesMap } from "../../domain/constants/user-constants";
+import { profilePermissionsMap, profileRolesMap } from "../../domain/constants/user-constants";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { AuthService } from "./auth.service";
 import { AuthApiService } from "../api/auth-api.service";
@@ -45,10 +45,10 @@ export class UserService {
     return user?.id;
   }
 
-  // public getRole() {
-  //   const profileId = this.getUser()?.role.id;
-  //   return profileRolesMap[profileId as keyof typeof profileRolesMap]
-  // }
+  public getRole() {
+    const profileId = this.getUser()?.role.id;
+    return profileRolesMap[profileId as keyof typeof profileRolesMap]
+  }
 
   // public getAllUsers(page: number, perPage: number, search: string = null, sortColumn: string, direction: string): Observable<Page<User>> {
   //   return this.userApiService.getAllUsers(page, perPage, search, sortColumn, direction);

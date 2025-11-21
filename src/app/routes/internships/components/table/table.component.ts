@@ -66,7 +66,7 @@ export class InternshipsTableComponent {
   internshipsPage: Page<Internship>;
   internships: Internship[] = [];
   displayedColumns: string[] = [
-    'select',
+    // 'select',
     'studentId',
     'name',
     'course',

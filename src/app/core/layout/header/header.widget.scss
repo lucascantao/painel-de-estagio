@@ -5,9 +5,11 @@
 }
 
 .header {
-  background: #121926;
-  background: #7592c6;
-  border: 1px solid #58616C;
+  // background: #121926;
+  // background: #7592c6;
+  background-color: var(--app-dark-color);
+  color: var(--app-primary-color);
+  // border: 1px solid #58616C;
   height: 60px;
   display: flex;
   align-items: center;

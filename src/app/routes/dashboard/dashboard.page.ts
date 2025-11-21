@@ -32,4 +32,8 @@ export class DashboardPage {
     });
   }
 
+  getUserRole() {
+    return this.userService.getRole();
+  }
+
 }

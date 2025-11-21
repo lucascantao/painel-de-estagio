@@ -38,8 +38,12 @@
             margin-bottom: 22px;
             padding-left: 16px;
 
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
             .field {
-                margin-bottom: 12px;
+                // margin-bottom: 14px;
+                margin-bottom: 22px;
                 
                 label {
                     font-family: "Inter", sans-serif !important;
@@ -59,6 +63,30 @@
                     color: #121926;
                 }
             }
+        }
+
+        .actions {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          &__button{
+            width: 210px;
+            display: flex;
+            justify-content: center;
+            padding: 12px 16px;
+            background: var(--app-dark-color);
+            border-radius: 5px;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 16px;
+          }
+
+          &__button:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
         }
     }
 }
