@@ -1,0 +1,94 @@
+<div class="container" fxLayout="column">
+  <div class="c-dashboard">
+
+    <div class="loading-overlay" *ngIf="isLoading">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <div class="c-dashboard__user-container" *ngIf="user">
+      <div class="header">
+        <span class="title">Detalhes do Usuário</span>
+        <div class="underline"></div>
+      </div>
+      <div class="info-section">
+        <!-- Name -->
+        <div class="field">
+          <label>Nome</label>
+          <div>{{user.name}}</div>
+        </div>
+        <!-- Role -->
+        <div class="field">
+          <label>Perfil</label>
+          <div>{{user.role.name}}</div>
+        </div>
+        <!-- Birthdate -->
+        <div class="field">
+          <label>Data de nascimento</label>
+          <div>{{ user.birthdare ?? '--' }}</div>
+        </div>
+        <!-- Gender -->
+        <div class="field">
+          <label>Gênero</label>
+          <div>{{ user.gender ?? '--' }}</div>
+        </div>
+      </div>
+      
+      <div class="header">
+        <span class="title">Informações de Contato</span>
+        <div class="underline"></div>
+      </div>
+      <div class="info-section">
+        <!-- Email -->
+        <div class="field">
+          <label>E-Mail</label>
+          <div>{{ user.email ?? '--'}}</div>
+        </div>
+        <!-- Phone -->
+        <div class="field">
+          <label>Telefone</label>
+          <div>{{ user.phone ?? '--' }}</div>
+        </div>
+        <!-- Address -->
+        <div class="field">
+          <label>Endereço</label>
+          <div>{{ user.address ?? '--' }}</div>
+        </div>
+      </div>
+  
+      <!-- Estágio -->
+      <div *ngIf="user.internship">
+        <div class="header" >
+          <span class="title">Estágio</span>
+          <div class="underline"></div>
+        </div>
+        <div class="info-section">
+          <!-- Status -->
+          <div class="field">
+            <label>Status</label>
+            <div>{{ user.internship.internshipStatus.name ?? '--' }}</div>
+          </div>
+          <!-- Workload -->
+          <div class="field">
+            <label>Carga Horária</label>
+            <div>{{ user.internship.workload ?? '--' }}</div>
+          </div>
+          <!-- Schedule -->
+          <div class="field">
+            <label>Horário</label>
+            <div>{{ user.internship.schedule ?? '--' }}</div>
+          </div>
+          <!-- Salary -->
+          <div class="field">
+            <label>Salário</label>
+            <div>{{ user.internship.salary ?? '--' }}</div>
+          </div>
+          <!-- Company -->
+          <div class="field">
+            <label>Empresa</label>
+            <div>{{ user.internship.company.name ?? '--' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

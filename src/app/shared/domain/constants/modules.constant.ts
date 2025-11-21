@@ -2,17 +2,17 @@ import { MappedModule } from "../types/index";
 
 export const MODULES: MappedModule = {
   "estagios": {
-    title: "Painel de Gestão de Estágio",
-    sidenavTitle: "Painel de Gestão",
-    browserTitle: "Painel de Gestão",
-    route: "/painel-de-gestão"
+    title: "Estágios",
+    sidenavTitle: "Estágios",
+    browserTitle: "Estágios",
+    route: "/estagios"
   },
-//   "registro": {
-//     title: "Registro e Controle",
-//     sidenavTitle: "Registro e Controle",
-//     browserTitle: "Registro e Controle",
-//     route: "/registro"
-//   },
+  "dashboard": {
+    title: "Painel do Usuário",
+    sidenavTitle: "Painel do Usuário",
+    browserTitle: "Painel do Usuário",
+    route: "/dashboard"
+  },
 //   "access-control": {
 //     title: "Usuários",
 //     sidenavTitle: "Configurações",

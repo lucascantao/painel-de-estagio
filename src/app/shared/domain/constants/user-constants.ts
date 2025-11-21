@@ -1,6 +1,6 @@
 export const profilePermissionsMap = {
-  1: ['estagios'],
-  2: ['estagios'],
+  1: ['estagios', 'dashboard'],
+  2: ['estagios', 'dashboard'],
   // 4: ['consulta', 'registro', 'logistica'],
   // 5: ['consulta'],
   // 6: ['consulta'],

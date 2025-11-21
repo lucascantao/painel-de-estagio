@@ -11,19 +11,19 @@
       (click)="onModuleClick('estagios', true)"
       [routerLink]="[MODULES['estagios'].route]"
       >
-      <img src="/assets/img/sidenavNew/regist-ctrl-icon.svg"/>
+      <!-- <img src="/assets/img/sidenavNew/regist-ctrl-icon.svg"/> -->
       <!-- <span>E</span> -->
       <a>{{ MODULES['estagios'].sidenavTitle }}</a>
     </div>
-    <!-- <div
+    <div
       class="c-module-container"
-      [ngClass]="{'c-module-container--active': isActiveModule('logistica')}"
-      (click)="onModuleClick('logistica', true)"
-      [routerLink]="[MODULES['logistica'].route]"
+      [ngClass]="{'c-module-container--active': isActiveModule('dashboard')}"
+      (click)="onModuleClick('dashboard', true)"
+      [routerLink]="[MODULES['dashboard'].route]"
       >
-      <img src="/assets/img/sidenavNew/logistica-icon.svg"/>
-      <a>{{  MODULES['logistica'].sidenavTitle }}</a>
-    </div> -->
+      <!-- <img src="/assets/img/sidenavNew/logistica-icon.svg"/> -->
+      <a>{{  MODULES['dashboard'].sidenavTitle }}</a>
+    </div>
     <!-- Bottom buttons -->
     <!-- <div class="c-modules-tools">
       <div

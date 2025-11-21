@@ -62,9 +62,9 @@ export class UserService {
   //   return this.userApiService.getPartners();
   // }
 
-  // public async findUser(userId: number): Promise<User> {
-  //   return await this.userApiService.getUser(userId);
-  // }
+  public async findUser(userId: number): Promise<User> {
+    return await this.userApiService.getUser(userId);
+  }
 
   // public async createUser(form: { name: string, email: string, password: string, role: any, partner: any, address: string, phone: string }): Promise<void> {
   //   try {

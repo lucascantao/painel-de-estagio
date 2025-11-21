@@ -6,12 +6,12 @@ import { permissionGuard } from './core/providers/guards/permission.guard';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'estagios',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
     path: 'home',
-    redirectTo: 'estagios',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
@@ -32,11 +32,11 @@ export const routes: Routes = [
     //       }
     //     ]
     //   },
-    //   {
-    //     path: 'registro',
-    //     canActivate: [authGuard, permissionGuard],
-    //     loadChildren: () => import('./routes/registry/registry.page.routes').then(m => m.routes)
-    //   },
+      {
+        path: 'dashboard',
+        canActivate: [authGuard, permissionGuard],
+        loadComponent: () => import('./routes/dashboard/dashboard.page').then(m => m.DashboardPage)
+      },
     //   {
     //     path: 'logistica',
     //     loadComponent: () => import('./routes/logistics/logistics.page').then(m => m.LogisticsPage)

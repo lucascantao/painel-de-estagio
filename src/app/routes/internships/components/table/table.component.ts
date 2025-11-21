@@ -37,7 +37,7 @@ import { InternshipService } from 'src/app/shared/services/utils/internship.serv
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    ActionsMenuComponent
+    // ActionsMenuComponent
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
