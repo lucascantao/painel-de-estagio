@@ -25,12 +25,12 @@
             font-size: 14px;
             line-height: 10px;
             letter-spacing: 1px;
-            color: #121926;
+            color: var(--app-header-line);
           }
           .underline{
             width: 100%;
             height: 1px;
-            background-color: #121926;
+            background-color: var(--app-header-line);
           }
         }
 

@@ -66,6 +66,7 @@
 
         <div class="actions">
           <span 
+            (click)="openNewInternshipDialog()"
             class="actions__button"
             *ngIf="!user.internship"
           >Cadastrar Estágio</span>
