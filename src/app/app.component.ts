@@ -32,7 +32,9 @@ import { ModulesService } from './shared/services/utils/modules.service';
   styles: [
     `
       #layout-default {
-        background-color: #ccc;
+        // background-color: #ccc;
+        background-color: var(--app-light-color);
+
       }
 
       #app-layout-default {
@@ -43,6 +45,7 @@ import { ModulesService } from './shared/services/utils/modules.service';
       }
 
       .content {
+        background-color: var(--app-light-color);
         overflow: hidden;
       }
 
