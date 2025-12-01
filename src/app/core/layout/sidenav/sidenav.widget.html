@@ -7,21 +7,30 @@
     <span class="item-linebox"></span>
     <div
       class="c-module-container"
-      [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
-      (click)="onModuleClick('estagios', true)"
-      [routerLink]="[MODULES['estagios'].route]"
-      >
-      <img src="/assets/img/sidenav/dashboard-icon.svg"/>
-      <a>{{ MODULES['estagios'].sidenavTitle }}</a>
-    </div>
-    <div
-      class="c-module-container"
       [ngClass]="{'c-module-container--active': isActiveModule('dashboard')}"
       (click)="onModuleClick('dashboard', true)"
       [routerLink]="[MODULES['dashboard'].route]"
       >
-      <img src="/assets/img/sidenav/student-page-icon.svg"/>
+      <img src="/assets/img/sidenav/user-icon.svg"/>
       <a>{{  MODULES['dashboard'].sidenavTitle }}</a>
+    </div>
+    <div
+      class="c-module-container"
+      [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
+      (click)="onModuleClick('estagios', true)"
+      [routerLink]="[MODULES['estagios'].route]"
+      >
+      <img src="/assets/img/sidenav/internships-icon.svg"/>
+      <a>{{ MODULES['estagios'].sidenavTitle }}</a>
+    </div>
+    <div
+      class="c-module-container"
+      [ngClass]="{'c-module-container--active': isActiveModule('vagas')}"
+      (click)="onModuleClick('vagas', true)"
+      [routerLink]="[MODULES['vagas'].route]"
+      >
+      <img src="/assets/img/sidenav/campaign-icon.svg"/>
+      <a>{{  MODULES['vagas'].sidenavTitle }}</a>
     </div>
     <!-- Bottom buttons -->
     <!-- <div class="c-modules-tools">

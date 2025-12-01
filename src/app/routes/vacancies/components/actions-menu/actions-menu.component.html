@@ -1,0 +1,55 @@
+<div class="c-actions-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
+    <mat-icon svgIcon="more-vertical"></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="updateRequestStatus(2)"
+      [ngClass]="{'c-actions-menu__item--disabled': actionDisabled(2)}"
+    >
+      <div class="c-actions-menu__item-content">
+        <img src="/assets/img/logistics/approve-request-icon.svg" alt="">
+        <span>Aprovar Requisição</span>
+      </div>
+    </button>
+    <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="updateRequestStatus(4)"
+      [ngClass]="{'c-actions-menu__item--disabled': actionDisabled(4)}"
+    >
+      <div class="c-actions-menu__item-content">
+        <img src="/assets/img/logistics/prioritize-request-icon.svg" alt="">
+        <span>Priorizar Requisição</span>
+      </div>
+    </button>
+    <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="updateRequestStatus(3)"
+      [ngClass]="{'c-actions-menu__item--disabled': actionDisabled(3)}"
+    >
+      <div class="c-actions-menu__item-content">
+        <img src="/assets/img/logistics/deny-request-icon.svg" alt="">
+        <span>Negar Requisição</span>
+      </div>
+    </button>
+    <div class="c-actions-menu__divider"></div>
+    <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="openEditDialog()"
+      [ngClass]="{'c-actions-menu__item--disabled': status === 4 || status === 5}"
+    >
+      <div class="c-actions-menu__item-content">
+        <img src="/assets/img/logistics/edit-request-icon.svg" alt="">
+        <span>Editar</span>
+      </div>
+    </button>
+    <button mat-menu-item class="c-actions-menu__item" (click)="openViewDialog()">
+      <div class="c-actions-menu__item-content">
+        <img src="/assets/img/logistics/view-request-icon.svg" alt="">
+        <span>Visualizar</span>
+      </div>
+    </button>
+
+  </mat-menu>
+</div>

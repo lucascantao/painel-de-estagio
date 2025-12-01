@@ -13,6 +13,12 @@ export const MODULES: MappedModule = {
     browserTitle: "Painel do Usuário",
     route: "/dashboard"
   },
+  "vagas": {
+    title: "Painel de Vagas",
+    sidenavTitle: "Painel de Vagas",
+    browserTitle: "Painel de Vagas",
+    route: "/vagas"
+  },
 //   "access-control": {
 //     title: "Usuários",
 //     sidenavTitle: "Configurações",

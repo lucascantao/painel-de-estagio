@@ -1,5 +1,5 @@
 // export type ModuleName = 'auth' | 'dashboard' | 'registro' | 'financeiro' | 'logistica' | 'energia' | 'details' | 'visualization' | 'access-control' ;
-export type ModuleName = 'auth' | 'estagios' | 'dashboard';
+export type ModuleName = 'auth' | 'estagios' | 'dashboard' | 'vagas' ;
 
 export type MappedModule = {
   [key: string]: {
