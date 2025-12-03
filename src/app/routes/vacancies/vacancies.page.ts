@@ -11,7 +11,7 @@ import { VacanciesTableComponent } from './components/table/table.component';
   styleUrls: ['./vacancies.page.scss'],
 })
 
-export class InternshipsPage {
+export class VacanciesPage {
 
   private readonly modulesService: ModulesService = inject(ModulesService);
 

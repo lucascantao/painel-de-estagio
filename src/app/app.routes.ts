@@ -37,6 +37,11 @@ export const routes: Routes = [
         canActivate: [authGuard, permissionGuard],
         loadComponent: () => import('./routes/dashboard/dashboard.page').then(m => m.DashboardPage)
       },
+      {
+        path: 'vagas',
+        canActivate: [authGuard, permissionGuard],
+        loadComponent: () => import('./routes/vacancies/vacancies.page').then(m => m.VacanciesPage)
+      },
     //   {
     //     path: 'logistica',
     //     loadComponent: () => import('./routes/logistics/logistics.page').then(m => m.LogisticsPage)
