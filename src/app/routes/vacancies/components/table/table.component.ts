@@ -14,13 +14,12 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
 import { Page } from 'src/app/shared/domain/interfaces/Page.interface';
 import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-// import { FilterModalComponent } from '../filter-modal/filter-modal.component';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { CustomPaginatorIntl } from 'src/app/shared/features/custom-paginator-intl/custom-paginator';
 import { ActionsMenuComponent } from '../actions-menu/actions-menu.component';
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
-import { InternshipService } from 'src/app/shared/services/utils/internship.service';
-// import { ModulesService } from 'src/app/shared/services/utils/modules.service';
+import { VacanceService } from 'src/app/shared/services/utils/vacance.service';
+import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';
 
 @Component({
   selector: 'app-vacancies-table',
@@ -48,7 +47,7 @@ import { InternshipService } from 'src/app/shared/services/utils/internship.serv
 })
 
 export class VacanciesTableComponent {
-  private readonly internshipService: InternshipService = inject(InternshipService);
+  private readonly vacanceService: VacanceService = inject(VacanceService);
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   dialog = inject(MatDialog);
@@ -63,25 +62,18 @@ export class VacanciesTableComponent {
     filters: any
   }>();
 
-  internshipsPage: Page<Internship>;
-  vacancies: Internship[] = [];
+  internshipsPage: Page<Vacance>;
+  vacancies: Vacance[] = [];
   displayedColumns: string[] = [
     // 'select',
-    'studentId',
-    'name',
-    'course',
-    'email',
-    'company',
-    'supervisor',
-    'schedule',
-    'workload',
+    'title',
+    'description',
+    'numberOfPositions',
     'salary',
-    'startDate',
-    'endDate',
-    'observation',
+    'applicationDeadline',
     'actions'
   ];
-  dataSource: MatTableDataSource<Internship> = new MatTableDataSource([]);
+  dataSource: MatTableDataSource<Vacance> = new MatTableDataSource([]);
   sortheader = true;
   currentPage: number = 1;
   perPage = 15;
@@ -92,13 +84,13 @@ export class VacanciesTableComponent {
   direction: 'asc' | 'desc' | null = null;
   checkedItems: number[] = [];
   filters: any = {
-    partner: null,
-    observation: null,
-    state: null,
-    city: null,
-    territoryType: null,
-    dateStart: null,
-    dateEnd: null
+    // partner: null,
+    // observation: null,
+    // state: null,
+    // city: null,
+    // territoryType: null,
+    // dateStart: null,
+    // dateEnd: null
   };
 
   @ViewChild(MatSort) sort: MatSort;
@@ -128,7 +120,7 @@ export class VacanciesTableComponent {
       debounceTime(300),
       switchMap(({ page, perPage, search, sortColumn, direction, filters}) => {
         this.isLoading = true;
-        return this.internshipService.getAllInternships(page, perPage, search, sortColumn, direction, filters, this.userService.getUserId());
+        return this.vacanceService.getAllVacancies(page, perPage, search, sortColumn, direction, filters, this.userService.getUserId());
       })
     ).subscribe({
       next: (response) => {
@@ -136,7 +128,7 @@ export class VacanciesTableComponent {
         this.total = response.data.total;
         this.vacancies = response.data.items;
         this.dataSource.data = this.vacancies
-        .map(internship => internship);
+        .map(vacance => vacance);
 
         // post-load
         this.isLoading = false;

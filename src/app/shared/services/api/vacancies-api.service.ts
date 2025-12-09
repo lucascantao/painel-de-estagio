@@ -42,14 +42,8 @@ export class VacanciesApiService {
     }
 
     const body = {
-      // userId: userId,
       search: search || '',
-      // filters: filters
     }
-
-    // if(status !== null && status !== undefined) {
-    //   body['status'] = status;
-    // }
     return this.http.post<ApiResponse<Vacance>>(`${API_BASE_URL}/${this.PATH}/list`, body, { params });
   }
 

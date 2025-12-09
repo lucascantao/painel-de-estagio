@@ -1,5 +1,5 @@
 
-.c-internships-container {
+.c-vacancies-container {
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -8,7 +8,7 @@
 }
 
 /* Status Menu */
-.c-internships-header{
+.c-vacancies-header{
   display: flex;
   justify-content: space-between;
 
@@ -130,7 +130,7 @@
 
 
 /* Table */
-.c-internships-list{
+.c-vacancies-list{
   position: relative;
   flex: 1;
   overflow-y: auto;
@@ -215,7 +215,7 @@
 }
 
 /* Footer */
-.c-internships-footer {
+.c-vacancies-footer {
   display: flex;
   justify-content: space-between;
   height: 22px;

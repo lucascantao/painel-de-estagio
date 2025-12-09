@@ -17,7 +17,7 @@ export class VacanciesPage {
 
 
   ngOnInit() {
-    this.modulesService.moduleName.set('estagios');
+    this.modulesService.moduleName.set('vagas');
   }
 
 }
