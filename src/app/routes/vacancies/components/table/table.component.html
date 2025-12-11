@@ -108,7 +108,7 @@
             Salário
           </th>
           <td mat-cell *matCellDef="let vacance" class="c-vacancies-list__cell">
-            {{ vacance.salary ?? 'Sem Dados' }}
+            R${{ vacance.salary ?? 'Sem Dados' }}
           </td>
         </ng-container>
 
@@ -127,13 +127,10 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header sticky class="c-vacancies-list__header-cell">
             Ação
           </th>
-          <td mat-cell *matCellDef="let request" class="c-vacancies-list__cell">
-            <!-- <app-actions-menu
-              [onOpenDialog]="openRequestModalDialog.bind(this)"
-              [onUpdateStatus]="updateRequestStatus.bind(this)"
-              [requestId]="request.id"
-              [status]="request.statusId"
-            ></app-actions-menu> -->
+          <td mat-cell *matCellDef="let vacance" class="c-vacancies-list__cell">
+            <app-actions-menu
+              [vacanceId]="vacance.id"
+            ></app-actions-menu>
           </td>
         </ng-container>
 

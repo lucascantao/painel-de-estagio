@@ -18,40 +18,26 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 
 export class ActionsMenuComponent {
-
-  @Input() onUpdateStatus: (requestId: number, statusId: number) => void;
-  @Input() onOpenDialog: (requestId: number, action: string, status: number) => void;
-  @Input() requestId: number;
-  @Input() status: number;
+  @Input() vacanceId: number;
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
 
   constructor() {
-    this.iconRegistry.addSvgIcon('more-vertical', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/more_vertical-icon.svg'));
+    this.iconRegistry.addSvgIcon('ellipsis-vertical', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
 
   }
 
-  actionDisabled(statusId: number) {
+  actionDisabled(action: string) {
     let disabled: boolean = false;
-    if (statusId === 2 || statusId === 3) {
-      disabled = this.status === 4 || this.status === statusId || this.status === 5;
-    }
-    if(statusId === 4) {
-      disabled = this.status !== 2;
-    }
     return disabled;
   }
 
-  updateRequestStatus(statusId: number) {
-    this.onUpdateStatus(this.requestId, statusId);
+  applyVacance() {
+    
   }
 
-  openViewDialog() {
-    this.onOpenDialog(this.requestId, 'view', this.status);
-  }
-
-  openEditDialog() {
-    this.onOpenDialog(this.requestId, 'edit', this.status);
+  editVacance() {
+    
   }
 }

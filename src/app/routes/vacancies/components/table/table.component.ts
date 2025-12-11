@@ -36,7 +36,7 @@ import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    // ActionsMenuComponent
+    ActionsMenuComponent
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
@@ -128,7 +128,7 @@ export class VacanciesTableComponent {
         this.total = response.data.total;
         this.vacancies = response.data.items;
         this.dataSource.data = this.vacancies
-        .map(vacance => vacance);
+        .map(vacance => ({...vacance, applicationDeadline: vacance.applicationDeadline ? new DatePipe('en-US').transform(new Date(vacance.applicationDeadline), 'dd/MM/yyyy') : '-'}));
 
         // post-load
         this.isLoading = false;
