@@ -71,7 +71,8 @@ export class VacanciesTableComponent {
     'numberOfPositions',
     'salary',
     'applicationDeadline',
-    'actions'
+    'actions',
+    'options'
   ];
   dataSource: MatTableDataSource<Vacance> = new MatTableDataSource([]);
   sortheader = true;

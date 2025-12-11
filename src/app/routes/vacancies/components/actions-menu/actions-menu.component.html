@@ -1,15 +1,23 @@
 <div class="c-actions-menu">
-  <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
+  <!-- <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
     <mat-icon svgIcon="ellipsis-vertical"></mat-icon>
+  </button> -->
+  <button mat-icon-button class="c-actions-menu__item">
+    <mat-icon svgIcon="down"></mat-icon>
   </button>
-  <mat-menu #menu="matMenu">
+  <button mat-icon-button class="c-actions-menu__item">
+    <mat-icon svgIcon="pencil"></mat-icon>
+  </button>
+  <button mat-icon-button class="c-actions-menu__item">
+    <mat-icon svgIcon="trash"></mat-icon>
+  </button>
+  <!-- <mat-menu #menu="matMenu">
     <button
       mat-menu-item class="c-actions-menu__item"
       (click)="applyVacance()"
       [ngClass]="{'c-actions-menu__item--disabled': actionDisabled('apply')}"
     >
       <div class="c-actions-menu__item-content">
-        <!-- <img src="/assets/img/logistics/approve-request-icon.svg" alt=""> -->
         <span>Aplicar</span>
       </div>
     </button>
@@ -18,10 +26,12 @@
       (click)="editVacance()"
       [ngClass]="{'c-actions-menu__item--disabled': actionDisabled('edit')}"
     >
-      <div class="c-actions-menu__item-content">
-        <!-- <img src="/assets/img/logistics/prioritize-request-icon.svg" alt=""> -->
+      <div
+        class="c-actions-menu__item-content"
+        [routerLink]="[MODULES['criar-vaga'].route]"
+      >
         <span>Editar</span>
       </div>
     </button>
-  </mat-menu>
+  </mat-menu> -->
 </div>

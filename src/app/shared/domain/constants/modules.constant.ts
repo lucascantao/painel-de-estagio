@@ -19,6 +19,12 @@ export const MODULES: MappedModule = {
     browserTitle: "Painel de Vagas",
     route: "/vagas"
   },
+  "criar-vaga": {
+    title: "Criar nova Vaga",
+    sidenavTitle: "Nova Vaga",
+    browserTitle: "Nova Vaga",
+    route: "/vagas/criar"
+  },
 //   "access-control": {
 //     title: "Usuários",
 //     sidenavTitle: "Configurações",

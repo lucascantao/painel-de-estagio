@@ -169,7 +169,7 @@
   }
 
   &__header-row {
-    background-color: #7592c6;
+    // background-color: var(--app-secondary-color);
     color: #000000;
     font-size: 14px;
     font-weight: 600;
@@ -229,7 +229,7 @@
 
   font-size: 14px;
   color: #fff;
-  background-color: #7592c6;
+  background-color: var(--app-secondary-color);
 
   &__info {
     display: flex;
