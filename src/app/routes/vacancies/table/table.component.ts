@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { CustomPaginatorIntl } from 'src/app/shared/features/custom-paginator-intl/custom-paginator';
-import { ActionsMenuComponent } from '../actions-menu/actions-menu.component';
+import { ActionsMenuComponent } from '../components/actions-menu/actions-menu.component';
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
 import { VacanceService } from 'src/app/shared/services/utils/vacance.service';
 import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';

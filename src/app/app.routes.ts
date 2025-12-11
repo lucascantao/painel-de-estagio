@@ -37,10 +37,15 @@ export const routes: Routes = [
         canActivate: [authGuard, permissionGuard],
         loadComponent: () => import('./routes/dashboard/dashboard.page').then(m => m.DashboardPage)
       },
+      // {
+      //   path: 'vagas',
+      //   canActivate: [authGuard, permissionGuard],
+      //   loadComponent: () => import('./routes/vacancies/vacancies.page').then(m => m.VacanciesPage)
+      // },
       {
         path: 'vagas',
         canActivate: [authGuard, permissionGuard],
-        loadComponent: () => import('./routes/vacancies/vacancies.page').then(m => m.VacanciesPage)
+        loadChildren: () => import('./routes/vacancies/vacancies.page.routes').then(m => m.routes)
       },
     //   {
     //     path: 'logistica',
