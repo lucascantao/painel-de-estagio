@@ -5,7 +5,11 @@
   <button mat-icon-button class="c-actions-menu__item">
     <mat-icon svgIcon="down"></mat-icon>
   </button>
-  <button mat-icon-button class="c-actions-menu__item">
+  <button 
+    mat-icon-button 
+    class="c-actions-menu__item"
+    [routerLink]="[MODULES['criar-vaga'].route]"
+    >
     <mat-icon svgIcon="pencil"></mat-icon>
   </button>
   <button mat-icon-button class="c-actions-menu__item">

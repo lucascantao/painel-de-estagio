@@ -296,7 +296,8 @@
     right: 16px;
   }
 
-  .mat-mdc-header-cell {
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
     border-bottom: none !important;
   }
 }
