@@ -20,6 +20,9 @@ import { ActionsMenuComponent } from '../components/actions-menu/actions-menu.co
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
 import { VacanceService } from 'src/app/shared/services/utils/vacance.service';
 import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';
+import { RouterLinkWithHref } from "@angular/router";
+import { MappedModule } from 'src/app/shared/domain/types';
+import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 
 @Component({
   selector: 'app-vacancies-table',
@@ -36,8 +39,9 @@ import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    ActionsMenuComponent
-  ],
+    ActionsMenuComponent,
+    RouterLinkWithHref
+],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
   ],
@@ -52,6 +56,8 @@ export class VacanciesTableComponent {
   sanitizer = inject(DomSanitizer);
   dialog = inject(MatDialog);
   userService = inject(UserService);
+
+  MODULES: MappedModule = MODULES;
 
   private pageRequest$ = new Subject<{
     page: number,
@@ -107,10 +113,9 @@ export class VacanciesTableComponent {
   selectedStatus: {value: number, name: string} = this.statuses[0];
 
   constructor() {
-    // this.iconRegistry.addSvgIcon('more-vertical', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/more_vertical-icon.svg'));
-    // this.iconRegistry.addSvgIcon('search', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/search-icon.svg'));
-    // this.iconRegistry.addSvgIcon('filter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/filter-icon.svg'));
-    // this.iconRegistry.addSvgIcon('add', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/add-icon.svg'));
+    this.iconRegistry.addSvgIcon('search', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/search-icon.svg'));
+    this.iconRegistry.addSvgIcon('filter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/funnel-icon.svg'));
+    this.iconRegistry.addSvgIcon('add', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/plus-icon.svg'));
     // this.iconRegistry.addSvgIcon('create-request', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/logistics/create-request-icon.svg'));
     // this.iconRegistry.addSvgIcon('exclamation', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/exclamation-icon.svg'));
     // this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));

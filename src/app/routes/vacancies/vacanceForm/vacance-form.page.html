@@ -1,1 +1,48 @@
-teste
+<div class="c-vacancies-form">
+	<app-header-title title="Detalhes da Vaga"></app-header-title>
+
+	<div class="c-vacancies-form__form" [formGroup]="form">
+		<app-input-field
+			class="c-vacancies-form__form-field"
+			[label]="'Título'"
+			[placeholder]="'Descreva o título da vaga'"
+			formControlName="title"
+		></app-input-field>
+		<app-input-field
+			class="c-vacancies-form__form-field"
+			[label]="'Descrição'"
+			[placeholder]="'Descreva a vaga...'"
+			formControlName="description"
+			[textArea]="true"
+		></app-input-field>
+		<div class="c-vacancies-form__form-row">
+			<app-input-field
+				class="c-vacancies-form__form-field"
+				[label]="'Salário'"
+				[placeholder]="'R$0,00'"
+				formControlName="salary"
+			></app-input-field>
+			<app-input-field
+				class="c-vacancies-form__form-field"
+				[label]="'Número de Vagas'"
+				[placeholder]="'Número de Vagas'"
+				formControlName="numberOfPositions"
+			></app-input-field>
+		</div>
+		<app-input-field
+			class="c-vacancies-form__form-field"
+			[label]="'Requisitos'"
+			[placeholder]="'Requisitos'"
+			formControlName="requirements"
+			[textArea]="true"
+		></app-input-field>
+		<app-date-select-field
+			class="c-vacancies-form__form-date-field"
+			[label]="'Data limite'"
+			[placeholder]="'DD/MM/YYYY'"
+			formControlName="deadlineDate"
+			[name]="'deadlineDate'"
+		></app-date-select-field>
+	</div>
+
+</div>Dat

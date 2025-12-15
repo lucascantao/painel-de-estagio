@@ -1,7 +1,10 @@
 <div
   class="c-field-box"
-  [ngClass]="{ 'c-field-box--disabled': disabled || readOnly, 'c-field-box--with-error': validateField() !== null }"
-  [ngStyle]="{ height: height }"
+  [ngClass]="{ 
+    'c-field-box--disabled': disabled || readOnly, 
+    'c-field-box--with-error': validateField() !== null
+  }"
+  [ngStyle]="{ height: textArea ? 'auto' : height }"
 >
   @if (label) {
   <label
@@ -10,7 +13,19 @@
     [ngStyle]="labelColor !== '' ? {'background-color': labelColor} : {}"
   >{{ label }}</label>
   }
+
+  <textarea 
+    *ngIf="textArea"
+    class="c-field-box__input c-field-box__input-text-area"
+    #input
+    [readOnly]="readOnly"
+    [placeholder]="placeholder"
+    [(ngModel)]="value"
+    (keyup)="onInputChange($event)"
+    [disabled]="disabled"
+  ></textarea>
   <input
+    *ngIf="!textArea"
     class="c-field-box__input"
     #input
     [type]="type"
@@ -22,6 +37,8 @@
     (keyup)="onInputChange($event)"
     [disabled]="disabled"
   />
+
+  
   <span
   class="c-field-box__error-message"
   [ngStyle]="{'display': !validateField() ? 'none' : 'flex'}" >

@@ -5,6 +5,24 @@
   overflow: scroll;
   height: 100%;
   padding: 16px;
+
+  .action-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--app-dark-color);
+    color: var(--app-negative-text-color);
+    font-weight: 600;
+  }
+
+  .action-btn:hover {
+    cursor: pointer;
+    background-color: #fff;
+    color: var(--app-dark-color);
+    border: 1px solid var(--app-dark-color);
+  }
 }
 
 /* Status Menu */
@@ -12,55 +30,11 @@
   display: flex;
   justify-content: space-between;
 
-  // &__status-menu{
-  //   display: flex;
-
-  //   .c-menu-item {
-  //     color: #A1A6B0;
-  //     margin-right: 36px;
-  //     padding: 0px 3px;
-  //   }
-
-  //   .c-menu-item:hover {
-  //     cursor: pointer;
-  //   }
-
-  //   .c-menu-item--active {
-  //     color: #fff;
-  //     border-bottom: 2px solid #59FF88;
-  //   }
-
-  // }
-
-  // &__actions {
-  //   display: flex;
-
-  // }
-
-  // &__create-request{
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   background: #232c36;
-  //   border: 1px solid #404653;
-  //   border-radius: 24px;
-  //   margin-right: 12px;
-  //   width: 167px;
-  //   height: 36px;
-  //   gap: 8px;
-  //   color: white;
-  //   font-size: 14px;
-
-  //   mat-icon{
-  //     height: 16px;
-  //     width: 16px;
-  //   }
-  // }
-
-  // &__create-request:hover {
-  //   cursor: pointer;
-  //   border-color: #59FF88;
-  // }
+  &__actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__search {
     display: flex;
@@ -91,9 +65,9 @@
     &-filter {
       display: flex;
       align-items: center;
-      background: none;
+      background: var(--app-dark-color);
       border: 1.5px solid #404653;
-      // color: var(--app-primary-color);
+      color: var(--app-negative-text-color);
       border-radius: 3px;
       padding: 2px 14px;
       font-weight: 500;
@@ -103,8 +77,9 @@
       transition: background 0.2s;
 
       &:hover {
-        background: rgba(0,255,153,0.08);
-        border: 1.5px solid var(--app-primary-color);
+        background: white;
+        color: var(--app-dark-color);
+        border: 1.5px solid var(--app-dark-color);
       }
     }
 
@@ -188,22 +163,6 @@
     font-size: 12px;
     font-weight: 400;
 
-    .apply-vacance {
-      padding: 8px 10px;
-      border: none;
-      border-radius: 2px;
-      background-color: var(--app-dark-color);
-      color: var(--app-negative-text-color);
-      font-weight: 600;
-    }
-
-    .apply-vacance:hover {
-      cursor: pointer;
-      background-color: #fff;
-      color: var(--app-dark-color);
-      border: 1px solid var(--app-dark-color);
-    }
-
     // &__status {
     //   display: flex;
     //   justify-content: center;
@@ -286,6 +245,12 @@
     width: 1px;
     margin: 0px 24px;
   }
+}
+
+// Buttons 
+
+.c-vacancies-container__ {
+  
 }
 
 :host ::ng-deep {

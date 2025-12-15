@@ -21,17 +21,22 @@
     border: solid 1px #ff4516;
   }
 
+  &__area {
+    height: unset;
+  }
+
   &__label {
     position: absolute;
-    background: var(--app-blue-dark-light-color);
+    background: var(--app-light-color);
     top: -9px;
     z-index: 1000;
     padding: 0 4px;
     margin-left: 5px;
 
-    color: var(--app-neutral-light-variant-color);
+    color: var(--app-dark-color);
     font-family: 'Open Sans';
     letter-spacing: 0.25px;
+    font-weight: bold;
     font-size: 12px;
 
     &--disabled {
@@ -48,12 +53,16 @@
     height: 100%;
     width: 100%;
 
-    color: var(--app-neutral-light-variant-color);
+    color: var(--app-primary-text-color);
     line-height: 24px;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.25px;
     text-align: left;
+
+    &-text-area {
+      padding-top: 10px;
+    }
   }
 
   &__input::placeholder {

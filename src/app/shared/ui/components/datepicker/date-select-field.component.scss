@@ -1,0 +1,96 @@
+.c-date-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-date-select {
+  position: relative;
+  min-width: 120px;
+
+  &__labelStart {
+    position: absolute;
+    z-index: 99;
+    top: -9px;
+    left: 5px;
+    color: #FFFFFF;
+    background: #24314A;
+    padding: 0 3px;
+    font-size: 12px;
+    letter-spacing: -0.08px;
+    font-weight: 300;
+    cursor: default;
+  }
+
+  &__labelEnd {
+    position: absolute;
+    z-index: 99;
+    top: -9px;
+    left: 133px;
+    color: #FFFFFF;
+    background: #24314A;
+    padding: 0 3px;
+    font-size: 12px;
+    letter-spacing: -0.08px;
+    font-weight: 300;
+    cursor: default;
+    width: 53px;
+  }
+
+  &__label {
+    position: absolute;
+    background: var(--app-light-color);
+    top: -8px;
+    z-index: 1000;
+    padding: 0 3px;
+    margin-left: 5px;
+    color: var(--app-dark-color);
+    font-family: inherit;
+    letter-spacing: 0.25px;
+    font-size: 12px;
+    font-weight: bold;
+
+    &--especial {
+      background-color: var(--app-primary-color);
+      color: #24314A !important;
+      border-radius: 4px 4px 4px 0;
+      margin-left: 0;
+      z-index: 1000;
+      font-weight: 600;
+    }
+
+    &--disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    // width: 100%;
+    gap: 8px;
+
+    // input {
+    //     color: black;
+    // }
+  }
+}
+
+:host ::ng-deep {
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+
+  .mdc-text-field {
+    width: 100%;
+  }
+
+  .mat-mdc-form-field-infix {
+    padding-left: 12px;
+  }
+
+  .mat-datepicker-popup {
+    background-color: #fff !important;
+  }
+}

@@ -1,0 +1,29 @@
+.c-vacancies-form {
+	height: 100%;
+	padding: 8px;
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+
+		&-field {
+			margin-bottom: 24px;
+			width: 100%;
+		}
+
+		&-row {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			gap: 12px;
+		}
+	}
+}
+
+:host ::ng-deep {
+	.c-date-select {
+		.mat-mdc-form-field {
+			width: 256px;
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass, NgStyle, NgIf } from '@angular/common';
 import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { cpfValidator } from 'src/app/shared/services/utils/form-validators';
@@ -9,8 +9,9 @@ import { cpfValidator } from 'src/app/shared/services/utils/form-validators';
   imports: [
     NgStyle,
     NgClass,
-    FormsModule
-  ],
+    FormsModule,
+    NgIf
+],
   styleUrls: ['./input-field.component.scss'],
   providers: [
     {
@@ -30,7 +31,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() type: string = 'text';
   @Input() min: number = 0;
   @Input() max: number = 100;
-  @Input() height: string = '38px';
+  @Input() height: string = '36px';
   @Input() alwaysTwoDigits: boolean = false;
   @Input() readOnly: boolean = false;
   @Input() labelColor = '';
@@ -39,6 +40,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() forceValidation: boolean = false;
   @Input() validator: (value: string) => any;
   @Input() isRequired: boolean = false;
+  @Input() textArea: boolean = false;
 
   @Input() control: any;
 

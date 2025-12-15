@@ -482,6 +482,11 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@ctrl/tinycolor@^4.1.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-4.2.0.tgz#ba5d0b917303c0b3d3c14c4865cdc6ded25ac05f"
+  integrity sha512-kzyuwOAQnXJNLS9PSyrk0CWk35nWJW/zl/6KvnTBMFK65gm7U1/Z5BqjxeapjZCIhQcM/DsrEmcbRwDyXyXK4A==
+
 "@esbuild/aix-ppc64@0.25.12":
   version "0.25.12"
   resolved "https://registry.yarnpkg.com/@esbuild/aix-ppc64/-/aix-ppc64-0.25.12.tgz#80fcbe36130e58b7670511e888b8e88a259ed76c"
@@ -1340,10 +1345,27 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.1.1"
     "@napi-rs/nice-win32-x64-msvc" "1.1.1"
 
+"@ng-matero/extensions@^21.0.0":
+  version "21.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-matero/extensions/-/extensions-21.0.0.tgz#aebb444866a105dab6730312cac89c2f1787fcc2"
+  integrity sha512-QBI1Uxx1CpIcQqPsbWVvFQsWC2hE80iOl9mmqE0kVeuaSH+ywBkY4OMmJHkAkDZHifuTcJlmj+2B8cufUZOvKQ==
+  dependencies:
+    "@ng-select/ng-select" "^21.0.0"
+    ngx-color "^10.0.0"
+    photoviewer "^3.10.0"
+    tslib "^2.4.0"
+
 "@ng-select/ng-select@^20.6.1":
   version "20.6.1"
   resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-20.6.1.tgz#1c2e8aa4fffaf18e78f6878a48f7372f8c58df5d"
   integrity sha512-GKC7QIsoyWhEVxX/Wu+h4Lkv1T7mcjvtdqj2aGhyHdS2auVGWDGkZzPEqUpNfm2CXxPooi45XC8Q9zLf/j/hFQ==
+  dependencies:
+    tslib "^2.8.1"
+
+"@ng-select/ng-select@^21.0.0":
+  version "21.1.2"
+  resolved "https://registry.yarnpkg.com/@ng-select/ng-select/-/ng-select-21.1.2.tgz#9cb60b0af63344c626b4ccd20b0a78bf0c471a94"
+  integrity sha512-llphmTbqVCBLJMSX8YoygjzPsh5ahQHZeUQjBpmY7Aji4AvlLe6XOOvuzQNv1/iU6Zd5Y0PDKKApjgsdkOkVbQ==
   dependencies:
     tslib "^2.8.1"
 
@@ -2383,6 +2405,11 @@ domhandler@^5.0.2, domhandler@^5.0.3:
   dependencies:
     domelementtype "^2.3.0"
 
+domq.js@^0.7.0:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/domq.js/-/domq.js-0.7.1.tgz#4b3c9306a26d4d1a64681a452b15eca0ce00fbc9"
+  integrity sha512-SQjubdV+FsTa8pRPrhygohvraS6NS5XdH2wK0V8nzg3vQW5+h3+LDn5XCE5RYejbtZE4aAUz2UTxE1B9oSl55w==
+
 domutils@^3.2.1, domutils@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-3.2.2.tgz#edbfe2b668b0c1d97c24baf0f1062b132221bc78"
@@ -3419,6 +3446,11 @@ make-fetch-happen@^14.0.0, make-fetch-happen@^14.0.2, make-fetch-happen@^14.0.3:
     promise-retry "^2.0.1"
     ssri "^12.0.0"
 
+material-colors@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
+  integrity sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==
+
 math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
@@ -3653,6 +3685,15 @@ ngx-avatars@^1.10.0:
   dependencies:
     ts-md5 "^2.0.1"
     tslib "^2.8.1"
+
+ngx-color@^10.0.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-color/-/ngx-color-10.1.0.tgz#a3083548fba9fd9e02c2e7e0a954eb6cf17e010f"
+  integrity sha512-yuxlE1LfN+PABIO4hv0Gw5ksq8g9XkMJKrGPn2SWbrre/gsH+kkyyn3rwSCurinnLCnw7czqenwQUtnBJm8yww==
+  dependencies:
+    "@ctrl/tinycolor" "^4.1.0"
+    material-colors "^1.2.6"
+    tslib "^2.3.0"
 
 node-addon-api@^6.1.0:
   version "6.1.0"
@@ -3928,6 +3969,13 @@ path-to-regexp@^8.0.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.3.0.tgz#aa818a6981f99321003a08987d3cec9c3474cd1f"
   integrity sha512-7jdwVIRtsP8MYpdXSwOS0YdD0Du+qOoF/AEPIt88PcCFrZCzx41oxku1jD88hZBwbNUIEfpqvuhjFaMAqMTWnA==
+
+photoviewer@^3.10.0:
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/photoviewer/-/photoviewer-3.10.3.tgz#7f38feda302c29466d315dabf07ed52bb13d277b"
+  integrity sha512-6RqhMOiPVMsgfMTP/j/lQLGGj2glzBWIDnrTpx2rcACOcO8ig+bnBAfofEPXBmLOgKxsu+HIiLQudVtloS9GEA==
+  dependencies:
+    domq.js "^0.7.0"
 
 picocolors@^1.1.1:
   version "1.1.1"
@@ -4624,7 +4672,7 @@ ts-md5@^2.0.1:
   resolved "https://registry.yarnpkg.com/ts-md5/-/ts-md5-2.0.1.tgz#b05fb6d65f2116aa4591280c8d0510084567f291"
   integrity sha512-yF35FCoEOFBzOclSkMNEUbFQZuv89KEQ+5Xz03HrMSGUGB1+r+El+JiGOFwsP4p9RFNzwlrydYoTLvPOuICl9w==
 
-tslib@^2.1.0, tslib@^2.3.0, tslib@^2.8.1:
+tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
