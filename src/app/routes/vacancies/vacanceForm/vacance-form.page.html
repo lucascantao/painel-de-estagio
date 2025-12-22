@@ -1,4 +1,8 @@
 <div class="c-vacancies-form">
+	<div class="loading-overlay" *ngIf="submitting">
+		<mat-spinner diameter="40"></mat-spinner>
+	</div>
+
 	<app-header-title title="Detalhes da Vaga"></app-header-title>
 
 	<div class="c-vacancies-form__form" [formGroup]="form">
@@ -7,6 +11,7 @@
 			[label]="'Título'"
 			[placeholder]="'Descreva o título da vaga'"
 			formControlName="title"
+			[control]="form.get('title')"
 		></app-input-field>
 		<app-input-field
 			class="c-vacancies-form__form-field"
@@ -14,35 +19,65 @@
 			[placeholder]="'Descreva a vaga...'"
 			formControlName="description"
 			[textArea]="true"
+			[control]="form.get('description')"
 		></app-input-field>
-		<div class="c-vacancies-form__form-row">
-			<app-input-field
-				class="c-vacancies-form__form-field"
-				[label]="'Salário'"
-				[placeholder]="'R$0,00'"
-				formControlName="salary"
-			></app-input-field>
-			<app-input-field
-				class="c-vacancies-form__form-field"
-				[label]="'Número de Vagas'"
-				[placeholder]="'Número de Vagas'"
-				formControlName="numberOfPositions"
-			></app-input-field>
-		</div>
 		<app-input-field
 			class="c-vacancies-form__form-field"
 			[label]="'Requisitos'"
 			[placeholder]="'Requisitos'"
 			formControlName="requirements"
 			[textArea]="true"
+			[control]="form.get('requirements')"
 		></app-input-field>
-		<app-date-select-field
-			class="c-vacancies-form__form-date-field"
-			[label]="'Data limite'"
-			[placeholder]="'DD/MM/YYYY'"
-			formControlName="deadlineDate"
-			[name]="'deadlineDate'"
-		></app-date-select-field>
+		<div class="c-vacancies-form__form-row">
+			<app-input-field
+				class="c-vacancies-form__form-field"
+				[label]="'Salário'"
+				[placeholder]="'R$0,00'"
+				[isReal]="true"
+				formControlName="salary"
+				[control]="form.get('salary')"
+			></app-input-field>
+			<app-input-field
+				class="c-vacancies-form__form-field"
+				[label]="'Número de Vagas'"
+				[placeholder]="'Número de Vagas'"
+				[isNumeric]="true"
+				formControlName="numberOfPositions"
+				[control]="form.get('numberOfPositions')"
+			></app-input-field>
+			<app-date-select-field
+				class="c-vacancies-form__form-date-field"
+				[label]="'Data limite'"
+				[placeholder]="'DD/MM/YYYY'"
+				formControlName="applicationDeadline"
+				[name]="'applicationDeadline'"
+				[control]="form.get('applicationDeadline')"
+			></app-date-select-field>
+		</div>
 	</div>
 
-</div>Dat
+	<!-- <button 
+		style="margin-left: 12px;" 
+		class="action-btn"
+	>
+		Salvar
+	</button> -->
+
+	<div class="c-vacancies-form__footer">
+		<app-action-button
+			(click)="submit()"
+			[label]="'Salvar Vaga'" 
+			[size]="'large'" 
+		/>
+		<app-action-button
+			(click)="submit()"
+			[label]="'Voltar'" 
+			[size]="'large'"
+			[routerLink]="[MODULES['vagas'].route]" 
+			[type]="'secondary'"
+		/>
+	</div>
+
+
+</div>	

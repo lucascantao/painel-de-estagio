@@ -1,5 +1,7 @@
 .c-vacancies-form {
+	display: relative;
 	height: 100%;
+	width: 60%;
 	padding: 8px;
 
 	&__form {
@@ -18,6 +20,26 @@
 			gap: 12px;
 		}
 	}
+
+	&__footer {
+		margin-top: 18px;
+		display: flex;
+		gap: 12px;
+	}
+}
+
+.loading-overlay {
+  position: absolute;
+  background-color: #3e5a8e3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+	left: 0;
+	top: 0;
 }
 
 :host ::ng-deep {

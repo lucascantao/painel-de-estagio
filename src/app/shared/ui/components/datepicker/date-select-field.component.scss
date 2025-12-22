@@ -75,6 +75,16 @@
     //     color: black;
     // }
   }
+
+  &__error-message {
+    position: absolute;
+    display: flex;
+    font-size: 12px;
+    font-weight: 300;
+    bottom: 4px;
+    left: 3px;
+    color: #ff4516;
+  }
 }
 
 :host ::ng-deep {

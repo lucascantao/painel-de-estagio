@@ -37,6 +37,8 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() labelColor = '';
   @Input() isPhoneNumber: boolean = false;
   @Input() isCpf: boolean = false;
+  @Input() isReal: boolean = false;
+  @Input() isNumeric: boolean = false;
   @Input() forceValidation: boolean = false;
   @Input() validator: (value: string) => any;
   @Input() isRequired: boolean = false;
@@ -103,6 +105,10 @@ export class InputFieldComponent implements ControlValueAccessor {
       formattedValue = numValue.toString().padStart(2, '0');
     } else if (this.isCpf) {
       formattedValue = this.formatCpf(formattedValue);
+    } else if (this.isReal) {
+      formattedValue = this.formatarMoeda(formattedValue);
+    } else if (this.isNumeric) {
+      formattedValue = this.formatNumber(formattedValue);
     } else {
       formattedValue = this.formatValue(formattedValue);
     }
@@ -140,6 +146,26 @@ export class InputFieldComponent implements ControlValueAccessor {
       return `${limitedValue.substring(0, 3)}.${limitedValue.substring(3, 6)}.${limitedValue.substring(6, 9)}-${limitedValue.substring(9)}`;
     }
   }
+
+  private formatNumber(valor: string): string {
+    const numericValue = valor.replace(/\D/g, '');
+    return isNaN(Number(numericValue)) ? '0' : numericValue;
+  }
+
+  formatarMoeda(valor: string): string {
+    // remove tudo que não é número
+    const apenasNumeros = valor.replace(/\D/g, '');
+
+    if (!apenasNumeros) return 'R$ 0,00';
+
+    const numero = Number(apenasNumeros) / 100;
+
+    return numero.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    });
+  }
+
 
   validateField(): string {
     if(this.control?.touched) {

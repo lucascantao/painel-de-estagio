@@ -31,4 +31,11 @@ export class VacanceService {
   ): Observable<ApiResponse<Vacance>> {
     return this.vacanciesApiService.getAllVacancies(page, perPage, search, sort, direction, filters);
   }
+
+
+    
+  public saveVacance(vacance: any) {
+    console.log(vacance);
+    return this.vacanciesApiService.saveVacancies(vacance);
+  }
 }
