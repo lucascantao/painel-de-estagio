@@ -6,6 +6,7 @@
 .c-date-select {
   position: relative;
   min-width: 120px;
+  margin-bottom: 5px;
 
   &__labelStart {
     position: absolute;
@@ -102,5 +103,9 @@
 
   .mat-datepicker-popup {
     background-color: #fff !important;
+  }
+
+  .mdc-line-ripple {
+    display: none !important;
   }
 }

@@ -20,16 +20,19 @@
 
     &__label {
       position: absolute;
-      background: var(--app-blue-dark-light-color);
+      // background: var(--app-blue-dark-light-color);
+      background: white;
       top: -10px;
       z-index: 1000;
       padding: 0 4px;
       margin-left: 5px;
 
-      color: var(--app-neutral-light-variant-color);
+      // color: var(--app-neutral-light-variant-color);
+      color: var(--app-dark-color);
       font-family: 'Open Sans';
       letter-spacing: 0.25px;
       font-size: 12px;
+      font-weight: bold;
 
       &--especial {
         background-color: var(--app-blue-dark-light-color);
@@ -86,10 +89,11 @@
       }
 
       .ng-placeholder {
-        background-color: var(--app-blue-dark-light-color);
+        // background-color: var(--app-blue-dark-light-color);
         transition: opacity 0.3s ease !important;
         transform: none !important;
-        color: #F8F9FA60 !important;
+        // color: #F8F9FA60 !important;
+        color: var(--app-primary-text-color) !important;  
 
         font-family: "Open Sans";
         font-size: 15px;
@@ -123,11 +127,11 @@
         }
 
         .ng-arrow-wrapper {
-          background-image: url(/../assets/img/filter/arrow-down-white.svg);
+          background-image: url(/../assets/img/arrow-down-icon.svg);
           background-repeat: no-repeat;
           background-size: 100%;
-          width: 12px;
-          height: 8px;
+          width: 18px;
+          height: 18px;
           margin-top: 2px;
           align-self: center !important;
           bottom: 0 !important;
@@ -171,6 +175,7 @@
         .ng-clear {
           font-size: 20px !important;
           line-height: normal;
+          color: gray;
         }
       }
 
@@ -241,7 +246,7 @@
       }
 
       .ng-value-label {
-        color: var(--app-alternative-background-color);
+        color: var(--app-primary-text-color);
         font-family: "Open Sans";
         font-size: 16px;
         letter-spacing: 0.25px;

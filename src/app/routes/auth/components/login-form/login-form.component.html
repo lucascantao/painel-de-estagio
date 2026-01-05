@@ -16,10 +16,17 @@
         [placeholder]="'Digite sua senha aqui'"
       ></app-input-field>
       <span *ngIf="!formDataValid">E-mail ou senha incorretos</span>
-      <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a>
+      <!-- <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a> -->
       <button [disabled]="isLoading" type="submit">
         <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
         <b *ngIf="!isLoading">Entrar</b>
+      </button>
+      <button 
+        [disabled]="isLoading" 
+        [routerLink]="['../registro']"
+        style="margin-top: 10px;"
+      >
+        <b>Criar conta</b>
       </button>
     </form>
   </section>

@@ -31,6 +31,7 @@ export class AuthService {
       this.storageService.save('authToken', this.authToken, 'local');
       this.storageService.save('user', this.user, 'local');
       this.userService.refreshUser();
+      // this.saveSessionData(user);
     }
     catch (error) {
       console.error(error);
@@ -52,6 +53,32 @@ export class AuthService {
     await this.authApiService.logout(userId);
     this.clearlocal();
     this.router.navigate(['autenticacao/login']);
+  }
+
+  public async register(userPayload: any): Promise<void> {
+    try {
+      const user = await this.authApiService.register(userPayload);
+      // this.user = user;
+      // this.isAuthenticated = true;
+      // this.authToken = this.user.token;
+      // this.storageService.save('authToken', this.authToken, 'local');
+      // this.storageService.save('user', this.user, 'local');
+      // this.userService.refreshUser();
+      this.saveSessionData(user);
+    }
+    catch (error) {
+      console.error(error);
+      this.isAuthenticated = false;
+      this.snackbar.open('Erro ao cadastrar usuário', 'Fechar', {
+        duration: 5000,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+        panelClass: ['snackbar-error']
+      });
+    }
+    if(this.isAuthenticated) {
+      this.router.navigate(['/home']);
+    }
   }
 
   public verifyAuthentication(): string | null {
@@ -167,6 +194,17 @@ export class AuthService {
     console.log(profileId);
     return profileId !== null ? profilePermissionsMap[profileId as keyof typeof profilePermissionsMap]
       .some((route) => currentRoute.includes(route)) : false;
+  }
+
+  // redundant
+
+  private saveSessionData(user: User): void {
+    this.user = user;
+    this.isAuthenticated = true;
+    this.authToken = this.user.token;
+    this.storageService.save('authToken', this.authToken, 'local');
+    this.storageService.save('user', this.user, 'local');
+    this.userService.refreshUser();
   }
 
 }

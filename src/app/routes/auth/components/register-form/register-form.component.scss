@@ -66,10 +66,28 @@
   }
 }
 
-:host ::ng-deep .c-field-box {
-  border: solid 2px #bccad8 !important;
-  // border-radius: 25px !important;
-  margin-bottom: 28px !important;
+:host ::ng-deep {
+  .c-field-box {
+    border: solid 2px #bccad8 !important;
+    margin-bottom: 28px !important;
+  }
+
+  .c-selectable-field-box {
+    margin-bottom: 28px !important;
+    .ng-select-container {
+      border: solid 2px #bccad8 !important;   
+    }
+  }
+
+  .mdc-text-field {
+    border: solid 2px #bccad8 !important;
+    // border-radius: 0px !important;
+  }
+
+  /* Local style */
+  .c-date-select {
+    margin-bottom: 9px !important;
+  }
 
   &__label{
     color: var(--app-primary-color) !important;

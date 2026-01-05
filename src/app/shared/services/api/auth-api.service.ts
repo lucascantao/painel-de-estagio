@@ -25,9 +25,29 @@ export class AuthApiService {
         email: res.user.email,
         role: res.user.role,
         token: res.token,
+        address: res.user.address,
+        phone: res.user.phone,
         partnerName: res.user.partners_name
       } as User
     })
+  }
+
+  public async register(userPayload: any): Promise<User> {
+    // TODO: código repetido com o login, refatorar
+    return firstValueFrom(
+      this.http.post<any>(`${API_BASE_URL}/register`, userPayload)
+    )
+    .then((res: any) => {
+      return {
+        id: res.user.id,
+        name: res.user.name,
+        email: res.user.email,
+        role: res.user.role,
+        token: res.token,
+        address: res.user.address,
+        phone: res.user.phone,
+      } as User
+    });
   }
 
   public async logout(userId: number): Promise<void> {

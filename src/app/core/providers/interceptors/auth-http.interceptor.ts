@@ -15,6 +15,7 @@ export const authHttpInterceptor: HttpInterceptorFn = (req, next) => {
     // 'earthengine',
     // 'mapbiomas.org',
     '/login',
+    '/register',
     '/forgot-password',
     '/verify-token',
     '/reset-password'

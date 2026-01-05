@@ -26,7 +26,6 @@ export class UserService {
 
   public getUser(): User | null {
     this.user = this.user === null ? this.storageService.load('user', 'local', null) : this.user;
-    console.log(this.user);
     return this.user;
   }
 

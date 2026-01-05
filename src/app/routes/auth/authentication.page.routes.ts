@@ -4,6 +4,7 @@ import { AuthenticationPage } from "./authentication.page";
 import { LoginFormComponent } from "./components/login-form/login-form.component";
 import { RecoveryEmailComponent } from "./components/recovery-email/recovery-email.component";
 import { RecoveryPasswordComponent } from "./components/recovery-password/recovery-password.component";
+import { RegisterFormComponent } from "./components/register-form/register-form.component";
 
 export const routes: Routes = [
   {
@@ -13,6 +14,10 @@ export const routes: Routes = [
       {
         path: 'login',
         component: LoginFormComponent
+      },
+      {
+        path: 'registro',
+        component: RegisterFormComponent
       },
       {
         path: 'recuperacao-email',

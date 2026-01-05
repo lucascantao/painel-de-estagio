@@ -1,0 +1,62 @@
+<section class="c-login-area">
+  <span>Gestão de Estágio</span>
+  <section class="c-login">
+    <span>Crie uma conta.</span>
+    <form class="c-login__form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <app-input-field
+        formControlName="name"
+        [label]="'Nome completo'"
+        [type]="'text'"
+        [placeholder]="'Digite seu nome completo aqui'"
+        [control]="registerForm.get('name')"
+      ></app-input-field>
+      <app-input-field
+        formControlName="phone"
+        [label]="'Telefone'"
+        [isPhoneNumber]="true"
+        [placeholder]="'Digite seu telefone aqui'"
+        [control]="registerForm.get('phone')"
+      ></app-input-field>
+      <app-input-field
+        formControlName="address"
+        [label]="'Endereço'"
+        [type]="'text'"
+        [placeholder]="'Digite seu endereço aqui'"
+        [control]="registerForm.get('address')"
+      ></app-input-field>
+      <app-date-select-field
+        formControlName="birthdate"
+        [label]="'Data de Nascimento'"
+        [placeholder]="'DD/MM/YYYY'"
+        [control]="registerForm.get('birthdate')"
+        [name]="'birthdate'"
+      ></app-date-select-field>
+      <app-select-field
+        formControlName="gender"
+        [label]="'Gênero'"
+        [options]="gender"
+        [placeholder]="'Gênero'"
+        [useValueOptionKeyAsLabel]="true"
+        [control]="registerForm.get('gender')"
+      ></app-select-field>
+      <app-input-field
+        formControlName="email"
+        [label]="'Endereço de e-mail'"
+        [type]="'email'"
+        [placeholder]="'Digite seu endereço de e-mail aqui'"
+        [control]="registerForm.get('email')"
+      ></app-input-field>
+      <app-input-field
+        formControlName="password"
+        [label]="'Senha'"
+        [type]="'password'"
+        [placeholder]="'Crie uma senha'"
+        [control]="registerForm.get('password')"
+      ></app-input-field>
+      <button [disabled]="isLoading" type="submit">
+        <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+        <b *ngIf="!isLoading">Criar conta</b>
+      </button>
+    </form>
+  </section>
+</section>
