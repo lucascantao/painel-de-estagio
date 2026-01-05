@@ -1,0 +1,19 @@
+<div class="c-skills-dialog">
+  <div class="c-skills-dialog__header">
+    <span class="c-device-dialog__header-title">
+      Selecionar Competências
+    </span>
+    <mat-icon svgIcon="close" aria-hidden="false" (click)="closePanel()"></mat-icon>
+  </div>
+  <div class="c-skills-dialog__divider"></div>
+  <div class="c-skills-dialog__content">
+    <app-input-field
+      class="c-skills-dialog__search"
+      (valueChange)="onValueChange($event)"
+      [placeholder]="'Pesquisar...'"
+    ></app-input-field>
+  </div>
+  <div class="c-skills-dialog__footer">
+
+  </div>
+</div>

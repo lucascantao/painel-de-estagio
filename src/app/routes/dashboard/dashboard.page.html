@@ -32,7 +32,7 @@
           <div>{{ user.gender ?? '--' }}</div>
         </div>
       </div>
-      
+
       <div class="header">
         <span class="title">Informações de Contato</span>
         <div class="underline"></div>
@@ -54,7 +54,7 @@
           <div>{{ user.address ?? '--' }}</div>
         </div>
       </div>
-  
+
       <!-- Área do ALuno -->
       <div *ngIf="getUserRole() === 'Aluno'">
 
@@ -65,7 +65,7 @@
         </div>
 
         <div class="actions">
-          <span 
+          <span
             (click)="openNewInternshipDialog()"
             class="actions__button"
             *ngIf="!user.internship"
@@ -107,10 +107,14 @@
         </div>
 
         <div class="actions">
-          <span 
-            class="actions__button"
+          <span
+            (click)="openSkillDialog()"
+            class="actions__button skill"
             *ngIf="true"
-          >Completar Perfil de Aluno</span>
+          >
+            <span>Adicionar</span>
+            <mat-icon svgIcon="plus" aria-hidden="false"></mat-icon>
+          </span>
         </div>
 
         <div class="info-section">

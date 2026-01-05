@@ -1,92 +1,110 @@
 .c-dashboard {
 
-    .loading-overlay {
-      position: absolute;
+  .loading-overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+  }
+
+  &__user-container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+
+    .header {
+      margin-bottom: 20px;
+
+      .title {
+        font-family: "Inter", sans-serif !important;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 10px;
+        letter-spacing: 1px;
+        color: var(--app-header-line);
+      }
+
+      .underline {
+        width: 100%;
+        height: 1px;
+        background-color: var(--app-header-line);
+      }
+    }
+
+    .info-section {
+      margin-bottom: 22px;
+      padding-left: 16px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      .field {
+        // margin-bottom: 14px;
+        margin-bottom: 22px;
+
+        label {
+          font-family: "Inter", sans-serif !important;
+          font-weight: bold;
+          font-size: 12px;
+          line-height: 10px;
+          letter-spacing: 1px;
+          color: #121926;
+        }
+
+        div {
+          // font-family: "Inter", sans-serif !important;
+          font-weight: 300;
+          font-size: 12px;
+          line-height: 10px;
+          letter-spacing: 1px;
+          color: #121926;
+        }
+      }
+    }
+
+    .actions {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      z-index: 1000;
-    }
+      flex-direction: column;
+      // align-items: center;
 
-    &__user-container {
+      &__button {
+        width: 210px;
         display: flex;
-        flex-direction: column;
-        padding: 12px;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 16px;
+        background: var(--app-dark-color);
+        border-radius: 50px;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
 
-        .header {
-          margin-bottom: 20px;
+      &__button.skill {
+        border: 1px solid gray;
+        background: transparent;
+        color: gray;
+        width: fit-content;
+        padding: 8px 8px 8px 12px;
+      }
 
-          .title{
-            font-family: "Inter", sans-serif !important;
-            font-weight: 300;
-            font-size: 14px;
-            line-height: 10px;
-            letter-spacing: 1px;
-            color: var(--app-header-line);
-          }
-          .underline{
-            width: 100%;
-            height: 1px;
-            background-color: var(--app-header-line);
-          }
-        }
+      &__button.skill:hover {
+        border: none;
+        background: gray;
+        color: white;
+        width: fit-content;
+        transition: all 0.3s ease;
+      }
 
-        .info-section {
-            margin-bottom: 22px;
-            padding-left: 16px;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            .field {
-                // margin-bottom: 14px;
-                margin-bottom: 22px;
-                
-                label {
-                    font-family: "Inter", sans-serif !important;
-                    font-weight: bold;
-                    font-size: 12px;
-                    line-height: 10px;
-                    letter-spacing: 1px;
-                    color: #121926;
-                }
-
-                div {
-                    // font-family: "Inter", sans-serif !important;
-                    font-weight: 300;
-                    font-size: 12px;
-                    line-height: 10px;
-                    letter-spacing: 1px;
-                    color: #121926;
-                }
-            }
-        }
-
-        .actions {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          &__button{
-            width: 210px;
-            display: flex;
-            justify-content: center;
-            padding: 12px 16px;
-            background: var(--app-dark-color);
-            border-radius: 5px;
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 16px;
-          }
-
-          &__button:hover {
-            cursor: pointer;
-            opacity: 0.8;
-          }
-        }
+      &__button:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
     }
+  }
 }

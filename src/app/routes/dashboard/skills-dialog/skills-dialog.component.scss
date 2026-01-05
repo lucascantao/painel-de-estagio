@@ -1,0 +1,78 @@
+.c-skills-dialog {
+  background-color: var(--app-light-color);
+  position: relative;
+  color: white;
+  padding: 12px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    height: 30px;
+
+    color: var(--app-dark-color);
+    font-weight: bold;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      font-family: "Inter", sans-serif !important;
+      font-size: 14px;
+      color: #FFFFFFCC;
+
+      mat-icon {
+        height: 17px;
+        margin-left: 7px;
+      }
+    }
+
+    mat-icon:hover {
+      cursor: pointer;
+      filter: opacity(0.6);
+    }
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--app-secondary-color);
+    margin: 12px 0;
+  }
+
+  &__content {
+    height: 500px;
+    display: flex;
+
+    .form-container {
+      min-width: 256px;
+      display: flex;
+      flex-direction: column;
+
+      .form-content {
+
+        .header {
+          margin-bottom: 20px;
+
+          .title{
+            font-family: "Inter", sans-serif !important;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 10px;
+            letter-spacing: 1px;
+            color: var(--app-header-line);
+          }
+          .underline{
+            width: 100%;
+            height: 1px;
+            background-color: var(--app-header-line);
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    width: 100%;
+  }
+}
