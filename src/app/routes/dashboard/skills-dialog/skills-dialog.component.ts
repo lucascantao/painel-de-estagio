@@ -41,11 +41,16 @@ export class SkillsDialogComponent implements OnInit {
     this.skillApiService.skillsList().then(res => {
       console.log(res);
       this.skills = res.data;
+      this.cdr.detectChanges();
     });
   }
 
   submit() {
 
+  }
+
+  selectSkill(skill: any) {
+    console.log(skill);
   }
 
   closePanel() {

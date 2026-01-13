@@ -12,8 +12,22 @@
       (valueChange)="onValueChange($event)"
       [placeholder]="'Pesquisar...'"
     ></app-input-field>
+
+    <div class="c-skills-dialog__skill-list">
+      @for(skill of skills; track skill.id) {
+        <div 
+          class="c-skills-dialog__skill-item"
+          (click)="selectSkill(skill)"
+        >
+          <span>{{ skill.name }}</span>
+        </div>
+      } @empty {
+        <div class="c-skills-dialog__no-skills">
+          Nenhuma competência encontrada.
+        </div>
+      }
+    </div>
   </div>
   <div class="c-skills-dialog__footer">
-
   </div>
 </div>

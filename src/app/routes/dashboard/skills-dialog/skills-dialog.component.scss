@@ -43,33 +43,32 @@
   &__content {
     height: 500px;
     display: flex;
+    flex-direction: column;
+  }
 
-    .form-container {
-      min-width: 256px;
-      display: flex;
-      flex-direction: column;
 
-      .form-content {
+  &__skill-list {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 100%;
+    gap: 6px;
+    margin-top: 12px;
+  }
 
-        .header {
-          margin-bottom: 20px;
+  &__skill-item {
+    background-color: darkgray;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+  }
 
-          .title{
-            font-family: "Inter", sans-serif !important;
-            font-weight: 300;
-            font-size: 12px;
-            line-height: 10px;
-            letter-spacing: 1px;
-            color: var(--app-header-line);
-          }
-          .underline{
-            width: 100%;
-            height: 1px;
-            background-color: var(--app-header-line);
-          }
-        }
-      }
-    }
+  &__skill-item:hover {
+    cursor: pointer;
+    background-color: var(--app-primary-color);
+    transition: .1s all ease-in-out;
   }
 
   &__search {
