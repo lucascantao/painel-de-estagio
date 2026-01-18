@@ -7,27 +7,39 @@
   </div>
   <div class="c-skills-dialog__divider"></div>
   <div class="c-skills-dialog__content">
-    <app-input-field
-      class="c-skills-dialog__search"
-      (valueChange)="onValueChange($event)"
-      [placeholder]="'Pesquisar...'"
-    ></app-input-field>
+    @if(loading) {
+      <mat-spinner diameter="40"></mat-spinner>
+    } @else {
+      <app-input-field
+        class="c-skills-dialog__search"
+        (valueChange)="onValueChange($event)"
+        [placeholder]="'Pesquisar...'"
+      ></app-input-field>
 
-    <div class="c-skills-dialog__skill-list">
-      @for(skill of skills; track skill.id) {
-        <div 
-          class="c-skills-dialog__skill-item"
-          (click)="selectSkill(skill)"
-        >
-          <span>{{ skill.name }}</span>
-        </div>
-      } @empty {
-        <div class="c-skills-dialog__no-skills">
-          Nenhuma competência encontrada.
-        </div>
-      }
-    </div>
+      <div class="c-skills-dialog__skill-list">
+        @for(skill of skills; track skill.id) {
+          <div 
+            class="c-skills-dialog__skill-item"
+            [ngClass]="{'selected': highlightSkill(skill.id)}"
+            (click)="selectSkill(skill)"
+          >
+            <span>{{ skill.name }}</span>
+            <mat-icon svgIcon="check"></mat-icon>
+          </div>
+        } @empty {
+          <div class="c-skills-dialog__no-skills">
+            Nenhuma competência encontrada.
+          </div>
+        }
+      </div>
+    }
   </div>
   <div class="c-skills-dialog__footer">
+    <span class="c-skills-dialog__button" (click)="submit()">
+      Salvar
+    </span>
+    <span class="c-skills-dialog__button cancel" (click)="closePanel()">
+      Cancelar
+    </span>
   </div>
 </div>

@@ -17,4 +17,8 @@ export class SkillsApiService {
     return firstValueFrom(await this.http.get<any>(`${API_BASE_URL}/${this.PATH}`));
   }
 
+  public async updateUserSkills(userId: number, skillIds: number[]): Promise<any> {
+    return firstValueFrom(await this.http.put<any>(`${API_BASE_URL}/${this.PATH}/user/${userId}`, { skillIds: skillIds }));
+  }
+
 }

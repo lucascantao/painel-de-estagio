@@ -107,18 +107,27 @@
         </div>
 
         <div class="actions">
+          <!-- Adicionar -->
           <span
             (click)="openSkillDialog()"
             class="actions__button skill"
-            *ngIf="true"
           >
-            <span>Adicionar</span>
-            <mat-icon svgIcon="plus" aria-hidden="false"></mat-icon>
+            <span>Editar</span>
+            <mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
           </span>
         </div>
 
-        <div class="info-section">
-
+        <div class="info-section skill-list">
+          @for(skill of userSkills; track skill.id) {
+            <div class="skill-item">
+              <span>{{ skill.name }}</span>
+              <!-- <mat-icon svgIcon="trash" aria-hidden="false" (click)="removeSkill(skill)"></mat-icon> -->
+            </div>
+          } @empty {
+            <div class="no-skills">
+              Nenhuma competência adicionada.
+            </div>
+          }
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ export interface User {
   token: string;
   address?: string;
   status: string;
+  skills?: Skill[];
 }
 
 export interface Role {
@@ -32,4 +33,10 @@ export interface UserRegister extends Partial<User> {
   password: string;
   roleId: number;
   address?: string;
+}
+
+export interface Skill {
+  id: number;
+  name: string;
+  description?: string;
 }
