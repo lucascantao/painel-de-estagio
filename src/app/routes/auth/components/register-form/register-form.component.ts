@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { InputFieldComponent } from "../../../../shared/ui/components/input-field/input-field.component";
-import { RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/utils/auth.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
@@ -11,7 +10,7 @@ import { DateSelectFieldComponent } from "src/app/shared/ui/components/datepicke
 
 @Component({
   selector: 'app-register-form',
-  imports: [InputFieldComponent, ReactiveFormsModule, RouterLink, NgIf, MatProgressSpinner, SelectFieldComponent, DateSelectFieldComponent],
+  imports: [InputFieldComponent, ReactiveFormsModule, NgIf, MatProgressSpinner, SelectFieldComponent, DateSelectFieldComponent],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss'
 })

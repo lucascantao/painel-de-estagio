@@ -1,35 +1,48 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { InputFieldComponent } from "src/app/shared/ui/components/input-field/input-field.component";
+import { MatProgressSpinner } from "@angular/material/progress-spinner";
+import { HeaderComponent } from "src/app/shared/ui/components/header-title/header.component";
+import { Router } from '@angular/router';
+import { DateSelectFieldComponent } from "src/app/shared/ui/components/datepicker/date-select-field.component";
+import { CompanyApiService } from 'src/app/shared/services/api/company-api.service';
+import { SelectFieldComponent } from "src/app/shared/ui/components/select-field/select-field.component";
 
 @Component({
-  selector: 'app-internship-dialog',
+  selector: 'app-internship-form',
   imports: [
     CommonModule,
     MatIconModule,
     InputFieldComponent,
     ReactiveFormsModule,
+    MatProgressSpinner,
+    HeaderComponent,
+    DateSelectFieldComponent,
+    SelectFieldComponent
 ],
-  templateUrl: './internship-dialog.component.html',
-  styleUrls: ['./internship-dialog.component.scss'],
+  templateUrl: './internship-form.page.html',
+  styleUrls: ['./internship-form.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InternshipDialogComponent implements OnInit {
+export class InternshipFormPage {
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
+  companyApiService: CompanyApiService = inject(CompanyApiService);
 
   form: FormGroup;
   company: FormGroup;
+  companies: any[] = [];
+  companyId: number | null = null;
+
+  submitting: boolean = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
-    public dialogRef: MatDialogRef<ChangeDetectionStrategy>,
+    private router: Router
   ) {
-    this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
     // this.iconRegistry.addSvgIcon('exclamation', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/exclamation-icon.svg'));
   }
 
@@ -41,9 +54,15 @@ export class InternshipDialogComponent implements OnInit {
       supervisor: new FormControl(),
       startDate:  new FormControl(),
       endDate:  new FormControl(),
-      companyId:  new FormControl(),
-      userId: new FormControl(),
-      observation:  new FormControl(),
+      // companyId:  new FormControl(),
+      // userId: new FormControl(),
+      // observation:  new FormControl(),
+    });
+
+    this.companyApiService.companyList().then(companies => {
+      
+      this.companies = companies.data;
+      this.cdr.markForCheck();
     });
 
     this.company = new FormGroup({
@@ -59,8 +78,8 @@ export class InternshipDialogComponent implements OnInit {
 
   }
 
-  closePanel() {
-    this.dialogRef.close(false);
+  onChangeCompany(event: any) {
+    this.companyId = event.value;
   }
 
 }

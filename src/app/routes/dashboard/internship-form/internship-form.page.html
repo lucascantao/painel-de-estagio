@@ -1,0 +1,107 @@
+<div class="page-container">
+  <div class="c-internship-form">
+    <div class="loading-overlay" *ngIf="submitting">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <app-header-title title="Informações do Estágio"></app-header-title>
+
+    <div class="c-internship-form__form" [formGroup]="form">
+      <app-input-field 
+        class="c-internship-form__form-field"
+        formControlName="workload" 
+        [label]="'Carga horparia'" 
+        [placeholder]="'30'">
+      </app-input-field>
+      <app-input-field 
+        class="c-internship-form__form-field"
+        formControlName="schedule" 
+        [label]="'Horário'" 
+        [placeholder]="'Tarde...'">
+      </app-input-field>
+      <app-input-field 
+        class="c-internship-form__form-field"
+        formControlName="supervisor" 
+        [label]="'Supervisor'" 
+        [placeholder]="'Nome do supervisor...'">
+      </app-input-field>
+      <div class="c-internship-form__form-row">
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="salary" 
+          [label]="'Salário'" 
+          [placeholder]="'1000'">
+        </app-input-field>
+        <app-date-select-field
+          class="c-internship-form__form-field"
+          class="c-vacancies-form__form-date-field"
+          [label]="'Data Início'"
+          [placeholder]="'DD/MM/YYYY'"
+          formControlName="startDate"
+          [name]="'startDate'"
+          [control]="form.get('startDate')"
+        ></app-date-select-field>
+        <app-date-select-field
+          class="c-internship-form__form-field"
+          class="c-vacancies-form__form-date-field"
+          [label]="'Data Fim'"
+          [placeholder]="'DD/MM/YYYY'"
+          formControlName="endDate"
+          [name]="'endDate'"
+          [control]="form.get('endDate')"
+        ></app-date-select-field>
+      </div>
+    </div>
+
+    <app-header-title title="Informações da Empresa"></app-header-title>
+
+    <div class="c-internship-form__company">
+      <div>
+        <app-select-field
+          class="c-internship-form__form-field"
+          [label]="'Empresa'"
+          [placeholder]="'Selecione a empresa'"
+          [options]="companies"
+          [useValueOptionKeyAsLabel]="true"
+          (valueChange)="onChangeCompany($event)"
+        ></app-select-field>
+      </div>
+      <div class="c-internship-form__form" [formGroup]="company">
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="name"
+          [label]="'Nome da Empresa'"
+          [placeholder]="'Nome da empresa'">
+        </app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="address"
+          [label]="'Endereço'"
+          [placeholder]="'Endereço completo'">
+        </app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="cnpj"
+          [label]="'CNPJ'"
+          [placeholder]="'00.000.000/0000-00'">
+        </app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="email"
+          [label]="'Email'"
+          [placeholder]="'email@empresa.com'">
+        </app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          formControlName="phone"
+          [label]="'Telefone'"
+          [placeholder]="'(99) 99999-9999'">
+        </app-input-field>
+      </div>
+    </div>
+    <div class="c-internship-form__footer">
+
+    </div>
+  </div>
+</div>
+

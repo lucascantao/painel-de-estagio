@@ -35,7 +35,7 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         canActivate: [authGuard, permissionGuard],
-        loadComponent: () => import('./routes/dashboard/dashboard.page').then(m => m.DashboardPage)
+        loadChildren: () => import('./routes/dashboard/dashboard.page.routes').then(m => m.routes)
       },
       // {
       //   path: 'vagas',
