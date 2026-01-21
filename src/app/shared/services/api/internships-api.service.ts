@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { firstValueFrom, Observable } from "rxjs";
 import { Page } from "../../domain/interfaces/Page.interface";
 import { Internship } from "../../domain/interfaces/Internship.interface";
 import { API_BASE_URL } from "src/environments/environment.dev";
@@ -51,6 +51,10 @@ export class InternshipsApiService {
     //   body['status'] = status;
     // }
     return this.http.post<ApiResponse<Internship>>(`${API_BASE_URL}/${this.PATH}/list`, body, { params });
+  }
+
+  public saveIntership(payload: any): Promise<any> {
+    return firstValueFrom(this.http.post<any>(`${API_BASE_URL}/${this.PATH}`, payload));
   }
 
 }

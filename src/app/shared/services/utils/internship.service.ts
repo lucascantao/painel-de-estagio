@@ -30,4 +30,8 @@ export class InternshipService {
   ): Observable<ApiResponse<Internship>> {
     return this.internshipsApiService.getAllInternships(page, perPage, search, sort, direction, filters, userId);
   }
+
+  public saveInternship(internship: any) {
+    return this.internshipsApiService.saveIntership(internship);
+  }
 }
