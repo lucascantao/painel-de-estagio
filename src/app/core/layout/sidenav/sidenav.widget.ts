@@ -11,6 +11,7 @@ import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { LoadingService } from '../../../shared/services/utils/loading.service';
 // import { ProjectInformationDialogComponent } from './dialogs/project-info-dialog.component';
 import { RouterModule } from '@angular/router';
+import { UserService } from 'src/app/shared/services/utils/user.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -28,6 +29,7 @@ export class SidenavWidget {
   private readonly title: Title = inject(Title)
   private readonly modulesService : ModulesService = inject(ModulesService)
   public readonly loadingService: LoadingService = inject(LoadingService)
+  public readonly userService = inject(UserService)
   public readonly cdr = inject(ChangeDetectorRef)
   private readonly dialog: MatDialog = inject(MatDialog)
 

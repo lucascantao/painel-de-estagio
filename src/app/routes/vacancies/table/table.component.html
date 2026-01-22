@@ -7,14 +7,18 @@
   <div class="c-vacancies-header">
     <!-- Actions -->
     <div class="c-vacancies-header__actions">
-      <button 
-        [routerLink]="[MODULES['criar-vaga'].route]"
-        style="margin-left: 12px;" 
-        class="action-btn"
-      >
-        Cadastrar Vaga
-        <mat-icon svgIcon="add" aria-hidden="false"></mat-icon>
-      </button>
+      @if(userService.getUser().role.name === 'Administrador') {
+        <button 
+          [routerLink]="[MODULES['criar-vaga'].route]"
+          style="margin-left: 12px;" 
+          class="action-btn"
+        >
+          Cadastrar Vaga
+          <mat-icon svgIcon="add" aria-hidden="false"></mat-icon>
+        </button>
+      } @else {
+        <div></div>
+      }
       <div style="display: flex;">
         <div class="c-vacancies-header__search">
           <span class="c-vacancies-header__search-icon">

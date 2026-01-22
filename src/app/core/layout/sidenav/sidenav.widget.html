@@ -14,15 +14,17 @@
       <img src="/assets/img/sidenav/user-icon.svg"/>
       <a>{{  MODULES['dashboard'].sidenavTitle }}</a>
     </div>
-    <div
-      class="c-module-container"
-      [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
-      (click)="onModuleClick('estagios', true)"
-      [routerLink]="[MODULES['estagios'].route]"
-      >
-      <img src="/assets/img/sidenav/internships-icon.svg"/>
-      <a>{{ MODULES['estagios'].sidenavTitle }}</a>
-    </div>
+    @if(userService.getRole() == 'Administrador') {
+      <div
+        class="c-module-container"
+        [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
+        (click)="onModuleClick('estagios', true)"
+        [routerLink]="[MODULES['estagios'].route]"
+        >
+        <img src="/assets/img/sidenav/internships-icon.svg"/>
+        <a>{{ MODULES['estagios'].sidenavTitle }}</a>
+      </div>
+    }
     <div
       class="c-module-container"
       [ngClass]="{'c-module-container--active': isActiveModule('vagas')}"
