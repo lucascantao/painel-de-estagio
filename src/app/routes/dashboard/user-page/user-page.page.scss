@@ -16,6 +16,7 @@
 
 	.header {
 		margin-bottom: 20px;
+		position: relative;
 
 		.title {
 			font-family: "Inter", sans-serif !important;
@@ -30,6 +31,24 @@
 			width: 100%;
 			height: 1px;
 			background-color: var(--app-header-line);
+		}
+
+		.alert {
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			display: flex;
+			align-items: center;
+			color: #e2800f;
+			font-size: 12px;
+			font-style: italic;
+			gap: 6px;
+
+			mat-icon {
+				height: 16px;
+				width: 16px;
+			}
 		}
 	}
 
