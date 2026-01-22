@@ -21,7 +21,7 @@
 		<!-- Birthdate -->
 		<div class="field">
 			<label>Data de nascimento</label>
-			<div>{{ user.birthdare ?? '--' }}</div>
+			<div>{{ formatDate(user.birthdate) ?? '--' }}</div>
 		</div>
 		<!-- Gender -->
 		<div class="field">
@@ -88,15 +88,25 @@
 		<div class="header">
 			<span class="title">Estágio</span>
 			<div class="underline"></div>
+			@if(!user.course) {
+				<div class="alert">
+					<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
+					Curso não selecionado!
+				</div>
+			}
 		</div>
 
-		<div 
-			[routerLink]="[MODULES['criar-estagio'].route]" 
-			[ngClass]="{'no-course': !user.course}"
-			class="actions__button"
-			*ngIf="!user.internship"
-		>
-			Cadastrar Estágio
+		<div>
+			<div 
+				[routerLink]="[MODULES['criar-estagio'].route]" 
+				[ngClass]="{'no-course': !user.course}"
+				class="actions__button"
+				*ngIf="!user.internship"
+			>
+				Cadastrar Estágio
+			</div>
+	
+			
 		</div>
 
 		<div class="info-section" *ngIf="user.internship">
@@ -132,6 +142,12 @@
 		<div class="header">
 			<span class="title">Competências do Aluno</span>
 			<div class="underline"></div>
+			@if(!user.course) {
+				<div class="alert">
+					<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
+					Curso não selecionado!
+				</div>
+			}
 		</div>
 
 		<div class="actions" [ngClass]="{'no-course': !user.course}">

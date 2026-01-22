@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ModulesService } from 'src/app/shared/services/utils/modules.service';
@@ -45,6 +45,7 @@ export class UserPage {
     this.iconRegistry.addSvgIcon('plus', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/plus-icon.svg'));
     this.iconRegistry.addSvgIcon('trash', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/trash-icon.svg'));
     this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
+    this.iconRegistry.addSvgIcon('alert', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/triangle-alert-icon.svg'));
     this.iconRegistry.addSvgIcon('save', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/save-icon.svg'));
     this.iconRegistry.addSvgIcon('pencil', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/pencil-icon.svg'));
   }
@@ -87,23 +88,9 @@ export class UserPage {
     });
   }
 
-  // openCourseDialog() {
-  //   const dialogRef = this.dialog.open(CourseDialogComponent, {
-  //     width: '400px',
-  //     // data: {
-  //     //   userSkills: this.userSkills,
-  //     //   userId: this.userService.getUserId()
-  //     // }
-  //   });
-
-  //   // dialogRef.afterClosed().subscribe(result => {
-  //   //   if(typeof result === 'object') {
-  //   //     this.userSkills = structuredClone(result);
-  //   //     console.log(this.userSkills);
-  //   //   }
-  //   // });
-  // }
-
+  formatDate(date: Date) {
+    return new DatePipe('en-US').transform(new Date(date), 'dd/MM/yyyy');
+  }
   removeSkill(skill: any) {
     this.userSkills = this.userSkills.filter(s => s.id !== skill.id);
   }
