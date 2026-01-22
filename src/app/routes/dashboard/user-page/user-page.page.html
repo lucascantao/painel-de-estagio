@@ -55,19 +55,44 @@
 	<!-- Área do ALuno -->
 	<div *ngIf="getUserRole() === 'Aluno'">
 
+		<!-- Curso -->
+		<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+		<div class="header">
+			<span class="title">Curso</span>
+			<div class="underline"></div>
+		</div>
+
+		<div 
+			[routerLink]="[MODULES['cadastrar-curso'].route]" 
+			class="actions__button"
+			*ngIf="!user.course"
+		>
+			Selecionar Curso
+		</div>
+
+		<div class="info-section" *ngIf="user.course">
+			<!-- Status -->
+			<div class="field">
+				<label>Curso</label>
+				<div>{{ user.course.name ?? '--' }}</div>
+			</div>
+			<!-- Workload -->
+			<div class="field">
+				<label>Matrícula</label>
+				<div>{{ user.studentNumber ?? '--' }}</div>
+			</div>
+		</div>
+
 		<!-- Estágio -->
+		<!-- ----------------------------------------------------------------------------------------------------------------------- -->
 		<div class="header">
 			<span class="title">Estágio</span>
 			<div class="underline"></div>
 		</div>
 
-		<!-- <div class="actions">
-			<span (click)="openNewInternshipDialog()" class="actions__button" *ngIf="!user.internship">Cadastrar
-				Estágio</span>
-		</div> -->
-
 		<div 
 			[routerLink]="[MODULES['criar-estagio'].route]" 
+			[ngClass]="{'no-course': !user.course}"
 			class="actions__button"
 			*ngIf="!user.internship"
 		>
@@ -103,20 +128,21 @@
 		</div>
 
 		<!-- Perfil de Aluno -->
+		 <!-- ----------------------------------------------------------------------------------------------------------------------- -->
 		<div class="header">
 			<span class="title">Competências do Aluno</span>
 			<div class="underline"></div>
 		</div>
 
-		<div class="actions">
+		<div class="actions" [ngClass]="{'no-course': !user.course}">
 			<!-- Adicionar -->
 			<span (click)="openSkillDialog()" class="actions__button skill">
-				<span>Editar</span>
+				<span>Cadastrar Competências</span>
 				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 			</span>
 		</div>
 
-		<div class="info-section skill-list">
+		<div class="info-section skill-list" [ngClass]="{'no-course': !user.course}">
 			@for(skill of userSkills; track skill.id) {
 			<div class="skill-item">
 				<span>{{ skill.name }}</span>

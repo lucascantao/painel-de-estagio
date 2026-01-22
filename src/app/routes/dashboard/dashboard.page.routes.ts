@@ -13,6 +13,10 @@ export const routes: Routes = [
             {
                 path: 'criar-estagio',
                 loadComponent: () => import('./internship-form/internship-form.page').then(m => m.InternshipFormPage)
+            },
+            {
+                path: 'cadastrar-curso',
+                loadComponent: () => import('./course-form/course-form.page').then(m => m.CourseFormPage)
             }
         ]
     }

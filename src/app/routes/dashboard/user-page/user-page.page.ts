@@ -11,6 +11,7 @@ import { SkillsDialogComponent } from '../skills-dialog/skills-dialog.component'
 import { RouterLinkWithHref } from "@angular/router";
 import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
+// import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 
 @Component({
   selector: 'app-user-page',
@@ -53,6 +54,7 @@ export class UserPage {
     this.isLoading = true;
     this.userService.findUser(this.userService.getUserId()).then(user => {
       this.user = user;
+      console.log(user);
       this.userSkills = structuredClone(user.skills) || [];
       this.isLoading = false;
     });
@@ -84,6 +86,23 @@ export class UserPage {
       }
     });
   }
+
+  // openCourseDialog() {
+  //   const dialogRef = this.dialog.open(CourseDialogComponent, {
+  //     width: '400px',
+  //     // data: {
+  //     //   userSkills: this.userSkills,
+  //     //   userId: this.userService.getUserId()
+  //     // }
+  //   });
+
+  //   // dialogRef.afterClosed().subscribe(result => {
+  //   //   if(typeof result === 'object') {
+  //   //     this.userSkills = structuredClone(result);
+  //   //     console.log(this.userSkills);
+  //   //   }
+  //   // });
+  // }
 
   removeSkill(skill: any) {
     this.userSkills = this.userSkills.filter(s => s.id !== skill.id);

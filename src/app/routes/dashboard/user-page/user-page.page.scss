@@ -133,7 +133,7 @@
 		}
 
 		&__button.skill {
-			width: fit-content;
+			// width: fit-content;
 			gap: 8px;
 
 			mat-icon {
@@ -147,4 +147,14 @@
 			opacity: 0.8;
 		}
 	}
+}
+
+div.no-course {
+	opacity: 0.5;
+	pointer-events: none;
+	
+}
+
+div.no-course:hover {
+	cursor: not-allowed;
 }
