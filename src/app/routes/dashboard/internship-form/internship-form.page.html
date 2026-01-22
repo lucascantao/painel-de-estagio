@@ -1,8 +1,8 @@
 <div class="page-container">
+  <div class="loading-overlay" *ngIf="submitting">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
   <div class="c-internship-form">
-    <div class="loading-overlay" *ngIf="submitting">
-      <mat-spinner diameter="40"></mat-spinner>
-    </div>
 
     <app-header-title title="Informações do Estágio"></app-header-title>
 
