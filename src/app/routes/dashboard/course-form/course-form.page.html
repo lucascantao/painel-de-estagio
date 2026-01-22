@@ -1,49 +1,51 @@
-<div class="c-course-form">
+<div class="page-container">
 	<div class="loading-overlay" *ngIf="submitting">
 		<mat-spinner diameter="40"></mat-spinner>
 	</div>
+	<div class="c-course-form">
 
-	<app-header-title title="Detalhes do Curso"></app-header-title>
+		<app-header-title title="Detalhes do Curso"></app-header-title>
 
-	<div class="c-course-form__form" [formGroup]="form">
-		<app-input-field
-			class="c-course-form__form-field"
-			[label]="'Matrícula'"
-			[placeholder]="'0000000000000'"
-			formControlName="studentNumber"
-			[control]="form.get('studentNumber')"
-			[isNumeric]="true"
-		></app-input-field>
-		<app-select-field
-			class="c-course-form__form-field"
-			[options]="courses"
-			[label]="'Curso'"
-			formControlName="course"
-			[control]="form.get('course')"
-			[useValueOptionKeyAsLabel]="true"
-		></app-select-field>
-	</div>
+		<div class="c-course-form__form" [formGroup]="form">
+			<app-input-field
+				class="c-course-form__form-field"
+				[label]="'Matrícula'"
+				[placeholder]="'0000000000000'"
+				formControlName="studentNumber"
+				[control]="form.get('studentNumber')"
+				[isNumeric]="true"
+			></app-input-field>
+			<app-select-field
+				class="c-course-form__form-field"
+				[options]="courses"
+				[label]="'Curso'"
+				formControlName="course"
+				[control]="form.get('course')"
+				[useValueOptionKeyAsLabel]="true"
+			></app-select-field>
+		</div>
 
-	<!-- <button 
-		style="margin-left: 12px;" 
-		class="action-btn"
-	>
-		Salvar
-	</button> -->
+		<!-- <button 
+			style="margin-left: 12px;" 
+			class="action-btn"
+		>
+			Salvar
+		</button> -->
 
-	<div class="c-course-form__footer">
-		<app-action-button
-			(click)="submit()"
-			[label]="'Salvar Curso'" 
-			[size]="'large'" 
-		/>
-		<app-action-button
-			[label]="'Cancelar'" 
-			[size]="'large'"
-			[routerLink]="[MODULES['dashboard'].route]" 
-			[type]="'secondary'"
-		/>
-	</div>
+		<div class="c-course-form__footer">
+			<app-action-button
+				(click)="submit()"
+				[label]="'Salvar Curso'" 
+				[size]="'large'" 
+			/>
+			<app-action-button
+				[label]="'Cancelar'" 
+				[size]="'large'"
+				[routerLink]="[MODULES['dashboard'].route]" 
+				[type]="'secondary'"
+			/>
+		</div>
 
 
-</div>	
+	</div>	
+</div>

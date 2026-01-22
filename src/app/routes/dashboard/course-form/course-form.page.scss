@@ -1,36 +1,43 @@
-.c-course-form {
-	position: relative;
+.page-container {
 	height: 100%;
-	width: 60%;
-	padding: 8px;
-
-	&__form {
-		display: flex;
-		flex-direction: column;
-
-		&-field {
-			margin-bottom: 24px;
-			width: 100%;
-		}
-
-		&-row {
+	width: 100%;
+	position: relative;
+	
+	.c-course-form {
+		position: relative;
+		height: 100%;
+		width: 60%;
+		padding: 8px;
+	
+		&__form {
 			display: flex;
-			align-items: center;
-			width: 100%;
+			flex-direction: column;
+	
+			&-field {
+				margin-bottom: 24px;
+				width: 100%;
+			}
+	
+			&-row {
+				display: flex;
+				align-items: center;
+				width: 100%;
+				gap: 12px;
+			}
+		}
+	
+		&__footer {
+			margin-top: 18px;
+			display: flex;
 			gap: 12px;
 		}
 	}
-
-	&__footer {
-		margin-top: 18px;
-		display: flex;
-		gap: 12px;
-	}
 }
+
 
 .loading-overlay {
   position: absolute;
-  background-color: #3e5a8e3d;
+  // background-color: #3e5a8e3d;
   display: flex;
   justify-content: center;
   align-items: center;
