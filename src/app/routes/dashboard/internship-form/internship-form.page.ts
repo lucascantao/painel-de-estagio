@@ -144,7 +144,7 @@ export class InternshipFormPage {
   }
 
   onChangeCompany(event: any) {
-    this.companyId = event.value;
+    this.companyId = event.id;
   }
 
   updateCheckNewCompany(newCompany: boolean) {
