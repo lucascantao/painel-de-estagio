@@ -8,7 +8,7 @@ export const MODULES: MappedModule = {
     route: "/estagios"
   },
   "dashboard": {
-    title: "Painel do Usuário",
+    title: "Ficha do Usuário",
     sidenavTitle: "Painel do Usuário",
     browserTitle: "Painel do Usuário",
     route: "/dashboard"
