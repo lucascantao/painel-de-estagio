@@ -96,19 +96,14 @@
 			}
 		</div>
 
-		<div>
-			<div 
-				[routerLink]="[MODULES['criar-estagio'].route]" 
-				[ngClass]="{'no-course': !user.course}"
-				class="actions__button"
-				*ngIf="!user.internship"
-			>
-				Cadastrar Estágio
-			</div>
-	
-			
-		</div>
-
+		<div 
+			[routerLink]="[MODULES['criar-estagio'].route]" 
+			[ngClass]="{'no-course': !user.course}"
+			class="actions__button"
+			*ngIf="!user.internship"
+		>
+			Cadastrar Estágio
+		</div>	
 		<div class="info-section" *ngIf="user.internship">
 			<!-- Status -->
 			<div class="field">
@@ -135,6 +130,15 @@
 				<label>Empresa</label>
 				<div>{{ user.internship.company.name ?? '--' }}</div>
 			</div>
+			<div class="field">
+			</div>
+			<div 
+				class="actions__button skill"	
+				*ngIf="!user.internship.hasDocument"
+			>
+				Enviar Documentação
+				<mat-icon svgIcon="file-up" aria-hidden="false"></mat-icon>
+			</div>	
 		</div>
 
 		<!-- Perfil de Aluno -->

@@ -48,6 +48,7 @@ export class UserPage {
     this.iconRegistry.addSvgIcon('alert', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/triangle-alert-icon.svg'));
     this.iconRegistry.addSvgIcon('save', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/save-icon.svg'));
     this.iconRegistry.addSvgIcon('pencil', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/pencil-icon.svg'));
+    this.iconRegistry.addSvgIcon('file-up', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/file-up-icon.svg'));
   }
 
   ngOnInit() {
