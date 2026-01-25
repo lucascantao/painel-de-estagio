@@ -34,4 +34,8 @@ export class InternshipService {
   public saveInternship(internship: any) {
     return this.internshipsApiService.saveIntership(internship);
   }
+
+  public uploadDocument(file: any) {
+    return this.internshipsApiService.uploadDocument(file);
+  }
 }

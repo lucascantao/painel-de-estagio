@@ -57,4 +57,8 @@ export class InternshipsApiService {
     return firstValueFrom(this.http.post<any>(`${API_BASE_URL}/${this.PATH}`, payload));
   }
 
+  public uploadDocument(file: any) {
+    return this.http.post<any>(`${API_BASE_URL}/${this.PATH}/submit-docs`, file);
+  }
+
 }

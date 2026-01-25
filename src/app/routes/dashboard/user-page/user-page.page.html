@@ -131,14 +131,31 @@
 				<div>{{ user.internship.company.name ?? '--' }}</div>
 			</div>
 			<div class="field">
+				<label>Documentação de Estágio</label>
+				<div>
+					@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Aguardando Deferimento") {
+						<div style="display: flex; align-items: center; gap: 8px; color: green;">
+							Doucumentação Enviada
+							<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+						</div>
+					}
+					<div 
+					class="actions__button icon"	
+					(click)="fileUpload.click()"
+					style="color: white; margin-top: 12px;"
+					>
+						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Aguardando Deferimento") {
+							Reenviar
+							<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
+						} @else {
+							Enviar Documentação
+							<mat-icon svgIcon="upload" aria-hidden="false"></mat-icon>
+						}
+						<input #fileUpload type="file" accept="application/pdf" (change)="onFileSelected($event)" style="display: none;">
+					</div>	
+				</div>
 			</div>
-			<div 
-				class="actions__button skill"	
-				*ngIf="!user.internship.hasDocument"
-			>
-				Enviar Documentação
-				<mat-icon svgIcon="file-up" aria-hidden="false"></mat-icon>
-			</div>	
+			
 		</div>
 
 		<!-- Perfil de Aluno -->
@@ -156,7 +173,7 @@
 
 		<div class="actions" [ngClass]="{'no-course': !user.course}">
 			<!-- Adicionar -->
-			<span (click)="openSkillDialog()" class="actions__button skill">
+			<span (click)="openSkillDialog()" class="actions__button icon">
 				<span>Cadastrar Competências</span>
 				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 			</span>

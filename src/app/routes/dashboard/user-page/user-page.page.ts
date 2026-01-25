@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, ViewChild } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ModulesService } from 'src/app/shared/services/utils/modules.service';
 import { UserService } from 'src/app/shared/services/utils/user.service';
@@ -8,9 +8,12 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconRegistry, MatIcon } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SkillsDialogComponent } from '../skills-dialog/skills-dialog.component';
-import { RouterLinkWithHref } from "@angular/router";
+import { Router, RouterLinkWithHref } from "@angular/router";
 import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
+import { Form, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { InternshipService } from 'src/app/shared/services/utils/internship.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 // import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 
 @Component({
@@ -20,19 +23,24 @@ import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
     CommonModule,
     MatProgressSpinnerModule,
     MatIcon,
-    RouterLinkWithHref
+    RouterLinkWithHref,
+    ReactiveFormsModule
 ],
   templateUrl: './user-page.page.html',
   styleUrls: ['./user-page.page.scss']
 })
 export class UserPage {
-
+  private readonly snackbar = inject(MatSnackBar);
   private readonly modulesService: ModulesService = inject(ModulesService);
+  public readonly cdr = inject(ChangeDetectorRef);
   iconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   userService = inject(UserService);
+  internshipService = inject(InternshipService);
   dialog = inject(MatDialog);
   user: any;
+
+  @ViewChild('fileInput') fileInput: any;
 
   isLoading: boolean = false;
   
@@ -41,14 +49,15 @@ export class UserPage {
 
   MODULES: MappedModule = MODULES;
 
-  constructor() {
+  constructor(
+    private router: Router
+  ) {  
     this.iconRegistry.addSvgIcon('plus', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/plus-icon.svg'));
-    this.iconRegistry.addSvgIcon('trash', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/trash-icon.svg'));
-    this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
     this.iconRegistry.addSvgIcon('alert', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/triangle-alert-icon.svg'));
-    this.iconRegistry.addSvgIcon('save', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/save-icon.svg'));
     this.iconRegistry.addSvgIcon('pencil', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/pencil-icon.svg'));
-    this.iconRegistry.addSvgIcon('file-up', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/file-up-icon.svg'));
+    this.iconRegistry.addSvgIcon('upload', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/upload-icon.svg'));
+    this.iconRegistry.addSvgIcon('re-send', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/re-send-icon.svg'));
+    this.iconRegistry.addSvgIcon('circle-check', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/circle-check-icon.svg'));
   }
 
   ngOnInit() {
@@ -94,6 +103,40 @@ export class UserPage {
   }
   removeSkill(skill: any) {
     this.userSkills = this.userSkills.filter(s => s.id !== skill.id);
+  }
+
+  onFileSelected(event: any) {
+    console.log(event);
+    const input = event.target as HTMLInputElement;
+    if(input.files && input.files.length === 1) {
+      console.log(input.files);
+      const files: File[] = Array.from(input.files);
+      const formData = new FormData();
+      formData.append('file', files[0]);
+      formData.append('internshipId', this.user.internship.id.toString());
+      this.internshipService.uploadDocument(formData).subscribe({
+        next: res => {
+          console.log('success', res);
+          // this.router.navigate(['/dashboard']);
+          window.location.reload();
+          // this.userService.refreshUser();
+          // this.cdr.detectChanges();
+        },
+        error: err => {
+          console.log('error', err);
+          this.snackbar.open(
+            'Erro ao enviar o arquivo',
+            'Fechar',
+            {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              panelClass: ['snackbar-error']
+            }
+          );
+        }
+      });
+    }
   }
 
 }
