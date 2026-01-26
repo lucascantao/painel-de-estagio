@@ -1,0 +1,90 @@
+<div class="c-internship-detail-dialog">
+  <div class="c-internship-detail-dialog__header">
+    <span class="c-device-dialog__header-title">
+      Detalhes do Estágio
+    </span>
+    <mat-icon svgIcon="close" aria-hidden="false" (click)="closePanel()"></mat-icon>
+  </div>
+  <div class="c-internship-detail-dialog__divider"></div>
+  <div class="c-internship-detail-dialog__content">
+    @if(loading) {
+      <div class="loading-overlay">
+        <mat-spinner diameter="40"></mat-spinner>
+      </div>
+    } @else {
+      <app-header-title title="Estágio"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field">
+          <label>Carga Horária</label>
+          <div>{{ internship.workload ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Horário</label>
+          <div>{{ internship.schedule ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Salário</label>
+          <div>R${{ internship.salary ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Status</label>
+          <div>{{ internship.internshipStatus.name ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Início</label>
+          <div>{{ formatDate(internship.startDate) ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Término</label>
+          <div>{{ formatDate(internship.endDate) ?? '--' }}</div>
+        </div>
+      </div>
+      <app-header-title title="Empresa"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field">
+          <label>Supervisor</label>
+          <div>{{ internship.supervisor ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Empresa</label>
+          <div>{{ internship.company.name ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>CNPJ</label>
+          <div>{{ internship.company.cnpj ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Endereço</label>
+          <div>{{ internship.company.address ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>E-Mail</label>
+          <div>{{ internship.company.email ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Phone</label>
+          <div>{{ internship.company.phone ?? '--' }}</div>
+        </div>
+      </div>
+      <app-header-title title="Estudante"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field">
+          <label>Nome</label>
+          <div>{{ internship.user.name ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>E-Mail</label>
+          <div>{{ internship.user.email ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Curso</label>
+          <div>{{ internship.user.course.name ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Matrícula</label>
+          <div>{{ internship.user.studentNumber ?? '--' }}</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

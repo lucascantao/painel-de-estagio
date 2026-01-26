@@ -1,9 +1,11 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, Input } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
+import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { DomSanitizer } from "@angular/platform-browser";
+import { InternshipDetailsDialogComponent } from "../internship-details-dialog/internship-details-dialog.component";
 
 @Component({
   selector: 'app-actions-menu',
@@ -18,40 +20,53 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 
 export class ActionsMenuComponent {
-
-  @Input() onUpdateStatus: (requestId: number, statusId: number) => void;
-  @Input() onOpenDialog: (requestId: number, action: string, status: number) => void;
-  @Input() requestId: number;
-  @Input() status: number;
+  @Input() internshipId: number;
+  dialog = inject(MatDialog);
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
 
   constructor() {
-    this.iconRegistry.addSvgIcon('more-vertical', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/more_vertical-icon.svg'));
-
+    this.iconRegistry.addSvgIcon('ellipsis', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
+    this.iconRegistry.addSvgIcon('circle-check', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/circle-check-icon.svg'));
+    this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
+    this.iconRegistry.addSvgIcon('eye', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/eye-icon.svg'));
   }
 
-  actionDisabled(statusId: number) {
-    let disabled: boolean = false;
-    if (statusId === 2 || statusId === 3) {
-      disabled = this.status === 4 || this.status === statusId || this.status === 5;
-    }
-    if(statusId === 4) {
-      disabled = this.status !== 2;
-    }
-    return disabled;
+
+  public openInternshipDialog() {
+    const dialogRef = this.dialog.open(InternshipDetailsDialogComponent, {
+      width: '700px',
+      data: {
+        internshipId: this.internshipId
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 
-  updateRequestStatus(statusId: number) {
-    this.onUpdateStatus(this.requestId, statusId);
-  }
+  // actionDisabled(statusId: number) {
+  //   let disabled: boolean = false;
+  //   if (statusId === 2 || statusId === 3) {
+  //     disabled = this.status === 4 || this.status === statusId || this.status === 5;
+  //   }
+  //   if(statusId === 4) {
+  //     disabled = this.status !== 2;
+  //   }
+  //   return disabled;
+  // }
 
-  openViewDialog() {
-    this.onOpenDialog(this.requestId, 'view', this.status);
-  }
+  // updateRequestStatus(statusId: number) {
+  //   this.onUpdateStatus(this.requestId, statusId);
+  // }
 
-  openEditDialog() {
-    this.onOpenDialog(this.requestId, 'edit', this.status);
-  }
+  // openViewDialog() {
+  //   this.onOpenDialog(this.requestId, 'view', this.status);
+  // }
+
+  // openEditDialog() {
+  //   this.onOpenDialog(this.requestId, 'edit', this.status);
+  // }
 }

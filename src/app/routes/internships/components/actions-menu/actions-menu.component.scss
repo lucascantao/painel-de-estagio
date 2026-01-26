@@ -25,8 +25,13 @@
       margin-right: 8px;
     }
 
-    span {
+    span, mat-icon {
       color: #fff;
+    }
+
+    mat-icon {
+      height: 16px;
+      width: 16px;
     }
   }
 
@@ -34,6 +39,12 @@
     height: 1px;
     background-color: #5D6A83;
     margin: 12px 22px;
+  }
+
+  &__trigger {
+    mat-icon {
+      color: var(--app-dark-color);
+    }
   }
 
 }

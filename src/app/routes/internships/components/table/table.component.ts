@@ -37,7 +37,7 @@ import { InternshipService } from 'src/app/shared/services/utils/internship.serv
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    // ActionsMenuComponent
+    ActionsMenuComponent
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
@@ -68,17 +68,18 @@ export class InternshipsTableComponent {
   displayedColumns: string[] = [
     // 'select',
     'studentId',
+    'status',
     'name',
     'course',
-    'email',
+    // 'email',
     'company',
-    'supervisor',
+    // 'supervisor',
     'schedule',
     'workload',
     'salary',
     'startDate',
     'endDate',
-    'observation',
+    // 'observation',
     'actions'
   ];
   dataSource: MatTableDataSource<Internship> = new MatTableDataSource([]);
@@ -136,7 +137,15 @@ export class InternshipsTableComponent {
         this.total = response.data.total;
         this.internships = response.data.items;
         this.dataSource.data = this.internships
-        .map(internship => internship);
+        .map(internship => ({
+          ...internship, 
+          status: {
+            id: internship.status.id,
+            name: internship.status.name.toUpperCase()
+          },
+          startDate: internship.startDate ? new Date(internship.startDate).toLocaleDateString('pt-BR') : null,
+          endDate: internship.endDate ? new Date(internship.endDate).toLocaleDateString('pt-BR') : null
+        }));
 
         // post-load
         this.isLoading = false;
