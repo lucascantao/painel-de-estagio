@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../../domain/interfaces/User.interface';
-import { API_BASE_URL } from 'src/environments/environment.dev';
+import { API_BASE_URL, SANCTUM_URL } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +15,19 @@ export class AuthApiService {
   constructor() { }
 
   public async login(email: string, password: string): Promise<User> {
+
+    await firstValueFrom(
+      this.http.get<any>(`${SANCTUM_URL}`, { withCredentials: true })
+    ).then(() => {
+      // CSRF cookie obtained
+      console.log('CSRF cookie obtained');
+    });
+
     return firstValueFrom(
-      this.http.post<any>(`${API_BASE_URL}/login`, { email, password })
+      this.http.post<any>(`${API_BASE_URL}/login`, { email, password }, { withCredentials: true } )
     )
     .then((res: any) => {
+      console.log('login response:', res);
       return {
         id: res.user.id,
         name: res.user.name,
@@ -50,8 +59,8 @@ export class AuthApiService {
     });
   }
 
-  public async logout(userId: number): Promise<void> {
-    return firstValueFrom(this.http.post<void>(`${API_BASE_URL}/logout`, {userId}))
+  public async logout(): Promise<void> {
+    return firstValueFrom(this.http.post<void>(`${API_BASE_URL}/logout`, {}))
   }
 
   public async forgotPassword(email: string): Promise<void> {

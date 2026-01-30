@@ -14,6 +14,7 @@ const BASE_URL = 'http://localhost:8000';
 // const GEOSERVER_URL_TEMP = 'https://protecaoterritorial.conexaopovosdafloresta.org.br:9080';
 
 export const API_BASE_URL = `${BASE_URL}/api`;
+export const SANCTUM_URL = `${BASE_URL}/sanctum/csrf-cookie`;
 // export const GEOSERVER_URL = `${GEOSERVER_URL_TEMP}/geoserver`;
 // export const GEE_IMAGE_API_BASE_URL = `${BASE_URL}/gee-api`;
 

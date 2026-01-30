@@ -7,6 +7,8 @@ import { AuthService } from "src/app/shared/services/utils/auth.service";
 export const authHttpInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
 
+  console.log('authHttpInterceptor called for URL:', req.url);
+
   const exceptionHosts = [
     // URL_GEO_API,
     // GEE_IMAGE_API_BASE_URL,
@@ -21,19 +23,19 @@ export const authHttpInterceptor: HttpInterceptorFn = (req, next) => {
     '/reset-password'
   ];
 
-  const shouldAddToken = !exceptionHosts.some(host =>
-    req.url.includes(host)
-  );
+  // const shouldAddToken = !exceptionHosts.some(host =>
+  //   req.url.includes(host)
+  // );
 
-  const token = shouldAddToken ? authService.verifyAuthentication() : null;
+  // const token = shouldAddToken ? authService.verifyAuthentication() : null;
 
-  if (token) {
-    req = req.clone(
-      {
-        headers: req.headers.set('Authorization', `Bearer ${token}`)
-      }
-    )
-  }
+  // if (token) {
+  //   req = req.clone(
+  //     {
+  //       headers: req.headers.set('Authorization', `Bearer ${token}`)
+  //     }
+  //   )
+  // }
 
   return next(req).pipe(
     catchError((err) => {

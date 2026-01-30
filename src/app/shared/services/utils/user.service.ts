@@ -61,8 +61,10 @@ export class UserService {
   //   return this.userApiService.getPartners();
   // }
 
-  public async findUser(userId: number): Promise<User> {
-    return await this.userApiService.getUser(userId);
+  // public async findUser(userId: number): Promise<User> {
+  public async findUser(): Promise<User> {
+    // return await this.userApiService.getUser(userId);
+    return await this.userApiService.getUser();
   }
 
   // public async createUser(form: { name: string, email: string, password: string, role: any, partner: any, address: string, phone: string }): Promise<void> {
@@ -199,17 +201,18 @@ export class UserService {
   //   await this.userApiService.activateUser(userId);
   // }
 
-  public refreshUser(): void {
-    this.user = this.storageService.load('user', 'local', null);
+  public async refreshUser(): Promise<void> {
+    this.user = await this.findUser();
+    console.log('refreshed user', this.user);
     this.userName.set(this.user?.name);
   }
 
   private async logoutOtherDevice(userId: number): Promise<void> {
-    await this.authApiService.logout(userId);
+    await this.authApiService.logout();
   }
 
   private async logoutAdmin(userId: number): Promise<void> {
-    await this.authApiService.logout(userId);
+    await this.authApiService.logout();
     this.storageService.remove('authToken', 'local');
     this.storageService.remove('user', 'local');
     this.router.navigate(['autenticacao/login']);

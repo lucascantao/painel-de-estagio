@@ -27,10 +27,11 @@ export class AuthService {
       const user = await this.authApiService.login(email, password);
       this.user = user;
       this.isAuthenticated = true;
-      this.authToken = this.user.token;
-      this.storageService.save('authToken', this.authToken, 'local');
-      this.storageService.save('user', this.user, 'local');
-      this.userService.refreshUser();
+      console.log('logado');
+      // this.authToken = this.user.token;
+      // this.storageService.save('authToken', this.authToken, 'local');
+      // this.storageService.save('user', this.user, 'local');
+      // this.userService.refreshUser();
       // this.saveSessionData(user);
     }
     catch (error) {
@@ -49,9 +50,10 @@ export class AuthService {
   }
 
   public async logout(): Promise<void> {
-    const userId = this.userService.getUserId();
-    await this.authApiService.logout(userId);
-    this.clearlocal();
+    // const userId = this.userService.getUserId();
+    await this.authApiService.logout();
+    this.user = null;
+    // this.clearlocal();
     this.router.navigate(['autenticacao/login']);
   }
 
@@ -81,24 +83,24 @@ export class AuthService {
     }
   }
 
-  public verifyAuthentication(): string | null {
-    this.authToken = this.storageService.load('authToken', 'local', null);
-    this.isAuthenticated = this.authToken !== null;
-    this.user = this.storageService.load('user', 'local', null);
+  // public verifyAuthentication(): string | null {
+  //   this.authToken = this.storageService.load('authToken', 'local', null);
+  //   this.isAuthenticated = this.authToken !== null;
+  //   this.user = this.storageService.load('user', 'local', null);
 
-    if (!this.isAuthenticated || !(this.user !== null)) {
-      this.clearlocal();
-      this.snackbar.open('Sua sessão expirou!', 'Fechar', {
-        duration: 5000,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-        panelClass: ['snackbar-error']
-      })
-    }
+  //   if (!this.isAuthenticated || !(this.user !== null)) {
+  //     this.clearlocal();
+  //     this.snackbar.open('Sua sessão expirou!', 'Fechar', {
+  //       duration: 5000,
+  //       horizontalPosition: 'center',
+  //       verticalPosition: 'bottom',
+  //       panelClass: ['snackbar-error']
+  //     })
+  //   }
 
-    this.userService.refreshUser();
-    return this.authToken
-  }
+  //   this.userService.refreshUser();
+  //   return this.authToken
+  // }
 
   public handleWithoutAuthentication(): void {
     this.clearlocal();
@@ -184,16 +186,18 @@ export class AuthService {
   }
 
   public getIsAuthenticated(){
-    this.authToken = this.storageService.load('authToken', 'local', null);
-    this.isAuthenticated = this.authToken !== null;
-    return this.isAuthenticated
+    return true;
+    // this.authToken = this.storageService.load('authToken', 'local', null);
+    // this.isAuthenticated = this.authToken !== null;
+    // return this.isAuthenticated
   }
 
   public verifyPermission(currentRoute: string): boolean {
-    const profileId = this.userService.getUser()?.role.id;
-    console.log(profileId);
-    return profileId !== null ? profilePermissionsMap[profileId as keyof typeof profilePermissionsMap]
-      .some((route) => currentRoute.includes(route)) : false;
+    return true;
+    // const profileId = this.userService.getUser()?.role.id;
+    // console.log(profileId);
+    // return profileId !== null ? profilePermissionsMap[profileId as keyof typeof profilePermissionsMap]
+    //   .some((route) => currentRoute.includes(route)) : false;
   }
 
   // redundant

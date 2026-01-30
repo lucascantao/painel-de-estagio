@@ -44,8 +44,10 @@ export class UserApiService {
   //   return firstValueFrom(this.http.get<Partners[]>(`${API_BASE_URL}/${this.PATH}/partners`));
   // }
 
-  public async getUser(userId: number): Promise<User> {
-    return firstValueFrom(this.http.get<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
+  // public async getUser(userId: number): Promise<User> {
+  public async getUser(): Promise<User> {
+    // return firstValueFrom(this.http.get<User>(`${API_BASE_URL}/${this.PATH}/${userId}`))
+    return firstValueFrom(this.http.get<User>(`${API_BASE_URL}/${this.PATH}`))
   }
 
   // public async createUser(payload: UserRegister): Promise<User> {

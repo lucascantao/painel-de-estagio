@@ -63,7 +63,8 @@ export class UserPage {
   ngOnInit() {
     this.modulesService.moduleName.set('dashboard');
     this.isLoading = true;
-    this.userService.findUser(this.userService.getUserId()).then(user => {
+    // this.userService.findUser(this.userService.getUserId()).then(user => {
+    this.userService.findUser().then(user => {
       this.user = user;
       console.log(user);
       this.userSkills = structuredClone(user.skills) || [];
