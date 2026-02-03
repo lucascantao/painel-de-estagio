@@ -58,18 +58,13 @@ export class UserPage {
     this.iconRegistry.addSvgIcon('upload', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/upload-icon.svg'));
     this.iconRegistry.addSvgIcon('re-send', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/re-send-icon.svg'));
     this.iconRegistry.addSvgIcon('circle-check', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/circle-check-icon.svg'));
+
+    this.user = this.userService.getUser();
+    this.userSkills = structuredClone(this.user.skills) || [];
   }
 
   ngOnInit() {
     this.modulesService.moduleName.set('dashboard');
-    this.isLoading = true;
-    // this.userService.findUser(this.userService.getUserId()).then(user => {
-    this.userService.findUser().then(user => {
-      this.user = user;
-      console.log(user);
-      this.userSkills = structuredClone(user.skills) || [];
-      this.isLoading = false;
-    });
   }
 
   getUserRole() {

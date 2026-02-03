@@ -1,33 +1,44 @@
+<div>
+  @if(isRedirecting){
+    <section class="c-redirecting-area">
+      <span>Carregando dados do usuário...</span>
+      <!-- <mat-progress-spinner diameter=50 mode="indeterminate"></mat-progress-spinner> -->
+    </section>
+  }
+  @else {
 <section class="c-login-area">
   <span>Gestão de Estágio</span>
-  <section class="c-login">
-    <span>Entre na sua conta.</span>
-    <form class="c-login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <app-input-field
-        formControlName="email"
-        [label]="'Endereço de e-mail'"
-        [type]="'email'"
-        [placeholder]="'Digite seu endereço de e-mail aqui'"
-      ></app-input-field>
-      <app-input-field
-        formControlName="password"
-        [label]="'Senha'"
-        [type]="'password'"
-        [placeholder]="'Digite sua senha aqui'"
-      ></app-input-field>
-      <span *ngIf="!formDataValid">E-mail ou senha incorretos</span>
-      <!-- <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a> -->
-      <button [disabled]="isLoading" type="submit">
-        <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
-        <b *ngIf="!isLoading">Entrar</b>
-      </button>
-      <button 
-        [disabled]="isLoading" 
-        [routerLink]="['../registro']"
-        style="margin-top: 10px;"
-      >
-        <b>Criar conta</b>
-      </button>
-    </form>
+  
+    <section class="c-login">
+      <span>Entre na sua conta.</span>
+      <form class="c-login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <app-input-field
+          formControlName="email"
+          [label]="'Endereço de e-mail'"
+          [type]="'email'"
+          [placeholder]="'Digite seu endereço de e-mail aqui'"
+        ></app-input-field>
+        <app-input-field
+          formControlName="password"
+          [label]="'Senha'"
+          [type]="'password'"
+          [placeholder]="'Digite sua senha aqui'"
+        ></app-input-field>
+        <span *ngIf="!formDataValid">E-mail ou senha incorretos</span>
+        <!-- <a href [routerLink]="['../recuperacao-email']">Esqueceu a senha?</a> -->
+        <button [disabled]="isLoading" type="submit">
+          <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+          <b *ngIf="!isLoading">Entrar</b>
+        </button>
+        <button 
+          [disabled]="isLoading" 
+          [routerLink]="['../registro']"
+          style="margin-top: 10px;"
+        >
+          <b>Criar conta</b>
+        </button>
+      </form>
+    </section>
   </section>
-</section>
+}
+</div>

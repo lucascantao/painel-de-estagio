@@ -25,7 +25,6 @@ export class UserService {
   private user: User | null = null;
 
   public getUser(): User | null {
-    this.user = this.user === null ? this.storageService.load('user', 'local', null) : this.user;
     return this.user;
   }
 
@@ -60,12 +59,6 @@ export class UserService {
   // public getPartners(): Promise<Partners[]> {
   //   return this.userApiService.getPartners();
   // }
-
-  // public async findUser(userId: number): Promise<User> {
-  public async findUser(): Promise<User> {
-    // return await this.userApiService.getUser(userId);
-    return await this.userApiService.getUser();
-  }
 
   // public async createUser(form: { name: string, email: string, password: string, role: any, partner: any, address: string, phone: string }): Promise<void> {
   //   try {
@@ -201,17 +194,26 @@ export class UserService {
   //   await this.userApiService.activateUser(userId);
   // }
 
-  public async refreshUser(): Promise<void> {
-    this.user = await this.findUser();
-    console.log('refreshed user', this.user);
-    this.userName.set(this.user?.name);
+  // public async refreshUser(): Promise<void> {
+  //   this.user = await this.findUser();
+  //   console.log('refreshed user', this.user);
+  //   this.userName.set(this.user?.name);
+  // }
+
+  public async fetchAuthenticatedUser(): Promise<User> {
+    this.user = await this.userApiService.me().then((user) => {
+      this.userName.set(user.name);
+      return user;
+    });
+
+    return this.user;
   }
 
-  private async logoutOtherDevice(userId: number): Promise<void> {
+  private async logoutOtherDevice(): Promise<void> {
     await this.authApiService.logout();
   }
 
-  private async logoutAdmin(userId: number): Promise<void> {
+  private async logoutAdmin(): Promise<void> {
     await this.authApiService.logout();
     this.storageService.remove('authToken', 'local');
     this.storageService.remove('user', 'local');

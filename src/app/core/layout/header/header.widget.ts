@@ -52,7 +52,7 @@ export class HeaderWidget {
   }
 
   ngOnInit() {
-    this.userService.refreshUser();
+    // this.userService.refreshUser();
     this.userName = computed(() => {
       return this.userService.userName();
     });
