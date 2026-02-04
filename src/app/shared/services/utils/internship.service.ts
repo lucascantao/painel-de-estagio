@@ -38,4 +38,16 @@ export class InternshipService {
   public uploadDocument(file: any) {
     return this.internshipsApiService.uploadDocument(file);
   }
+
+  public downloadDocument(internshipId: number) {
+    this.internshipsApiService.downloadDocument(internshipId);
+  }
+
+  public updateInternshipStatus(internshipId: number, statusId: number): Promise<any> {
+    const payload = {
+      id: internshipId,
+      statusId: statusId
+    };
+    return this.internshipsApiService.updateInternshipStatus(payload);
+  }
 }

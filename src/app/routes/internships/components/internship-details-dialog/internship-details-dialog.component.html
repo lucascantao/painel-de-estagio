@@ -85,6 +85,15 @@
           <div>{{ internship.user.studentNumber ?? '--' }}</div>
         </div>
       </div>
+      @if(internship.hasDocument) {
+      <app-header-title title="Documentação"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <span class="download-button" (click)="downloadDocument()">
+          Baixar Documento
+          <mat-icon svgIcon="download" aria-hidden="false" class="download-icon"></mat-icon>
+        </span>
+      </div>
+      }
     }
   </div>
 </div>

@@ -58,6 +58,31 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 14px;
     margin-bottom: 36px;
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      background-color: var(--app-dark-color);
+      color: white;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      width: fit-content;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      .download-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
   }
 
   &__field {

@@ -6,6 +6,7 @@ import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { DomSanitizer } from "@angular/platform-browser";
 import { InternshipDetailsDialogComponent } from "../internship-details-dialog/internship-details-dialog.component";
+import { InternshipService } from "src/app/shared/services/utils/internship.service";
 
 @Component({
   selector: 'app-actions-menu',
@@ -25,6 +26,7 @@ export class ActionsMenuComponent {
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
+  internshipService = inject(InternshipService);
 
   constructor() {
     this.iconRegistry.addSvgIcon('ellipsis', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
@@ -44,6 +46,18 @@ export class ActionsMenuComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+    });
+  }
+
+  public approveInternship() {
+    this.internshipService.updateInternshipStatus(this.internshipId, 4).then(() => {
+      window.location.reload();
+    });
+  }
+
+  public denyInternship() {
+    this.internshipService.updateInternshipStatus(this.internshipId, 2).then(() => {
+      window.location.reload();
     });
   }
 

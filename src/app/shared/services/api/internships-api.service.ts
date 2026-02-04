@@ -61,4 +61,13 @@ export class InternshipsApiService {
     return this.http.post<any>(`${API_BASE_URL}/${this.PATH}/submit-docs`, file);
   }
 
+  public downloadDocument(internshipId: number) {
+    const url = `${API_BASE_URL}/${this.PATH}/download-docs/${internshipId}`;
+    window.open(url, '_blank');
+  }
+
+  public updateInternshipStatus(payload: any): Promise<any> {
+    return firstValueFrom(this.http.put<any>(`${API_BASE_URL}/${this.PATH}/update-status`, payload));
+  }
+
 }

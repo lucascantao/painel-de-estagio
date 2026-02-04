@@ -30,6 +30,7 @@ export class InternshipDetailsDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
+    this.iconRegistry.addSvgIcon('download', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/download-icon.svg'));
   }
 
   userService = inject(UserService);
@@ -55,6 +56,10 @@ export class InternshipDetailsDialogComponent implements OnInit {
 
   formatDate(date: string) {
     return new DatePipe('en-US').transform(new Date(date), 'dd/MM/yyyy');
+  }
+
+  downloadDocument() {
+    this.internshipService.downloadDocument(this.internship.id);
   }
 
   closePanel() {
