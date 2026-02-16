@@ -3,7 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { firstValueFrom, Observable } from "rxjs";
 import { Page } from "../../domain/interfaces/Page.interface";
 import { Internship } from "../../domain/interfaces/Internship.interface";
-import { API_BASE_URL } from "src/environments/environment.dev";
+import { API_BASE_URL } from "src/environments/environment.prod";
 import { ApiResponse } from "../../domain/interfaces/ApiResponse.interface";
 import { Vacance } from "../../domain/interfaces/Vacance.interface";
 

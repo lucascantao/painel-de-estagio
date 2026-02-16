@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { User } from '../../domain/interfaces/User.interface';
-import { API_BASE_URL, SANCTUM_URL } from 'src/environments/environment.dev';
+import { API_BASE_URL, SANCTUM_URL } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

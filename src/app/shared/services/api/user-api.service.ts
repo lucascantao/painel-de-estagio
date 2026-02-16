@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http"
 import { inject, Injectable } from "@angular/core"
-import { API_BASE_URL } from "src/environments/environment.dev"
+import { API_BASE_URL } from "src/environments/environment.prod"
 import { Partners, Role, User, UserRegister } from "../../domain/interfaces/User.interface"
 import { firstValueFrom, Observable } from "rxjs"
 // import { Page } from "../../domain/interfaces/Page.interface"
