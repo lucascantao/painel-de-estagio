@@ -58,7 +58,8 @@ export class CourseFormPage {
       };
       const userId = this.userService.getUserId();
       this.courseService.updateUserCourse(userId, payload).then(
-        res => {
+        async res => {
+          await this.userService.fetchAuthenticatedUser();
           this.submitting = false;
           this.router.navigate(['/dashboard']);
         },
