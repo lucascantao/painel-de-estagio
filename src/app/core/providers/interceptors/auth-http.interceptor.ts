@@ -2,7 +2,6 @@ import { HttpInterceptorFn } from "@angular/common/http";
 import { inject } from "@angular/core";
 import { catchError, throwError } from "rxjs";
 import { AuthService } from "src/app/shared/services/utils/auth.service";
-// import { GEE_IMAGE_API_BASE_URL, URL_GEO_API } from "src/environments/environment.dev";
 
 export const authHttpInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
@@ -10,12 +9,6 @@ export const authHttpInterceptor: HttpInterceptorFn = (req, next) => {
   console.log('authHttpInterceptor called for URL:', req.url);
 
   const exceptionHosts = [
-    // URL_GEO_API,
-    // GEE_IMAGE_API_BASE_URL,
-    // 'geoserver',
-    // 'api.planet',
-    // 'earthengine',
-    // 'mapbiomas.org',
     '/login',
     '/register',
     '/forgot-password',
