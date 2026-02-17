@@ -39,8 +39,8 @@ export class UserService {
   // }
 
   public getUserId(): number | null {
-    const user: User = this.storageService.load('user', 'local', null);
-    return user?.id;
+    // const user: User = this.storageService.load('user', 'local', null);
+    return this.user?.id;
   }
 
   public getRole() {
