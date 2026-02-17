@@ -12,6 +12,7 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { CourseApiService } from 'src/app/shared/services/api/course-api.service';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { SelectFieldComponent } from "src/app/shared/ui/components/select-field/select-field.component";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -23,7 +24,7 @@ import { SelectFieldComponent } from "src/app/shared/ui/components/select-field/
 
 export class CourseFormPage {
   MODULES: MappedModule = MODULES
-
+  private readonly snackbar = inject(MatSnackBar);
   private readonly courseService: CourseApiService = inject(CourseApiService);
   userService: UserService = inject(UserService);
   form: FormGroup;
@@ -62,9 +63,18 @@ export class CourseFormPage {
           this.router.navigate(['/dashboard']);
         },
         err => {
-          console.log('error');
           console.log(err);
           this.submitting = false;
+          this.snackbar.open(
+            err.error.exception.message,
+            'Fechar',
+            {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              panelClass: ['snackbar-error']
+            }
+          );
         }
       );
     } else {
