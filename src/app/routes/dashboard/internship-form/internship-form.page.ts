@@ -17,6 +17,7 @@ import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { InternshipService } from 'src/app/shared/services/utils/internship.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-internship-form',
@@ -40,6 +41,7 @@ import { InternshipService } from 'src/app/shared/services/utils/internship.serv
 export class InternshipFormPage {
   MODULES: MappedModule = MODULES;
 
+  private readonly snackbar = inject(MatSnackBar);
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   companyApiService: CompanyApiService = inject(CompanyApiService);
@@ -125,6 +127,17 @@ export class InternshipFormPage {
           console.log('error');
           console.log(err);
           this.submitting = false;
+          this.snackbar.open(
+            err.error.exception.message,
+            'Fechar',
+            {
+              duration: 5000,
+              horizontalPosition: 'center',
+              verticalPosition: 'bottom',
+              panelClass: ['snackbar-error']
+            }
+          );
+          this.cdr.detectChanges();
         }
       );
 
