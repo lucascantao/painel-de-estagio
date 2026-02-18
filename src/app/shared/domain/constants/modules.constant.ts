@@ -8,9 +8,9 @@ export const MODULES: MappedModule = {
     route: "/estagios"
   },
   "dashboard": {
-    title: "Ficha do Usuário",
-    sidenavTitle: "Painel do Usuário",
-    browserTitle: "Painel do Usuário",
+    title: "Página do usuário",
+    sidenavTitle: "Página do usuário",
+    browserTitle: "Usuário",
     route: "/dashboard"
   },
   "criar-estagio": {
@@ -26,9 +26,9 @@ export const MODULES: MappedModule = {
     route: "/dashboard/cadastrar-curso"
   },
   "vagas": {
-    title: "Painel de Vagas",
-    sidenavTitle: "Painel de Vagas",
-    browserTitle: "Painel de Vagas",
+    title: "Vagas",
+    sidenavTitle: "Vagas",
+    browserTitle: "Vagas",
     route: "/vagas"
   },
   "criar-vaga": {

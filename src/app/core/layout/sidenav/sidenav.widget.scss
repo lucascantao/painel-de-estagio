@@ -41,8 +41,6 @@
   display: flex;
   flex-direction: row;  
   position: relative;
-  // background: #1A2334;
-  // width: 140%;
   width: 40px;
   min-height: 40px;
   align-items: center;
@@ -56,11 +54,8 @@
 
   a {
     visibility: hidden;
-    // position: absolute;
-    // color: #7aa8e1;
     color: var(--app-negative-text-color);
     font-size: 12px;
-    // font-weight: bold;
     margin-left: 8px;
   }
 
@@ -71,7 +66,6 @@
 }
 
 .c-module-container--active {
-  // background: none;
   background: #4058b9;
   border-radius: 0px;
   border-left: 3px solid var(--app-negative-text-color);
@@ -117,10 +111,10 @@
 }
 
 .item-linebox {
-  width: 40px;
-  border: 1px solid #404653;
-  margin: 30px 0;
-  transition: all 0.2s ease;
+  width: 90%;
+  border: 1px solid #ffffff7c;
+  margin: 30px 12px;
+  // transition: all 0.2s ease;
 }
 
 .c-modules-tools {
@@ -142,38 +136,39 @@
 
 .expand-test {
   height: 100vh !important;
-  // width: 60px !important;
-  // width: 3.91% !important;
   width: 13% !important;
-  // padding: 0 16px !important;
   transition: all 0.2s ease !important;
 
   .icon {
-      width: 38px;
+      width: 30px;
+      // height: 20px;
     }
-// }
-
-// .expand-test:hover {
-  // width: 203px !important;
-  // padding: 16px !important;
 
   .c-logo-container {
     margin-top: 30px;
+    gap: 6px;
 
-    .icon {
-      display: none;
-    }
+    // .icon {
+      // display: none;
+    // }
 
     .brand {
       display: block;
       height: 60px;
       width: 180px;
     }
+
+    .title {
+      font-size: 16px;
+      line-height: 16px;
+      font-family: 'Merriweather', serif;
+      padding-top: 8px;
+      color: #ffffff;
+    }
   }
 
   .c-module-container {
     justify-content: flex-start;
-    // width: 163px;
     width: 100%;
 
     img {
@@ -185,9 +180,10 @@
     }
   }
 
-  .item-linebox {
-    width: 183px;
-  }
+  // .item-linebox {
+  //   width: 100%;
+  //   margin: 0 12px;
+  // }
 
   .c-modules-tools {
     left: 18px;

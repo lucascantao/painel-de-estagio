@@ -5,6 +5,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { AvatarModule } from 'ngx-avatars';
 
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
@@ -35,6 +36,7 @@ export class HeaderWidget {
   private readonly authService = inject(AuthService)
   private readonly userService = inject(UserService)
   private readonly title = inject(Title)
+  private readonly router = inject(Router);
 
   appModule: Module;
   moduleName: Signal<ModuleName> = signal<ModuleName>(null);
@@ -66,6 +68,10 @@ export class HeaderWidget {
       this.isLoading = isLoading
       this.cdr.detectChanges();
     })
+  }
+
+  goToProfile() {
+    this.router.navigate(['/dashboard']);
   }
 
   logout() {

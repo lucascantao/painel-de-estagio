@@ -2,10 +2,11 @@
   <mat-toolbar-row>
     <div class="c-logo-container">
       <img class="icon" src="/assets/img/sidenav/ufpa-icon.png"/>
-      <img class="brand" src="/assets/img/sidenav/ufpa-brand.png"/>
+      <span class="title">Gestão <br> de Estágio</span>
+      <!-- <img class="brand" src="/assets/img/sidenav/ufpa-brand.png"/> -->
     </div>
     <span class="item-linebox"></span>
-    <div
+    <!-- <div
       class="c-module-container"
       [ngClass]="{'c-module-container--active': isActiveModule('dashboard')}"
       (click)="onModuleClick('dashboard', true)"
@@ -13,7 +14,7 @@
       >
       <img src="/assets/img/sidenav/user-icon.svg"/>
       <a>{{  MODULES['dashboard'].sidenavTitle }}</a>
-    </div>
+    </div> -->
     @if(userService.getRole() == 'Administrador') {
       <div
         class="c-module-container"
