@@ -15,14 +15,18 @@
     <button
       mat-menu-item class="c-actions-menu__item"
       (click)="approveInternship()"
+      [ngClass]="{'c-actions-menu__item--disabled': !canApproveOrDeny()}"
     >
-      <div class="c-actions-menu__item-content">
+      <div 
+        class="c-actions-menu__item-content"
+      >
         <mat-icon svgIcon="circle-check"></mat-icon>
         <span>Deferir</span>
       </div>
     </button>
     <button
       mat-menu-item class="c-actions-menu__item"
+      [ngClass]="{'c-actions-menu__item--disabled': !canApproveOrDeny()}"
       (click)="denyInternship()"
     >
       <div class="c-actions-menu__item-content">

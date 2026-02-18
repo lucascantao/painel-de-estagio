@@ -14,6 +14,7 @@ import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { Form, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InternshipService } from 'src/app/shared/services/utils/internship.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTooltip } from "@angular/material/tooltip";
 // import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
 
 @Component({
@@ -24,7 +25,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     MatIcon,
     RouterLinkWithHref,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltip
 ],
   templateUrl: './user-page.page.html',
   styleUrls: ['./user-page.page.scss']

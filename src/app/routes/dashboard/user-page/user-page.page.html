@@ -108,7 +108,12 @@
 			<!-- Status -->
 			<div class="field">
 				<label>Status</label>
-				<div>{{ user.internship.internshipStatus.name ?? '--' }}</div>
+				<div>
+					<span [ngStyle]="{color: user.internship.internshipStatus.textColor, backgroundColor: user.internship.internshipStatus.backgroundColor}">
+						{{ user.internship.internshipStatus.name ?? '--' }} 
+						<img src="/assets/img/info.svg" alt="Info" *ngIf="user.internship.internshipStatus.description" matTooltip="{{ user.internship.internshipStatus.description }}" matTooltipPosition="above">
+					</span>
+				</div>
 			</div>
 			<!-- Workload -->
 			<div class="field">

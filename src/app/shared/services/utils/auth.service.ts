@@ -71,7 +71,7 @@ export class AuthService {
       });
     }
     if(this.isAuthenticated) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/autenticacao/login']);
     }
   }
 

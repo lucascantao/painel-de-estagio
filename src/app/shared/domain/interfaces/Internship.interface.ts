@@ -28,4 +28,7 @@ export interface Student {
 export interface InternshipStatus {
   id: number;
   name: string;
+  description: string;
+  textColor: string;
+  backgroundColor: string;
 }

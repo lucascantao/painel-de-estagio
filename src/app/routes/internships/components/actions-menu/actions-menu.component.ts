@@ -7,6 +7,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { DomSanitizer } from "@angular/platform-browser";
 import { InternshipDetailsDialogComponent } from "../internship-details-dialog/internship-details-dialog.component";
 import { InternshipService } from "src/app/shared/services/utils/internship.service";
+import { Internship } from "src/app/shared/domain/interfaces/Internship.interface";
 
 @Component({
   selector: 'app-actions-menu',
@@ -27,12 +28,24 @@ export class ActionsMenuComponent {
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   internshipService = inject(InternshipService);
+  internship: Internship;
 
   constructor() {
     this.iconRegistry.addSvgIcon('ellipsis', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
     this.iconRegistry.addSvgIcon('circle-check', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/circle-check-icon.svg'));
     this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
     this.iconRegistry.addSvgIcon('eye', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/eye-icon.svg'));
+  }
+
+  ngOnInit() {
+    this.internshipService.getInternshipById(this.internshipId).subscribe({
+      next: (res) => {
+        this.internship = res.data;
+      },
+      error: (error) => {
+        console.error('Erro ao buscar detalhes do estágio:', error);
+      }
+    });
   }
 
 
@@ -61,26 +74,11 @@ export class ActionsMenuComponent {
     });
   }
 
-  // actionDisabled(statusId: number) {
-  //   let disabled: boolean = false;
-  //   if (statusId === 2 || statusId === 3) {
-  //     disabled = this.status === 4 || this.status === statusId || this.status === 5;
-  //   }
-  //   if(statusId === 4) {
-  //     disabled = this.status !== 2;
-  //   }
-  //   return disabled;
-  // }
+  public canApproveOrDeny() {
+    return this.internship?.status?.id === 3;
+  }
 
-  // updateRequestStatus(statusId: number) {
-  //   this.onUpdateStatus(this.requestId, statusId);
-  // }
-
-  // openViewDialog() {
-  //   this.onOpenDialog(this.requestId, 'view', this.status);
-  // }
-
-  // openEditDialog() {
-  //   this.onOpenDialog(this.requestId, 'edit', this.status);
+  // public canDeny() {
+  //   return this.internship?.status?.id === 3;
   // }
 }

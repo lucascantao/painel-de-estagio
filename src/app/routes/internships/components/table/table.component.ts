@@ -20,6 +20,7 @@ import { CustomPaginatorIntl } from 'src/app/shared/features/custom-paginator-in
 import { ActionsMenuComponent } from '../actions-menu/actions-menu.component';
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
 import { InternshipService } from 'src/app/shared/services/utils/internship.service';
+import { MatTooltip } from "@angular/material/tooltip";
 // import { ModulesService } from 'src/app/shared/services/utils/modules.service';
 
 @Component({
@@ -37,8 +38,9 @@ import { InternshipService } from 'src/app/shared/services/utils/internship.serv
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    ActionsMenuComponent
-  ],
+    ActionsMenuComponent,
+    MatTooltip
+],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
   ],
@@ -140,8 +142,8 @@ export class InternshipsTableComponent {
         .map(internship => ({
           ...internship, 
           status: {
-            id: internship.status.id,
-            name: internship.status.name.toUpperCase()
+            ...internship.status,
+            name: internship.status.name.toUpperCase(),
           },
           startDate: internship.startDate ? new Date(internship.startDate).toLocaleDateString('pt-BR') : null,
           endDate: internship.endDate ? new Date(internship.endDate).toLocaleDateString('pt-BR') : null
