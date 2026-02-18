@@ -43,6 +43,14 @@ export class AuthApiService {
 
   public async register(userPayload: any): Promise<User> {
     // TODO: código repetido com o login, refatorar
+
+    await firstValueFrom(
+      this.http.get<any>(`${SANCTUM_URL}`, { withCredentials: true })
+    ).then(() => {
+      // CSRF cookie obtained
+      console.log('CSRF cookie obtained');
+    });
+
     return firstValueFrom(
       this.http.post<any>(`${API_BASE_URL}/register`, userPayload)
     )
