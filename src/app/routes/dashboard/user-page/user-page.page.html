@@ -108,11 +108,22 @@
 			<!-- Status -->
 			<div class="field">
 				<label>Status</label>
-				<div>
-					<span [ngStyle]="{color: user.internship.internshipStatus.textColor, backgroundColor: user.internship.internshipStatus.backgroundColor}">
+				<div style="display: flex; align-items: center; gap: 8px;">
+					<span 
+						style="padding: 6px 10px; border-radius: 2px 8px; font-size: 12px;"
+						[ngStyle]="{color: user.internship.internshipStatus.text_color, backgroundColor: user.internship.internshipStatus.background_color}"
+					>
 						{{ user.internship.internshipStatus.name ?? '--' }} 
-						<img src="/assets/img/info.svg" alt="Info" *ngIf="user.internship.internshipStatus.description" matTooltip="{{ user.internship.internshipStatus.description }}" matTooltipPosition="above">
 					</span>
+					<img 
+						src="/assets/img/info-icon.svg" 
+						height="16px" 
+						style="opacity: 0.5;" 
+						alt="Info" 
+						*ngIf="user.internship.internshipStatus.description" 
+						matTooltip="{{ user.internship.internshipStatus.description }}" 
+						matTooltipPosition="above"
+					>
 				</div>
 			</div>
 			<!-- Workload -->
@@ -138,7 +149,7 @@
 			<div class="field">
 				<label>Documentação de Estágio</label>
 				<div>
-					@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Aguardando Deferimento") {
+					@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
 						<div style="display: flex; align-items: center; gap: 8px; color: green;">
 							Doucumentação Enviada
 							<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
@@ -149,7 +160,7 @@
 					(click)="fileUpload.click()"
 					style="color: white; margin-top: 12px;"
 					>
-						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Aguardando Deferimento") {
+						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
 							Reenviar
 							<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
 						} @else {
