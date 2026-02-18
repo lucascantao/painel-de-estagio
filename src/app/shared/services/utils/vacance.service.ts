@@ -16,7 +16,7 @@ export class VacanceService {
 
   private readonly vacanciesApiService = inject(VacanciesApiService);
 
-  getVacanceById(internshipId: number): Observable<Vacance> {
+  getVacanceById(internshipId: number): Observable<any> {
     return this.vacanciesApiService.getVacanciesById(internshipId);
   }
 

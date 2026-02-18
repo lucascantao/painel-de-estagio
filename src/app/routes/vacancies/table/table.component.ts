@@ -16,13 +16,13 @@ import { FormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { CustomPaginatorIntl } from 'src/app/shared/features/custom-paginator-intl/custom-paginator';
-import { ActionsMenuComponent } from '../components/actions-menu/actions-menu.component';
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
 import { VacanceService } from 'src/app/shared/services/utils/vacance.service';
 import { Vacance } from 'src/app/shared/domain/interfaces/Vacance.interface';
 import { RouterLinkWithHref } from "@angular/router";
 import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
+import { ActionsMenuComponent } from "../components/actions-menu/actions-menu.component";
 
 @Component({
   selector: 'app-vacancies-table',
@@ -39,8 +39,8 @@ import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
     MatProgressSpinnerModule,
     NgIf,
     MatCheckboxModule,
-    ActionsMenuComponent,
-    RouterLinkWithHref
+    RouterLinkWithHref,
+    ActionsMenuComponent
 ],
   providers: [
     { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl }
@@ -73,12 +73,12 @@ export class VacanciesTableComponent {
   displayedColumns: string[] = [
     // 'select',
     'title',
-    'description',
+    // 'description',
     'numberOfPositions',
     'salary',
     'applicationDeadline',
     'actions',
-    'options'
+    // 'options'
   ];
   dataSource: MatTableDataSource<Vacance> = new MatTableDataSource([]);
   sortheader = true;

@@ -4,15 +4,8 @@
 
 .c-actions-menu {
 
-  &__item {
-    font-family: "Inter", sans-serif !important;
-    font-size: 14px;
-    color: var(--app-dark-color);
-  }
-
   &__item:hover {
-    background-color: var(--app-dark-color);
-    color: var(--app-negative-text-color);
+    background-color: #24314A !important;
   }
 
   &__item--disabled {
@@ -32,8 +25,13 @@
       margin-right: 8px;
     }
 
-    span {
+    span, mat-icon {
       color: #fff;
+    }
+
+    mat-icon {
+      height: 16px;
+      width: 16px;
     }
   }
 
@@ -43,12 +41,10 @@
     margin: 12px 22px;
   }
 
+  &__trigger {
+    mat-icon {
+      color: var(--app-dark-color);
+    }
+  }
+
 }
-
-
-// :host ::ng-deep {
-//   .mat-mdc-icon-button svg {
-//     width: 18px !important;
-//     height: 18px !important;
-//   }
-// }

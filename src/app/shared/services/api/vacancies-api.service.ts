@@ -18,8 +18,8 @@ export class VacanciesApiService {
   private readonly http = inject(HttpClient)
   private readonly PATH = 'vacance'
 
-  public getVacanciesById(internshipId: number): Observable<Vacance> {
-    return this.http.get<Vacance>(`${API_BASE_URL}/${this.PATH}/${internshipId}`);
+  public getVacanciesById(internshipId: number): Observable<any> {
+    return this.http.get<any>(`${API_BASE_URL}/${this.PATH}/${internshipId}`);
   }
 
   public getAllVacancies(

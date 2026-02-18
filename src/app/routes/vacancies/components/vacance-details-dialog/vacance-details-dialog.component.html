@@ -1,0 +1,56 @@
+<div class="c-internship-detail-dialog">
+  <div class="c-internship-detail-dialog__header">
+    <span class="c-device-dialog__header-title">
+      Detalhes da Vaga
+    </span>
+    <mat-icon svgIcon="close" aria-hidden="false" (click)="closePanel()"></mat-icon>
+  </div>
+  <div class="c-internship-detail-dialog__divider"></div>
+  <div class="c-internship-detail-dialog__content">
+    @if(loading) {
+      <div class="loading-overlay">
+        <mat-spinner diameter="40"></mat-spinner>
+      </div>
+    } @else {
+
+      <app-header-title title="Vaga"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field">
+          <label>Título</label>
+          <div>{{ vacance.title ?? '--' }}</div>
+        </div>
+      </div>
+
+      <app-header-title title="Descrição da Vaga"></app-header-title>
+      <div class="c-internship-detail-dialog__single-section">
+        <div class="c-internship-detail-dialog__field" style="white-space: pre-line;">
+          <!-- <label>Descrição</label> -->
+          <div>{{ vacance.description ?? '--' }}</div>
+        </div>
+      </div>
+      <app-header-title title="Requisitos da Vaga"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field" style="white-space: pre-line;">
+          <!-- <label>Descrição</label> -->
+          <div>{{ vacance.requirements ?? '--' }}</div>
+        </div>
+      </div>
+
+      <app-header-title title="Mais detalhes"></app-header-title>
+      <div class="c-internship-detail-dialog__section">
+        <div class="c-internship-detail-dialog__field">
+          <label>Salário</label>
+          <div>R${{ vacance.salary ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Número de vagas</label>
+          <div>{{ vacance.number_of_positions ?? '--' }}</div>
+        </div>
+        <div class="c-internship-detail-dialog__field">
+          <label>Data limite</label>
+          <div>{{ formatDate(vacance.application_deadline) ?? '--' }}</div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

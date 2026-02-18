@@ -1,41 +1,34 @@
 <div class="c-actions-menu">
-  <!-- <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
-    <mat-icon svgIcon="ellipsis-vertical"></mat-icon>
-  </button> -->
-  <button mat-icon-button class="c-actions-menu__item">
-    <mat-icon svgIcon="down"></mat-icon>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
+    <mat-icon svgIcon="ellipsis"></mat-icon>
   </button>
-  <button 
-    mat-icon-button 
-    class="c-actions-menu__item"
-    [routerLink]="[MODULES['criar-vaga'].route]"
-    >
-    <mat-icon svgIcon="pencil"></mat-icon>
-  </button>
-  <button mat-icon-button class="c-actions-menu__item">
-    <mat-icon svgIcon="trash"></mat-icon>
-  </button>
-  <!-- <mat-menu #menu="matMenu">
+  <mat-menu #menu="matMenu">
     <button
       mat-menu-item class="c-actions-menu__item"
-      (click)="applyVacance()"
-      [ngClass]="{'c-actions-menu__item--disabled': actionDisabled('apply')}"
+      (click)="openVacanceDialog()"
     >
       <div class="c-actions-menu__item-content">
-        <span>Aplicar</span>
+        <mat-icon svgIcon="eye"></mat-icon>
+        <span>Visualizar Detalhes</span>
+      </div>
+    </button>
+    <!-- <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="approveInternship()"
+    >
+      <div class="c-actions-menu__item-content">
+        <mat-icon svgIcon="circle-check"></mat-icon>
+        <span>Deferir</span>
       </div>
     </button>
     <button
       mat-menu-item class="c-actions-menu__item"
-      (click)="editVacance()"
-      [ngClass]="{'c-actions-menu__item--disabled': actionDisabled('edit')}"
+      (click)="denyInternship()"
     >
-      <div
-        class="c-actions-menu__item-content"
-        [routerLink]="[MODULES['criar-vaga'].route]"
-      >
-        <span>Editar</span>
+      <div class="c-actions-menu__item-content">
+        <mat-icon svgIcon="close"></mat-icon>
+        <span>Recusar</span>
       </div>
-    </button>
-  </mat-menu> -->
+    </button> -->
+  </mat-menu>
 </div>
