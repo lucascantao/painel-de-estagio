@@ -116,7 +116,8 @@ export class InternshipFormPage {
       }
 
       this.internshipService.saveInternship(internship).then(
-        res => {
+        async res => {
+          await this.userService.fetchAuthenticatedUser();
           this.submitting = false;
           this.router.navigate(['/dashboard']);
         },
