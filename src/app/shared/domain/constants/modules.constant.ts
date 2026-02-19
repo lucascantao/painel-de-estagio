@@ -13,11 +13,11 @@ export const MODULES: MappedModule = {
     browserTitle: "Usuário",
     route: "/dashboard"
   },
-  "criar-estagio": {
+  "estagio-form": {
     title: "Criar Estágio",
     sidenavTitle: "Criar Estágio",
     browserTitle: "Criar Estágio",
-    route: "/dashboard/criar-estagio"
+    route: "/dashboard/estagio-form"
   },
   "cadastrar-curso": {
     title: "Cadastrar Curso",

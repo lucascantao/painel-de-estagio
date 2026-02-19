@@ -11,7 +11,7 @@ export const routes: Routes = [
                 loadComponent: () => import('./user-page/user-page.page').then(m => m.UserPage)
             },
             {
-                path: 'criar-estagio',
+                path: 'estagio-form',
                 loadComponent: () => import('./internship-form/internship-form.page').then(m => m.InternshipFormPage)
             },
             {

@@ -23,12 +23,12 @@ import { Internship } from "src/app/shared/domain/interfaces/Internship.interfac
 
 export class ActionsMenuComponent {
   @Input() internshipId: number;
+  @Input() internshipStatus: number;
   dialog = inject(MatDialog);
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   internshipService = inject(InternshipService);
-  internship: Internship;
 
   constructor() {
     this.iconRegistry.addSvgIcon('ellipsis', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
@@ -38,14 +38,6 @@ export class ActionsMenuComponent {
   }
 
   ngOnInit() {
-    this.internshipService.getInternshipById(this.internshipId).subscribe({
-      next: (res) => {
-        this.internship = res.data;
-      },
-      error: (error) => {
-        console.error('Erro ao buscar detalhes do estágio:', error);
-      }
-    });
   }
 
 
@@ -75,7 +67,7 @@ export class ActionsMenuComponent {
   }
 
   public canApproveOrDeny() {
-    return this.internship?.status?.id === 3;
+    return this.internshipStatus === 3;
   }
 
   // public canDeny() {

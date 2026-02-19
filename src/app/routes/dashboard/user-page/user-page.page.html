@@ -64,10 +64,11 @@
 
 		<div 
 			[routerLink]="[MODULES['cadastrar-curso'].route]" 
-			class="actions__button"
+			class="actions__button icon"
 			*ngIf="!user.course"
 		>
-			Selecionar Curso
+			<span>@if(user.course) { Editar Curso } @else { Cadastrar Curso }</span>
+			<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 		</div>
 
 		<div class="info-section" *ngIf="user.course">
@@ -97,12 +98,13 @@
 		</div>
 
 		<div 
-			[routerLink]="[MODULES['criar-estagio'].route]" 
+			[routerLink]="[MODULES['estagio-form'].route]" 
 			[ngClass]="{'no-course': !user.course}"
-			class="actions__button"
+			class="actions__button icon"
 			*ngIf="!user.internship"
 		>
-			Cadastrar Estágio
+			<span>@if(user.internship) { Editar Estágio } @else { Cadastrar Estágio }</span>
+			<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 		</div>	
 		<div class="info-section" *ngIf="user.internship">
 			<!-- Status -->
@@ -139,7 +141,7 @@
 			<!-- Salary -->
 			<div class="field">
 				<label>Salário</label>
-				<div>{{ user.internship.salary ?? '--' }}</div>
+				<div>R${{ user.internship.salary ?? '--' }}</div>
 			</div>
 			<!-- Company -->
 			<div class="field">

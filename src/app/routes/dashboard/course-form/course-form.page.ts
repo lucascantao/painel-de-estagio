@@ -47,6 +47,11 @@ export class CourseFormPage {
     this.courseService.courseList().then(courses => {
       this.courses = courses.data;
     });
+
+    this.form.patchValue({
+      course: this.userService.getUser().course ?? null,
+      studentNumber: this.userService.getUser()?.studentNumber ?? ''
+    })
   }
 
   submit() {

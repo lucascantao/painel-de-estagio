@@ -36,7 +36,6 @@ export class AuthApiService {
         token: res.token,
         address: res.user.address,
         phone: res.user.phone,
-        partnerName: res.user.partners_name
       } as User
     })
   }

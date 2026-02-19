@@ -1,3 +1,5 @@
+import { Course } from "./Course.interface";
+
 export interface User {
   id: number;
   name: string;
@@ -5,22 +7,19 @@ export interface User {
   role: Role;
   createdAt?: string;
   updatedAt?: string;
-  roleName?: string;
-  partnerName?: string;
   partnerId?: number;
   phone?: string;
   token: string;
   address?: string;
   status: string;
   skills?: Skill[];
+  studentNumber?: string;
+  course?: Course;
 }
 
 export interface Role {
   id: number;
   name: string;
-  description: string;
-  label?: string;
-  value?: number;
 }
 
 export interface Partners {
