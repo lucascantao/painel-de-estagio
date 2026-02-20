@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { HeaderComponent } from "src/app/shared/ui/components/header-title/header.component";
 import { InputFieldComponent } from "src/app/shared/ui/components/input-field/input-field.component";
@@ -8,7 +8,7 @@ import { ActionButtonComponent } from "src/app/shared/ui/components/action-butto
 import { VacanceService } from 'src/app/shared/services/utils/vacance.service';
 import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
-import { Router, RouterLinkWithHref } from "@angular/router";
+import { ActivatedRoute, Router, RouterLinkWithHref } from "@angular/router";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 
@@ -24,12 +24,14 @@ export class VacanceFormPage {
 
   private readonly vacanceService: VacanceService = inject(VacanceService);
   form: FormGroup;
+  vacanceId: any;
   
   submitting: boolean = false;
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { 
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
@@ -41,7 +43,24 @@ export class VacanceFormPage {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.vacanceId = this.activatedRoute.snapshot.paramMap.get('vacanceId');
+    if(this.vacanceId) {
+      this.vacanceService.getVacanceById(this.vacanceId).subscribe({
+        next: (res) => {
+          console.log(res);
+          const decimalSalary = parseFloat(res.data.salary).toFixed(2).toString().replace('.', ',');
+          const salalyFormatted = 'R$' + decimalSalary.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+          this.form.get('title').setValue(res.data.title);
+          this.form.get('description').setValue(res.data.description);
+          this.form.get('salary').setValue(salalyFormatted);
+          this.form.get('numberOfPositions').setValue(res.data.number_of_positions);
+          this.form.get('applicationDeadline').setValue(res.data.application_deadline);
+          this.form.get('requirements').setValue(res.data.requirements);
+        }
+      });
+    }
+  }
 
   submit() {
     this.submitting = true;
@@ -53,8 +72,16 @@ export class VacanceFormPage {
         numberOfPositions: parseInt(this.form.get('numberOfPositions').value),
         salary: parseFloat(salaryFormatted)
       };
-      console.log(vacancePayload);
-      this.vacanceService.saveVacance(vacancePayload).then(
+
+      let vacancePromise: Promise<any>;
+      
+      if(this.vacanceId) {
+        vacancePromise = this.vacanceService.updateVacance(vacancePayload, this.vacanceId);
+      } else {
+        vacancePromise = this.vacanceService.saveVacance(vacancePayload);
+      }
+
+      vacancePromise.then(
         res => {
           this.submitting = false;
           this.router.navigate(['/vagas']);

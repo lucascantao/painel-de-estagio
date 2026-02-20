@@ -7,6 +7,9 @@ import { MatMenuModule } from "@angular/material/menu";
 import { DomSanitizer } from "@angular/platform-browser";
 import { InternshipService } from "src/app/shared/services/utils/internship.service";
 import { VacanceDetailsDialogComponent } from "../vacance-details-dialog/vacance-details-dialog.component";
+import { UserService } from "src/app/shared/services/utils/user.service";
+import { User } from "src/app/shared/domain/interfaces/User.interface";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-actions-menu',
@@ -27,11 +30,13 @@ export class ActionsMenuComponent {
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
   internshipService = inject(InternshipService);
+  readonly userService = inject(UserService);
+  readonly router = inject(Router);
 
   constructor() {
     this.iconRegistry.addSvgIcon('ellipsis', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/ellipsis-vertical-icon.svg'));
-    this.iconRegistry.addSvgIcon('circle-check', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/circle-check-icon.svg'));
-    this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
+    this.iconRegistry.addSvgIcon('pencil', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/pencil-icon.svg'));
+    this.iconRegistry.addSvgIcon('trash', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/trash-icon.svg'));
     this.iconRegistry.addSvgIcon('eye', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/eye-icon.svg'));
   }
 
@@ -49,15 +54,18 @@ export class ActionsMenuComponent {
     });
   }
 
-  // public approveInternship() {
-  //   this.internshipService.updateInternshipStatus(this.vacancyId, 4).then(() => {
-  //     window.location.reload();
-  //   });
-  // }
+  public edit() {
+    // this.internshipService.updateInternshipStatus(this.vacancyId, 4).then(() => {
+    //   window.location.reload();
+    // });
+    this.router.navigate(['/vagas/editar', this.vacancyId]);
+  }
 
-  // public denyInternship() {
-  //   this.internshipService.updateInternshipStatus(this.vacancyId, 2).then(() => {
-  //     window.location.reload();
-  //   });
-  // }
+  public delete() {
+    // this.dialog.open
+  }
+
+  getUser(): User | null {
+    return this.userService.getUser();
+  }
 }

@@ -23,6 +23,7 @@ import { RouterLinkWithHref } from "@angular/router";
 import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { ActionsMenuComponent } from "../components/actions-menu/actions-menu.component";
+import { formatSalary } from 'src/app/shared/utils/Salary';
 
 @Component({
   selector: 'app-vacancies-table',
@@ -134,7 +135,7 @@ export class VacanciesTableComponent {
         this.total = response.data.total;
         this.vacancies = response.data.items;
         this.dataSource.data = this.vacancies
-        .map(vacance => ({...vacance, applicationDeadline: vacance.applicationDeadline ? new DatePipe('en-US').transform(new Date(vacance.applicationDeadline), 'dd/MM/yyyy') : '-'}));
+        .map(vacance => ({...vacance, salary: formatSalary(vacance.salary), applicationDeadline: vacance.applicationDeadline ? new DatePipe('en-US').transform(new Date(vacance.applicationDeadline), 'dd/MM/yyyy') : '-'}));
 
         // post-load
         this.isLoading = false;

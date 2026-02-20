@@ -8,7 +8,7 @@ export interface Internship {
   schedule: string,
   startDate: string,
   endDate: string,
-  salary: number,
+  salary: number | string,
   observation: string,
   supervisor: string,
   company: Company,

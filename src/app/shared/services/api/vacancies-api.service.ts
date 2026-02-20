@@ -51,4 +51,8 @@ export class VacanciesApiService {
     return firstValueFrom(this.http.post<any>(`${API_BASE_URL}/${this.PATH}`, payload));
   }
 
+  public updateVacancies(payload: any, id: number): Promise<any> {
+    return firstValueFrom(this.http.put<any>(`${API_BASE_URL}/${this.PATH}/${id}`, payload));
+  }
+
 }

@@ -4,6 +4,6 @@ export interface Vacance {
   description: string,
   numberOfPositions: number,
   requirements: string,
-  salary: number,
+  salary: number | string,
   applicationDeadline: string,
 }

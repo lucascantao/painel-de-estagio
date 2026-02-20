@@ -21,6 +21,7 @@ import { ActionsMenuComponent } from '../actions-menu/actions-menu.component';
 import { Internship } from 'src/app/shared/domain/interfaces/Internship.interface';
 import { InternshipService } from 'src/app/shared/services/utils/internship.service';
 import { MatTooltip } from "@angular/material/tooltip";
+import { formatSalary } from 'src/app/shared/utils/Salary';
 // import { ModulesService } from 'src/app/shared/services/utils/modules.service';
 
 @Component({
@@ -141,6 +142,7 @@ export class InternshipsTableComponent {
         this.dataSource.data = this.internships
         .map(internship => ({
           ...internship, 
+          salary: internship.salary ? formatSalary(internship.salary) : '-',
           status: {
             ...internship.status,
             name: internship.status.name.toUpperCase(),

@@ -38,4 +38,9 @@ export class VacanceService {
     console.log(vacance);
     return this.vacanciesApiService.saveVacancies(vacance);
   }
+
+  public updateVacance(vacance: any, id: number) {
+    console.log(vacance);
+    return this.vacanciesApiService.updateVacancies(vacance, id);
+  }
 }

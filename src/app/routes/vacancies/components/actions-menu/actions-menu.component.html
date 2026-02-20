@@ -12,23 +12,26 @@
         <span>Visualizar Detalhes</span>
       </div>
     </button>
-    <!-- <button
-      mat-menu-item class="c-actions-menu__item"
-      (click)="approveInternship()"
-    >
-      <div class="c-actions-menu__item-content">
-        <mat-icon svgIcon="circle-check"></mat-icon>
-        <span>Deferir</span>
-      </div>
-    </button>
-    <button
-      mat-menu-item class="c-actions-menu__item"
-      (click)="denyInternship()"
-    >
-      <div class="c-actions-menu__item-content">
-        <mat-icon svgIcon="close"></mat-icon>
-        <span>Recusar</span>
-      </div>
-    </button> -->
+    @if(getUser()?.role.name === 'Administrador') {
+      <button
+        mat-menu-item class="c-actions-menu__item"
+        (click)="edit()"
+      >
+        <div class="c-actions-menu__item-content">
+          
+          <mat-icon svgIcon="pencil"></mat-icon>
+          <span>Editar</span>
+        </div>
+      </button>
+      <button
+        mat-menu-item class="c-actions-menu__item"
+        (click)="delete()"
+      >
+        <div class="c-actions-menu__item-content">
+          <mat-icon svgIcon="trash"></mat-icon>
+          <span>Excluir</span>
+        </div>
+      </button>
+    }
   </mat-menu>
 </div>

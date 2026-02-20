@@ -13,6 +13,10 @@ export const routes: Routes = [
             {
                 path: 'criar',
                 loadComponent: () => import('./vacanceForm/vacance-form.page').then(m => m.VacanceFormPage)
+            },
+            {
+                path: 'editar/:vacanceId',
+                loadComponent: () => import('./vacanceForm/vacance-form.page').then(m => m.VacanceFormPage)
             }
         ]
     }

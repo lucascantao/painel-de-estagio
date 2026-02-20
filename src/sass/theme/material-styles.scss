@@ -219,10 +219,11 @@
     position: sticky;
     bottom: 0;
     // --mat-paginator-container-background-color: #24314A;
-    --mat-paginator-container-background-color: #7592c6;
+    // --mat-paginator-container-background-color: var(--app-dark-color);
     border: 1px solid #5D6A83;
-    border-radius: 0 0 8px 8px;
-    color: #FFFFFF !important;
+    border-radius: 8px 2px;
+    color: var(--app-dark-color) !important;
+    font-weight: bold;
     height: 40px;
   }
 
@@ -231,8 +232,8 @@
   }
 
   .mat-mdc-paginator-icon {
-    --mat-paginator-enabled-icon-color: var(--app-primary-color);
-    fill: var(--app-primary-color);
+    --mat-paginator-enabled-icon-color: var(--app-dark-color);
+    fill: var(--app-dark-color);
   }
 
   .mdc-notched-outline {
