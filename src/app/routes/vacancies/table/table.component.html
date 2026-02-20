@@ -130,6 +130,7 @@
           <td mat-cell *matCellDef="let vacance" class="c-vacancies-list__cell">
             <app-actions-menu
               [vacancyId]="vacance.id"
+              (updateData)="updateData()"
             ></app-actions-menu>
           </td>
         </ng-container>

@@ -55,4 +55,8 @@ export class VacanciesApiService {
     return firstValueFrom(this.http.put<any>(`${API_BASE_URL}/${this.PATH}/${id}`, payload));
   }
 
+  public deleteVacancies(id: number): Promise<any> {
+    return firstValueFrom(this.http.delete<any>(`${API_BASE_URL}/${this.PATH}/${id}`));
+  }
+
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component, inject, Input } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
@@ -10,6 +10,7 @@ import { VacanceDetailsDialogComponent } from "../vacance-details-dialog/vacance
 import { UserService } from "src/app/shared/services/utils/user.service";
 import { User } from "src/app/shared/domain/interfaces/User.interface";
 import { Router } from "@angular/router";
+import { VacanceService } from "src/app/shared/services/utils/vacance.service";
 
 @Component({
   selector: 'app-actions-menu',
@@ -25,11 +26,12 @@ import { Router } from "@angular/router";
 
 export class ActionsMenuComponent {
   @Input() vacancyId: number;
+  @Output() updateData = new EventEmitter<void>();
   dialog = inject(MatDialog);
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);
-  internshipService = inject(InternshipService);
+  vacancyService = inject(VacanceService);
   readonly userService = inject(UserService);
   readonly router = inject(Router);
 
@@ -55,14 +57,13 @@ export class ActionsMenuComponent {
   }
 
   public edit() {
-    // this.internshipService.updateInternshipStatus(this.vacancyId, 4).then(() => {
-    //   window.location.reload();
-    // });
     this.router.navigate(['/vagas/editar', this.vacancyId]);
   }
 
   public delete() {
-    // this.dialog.open
+    this.vacancyService.deleteVacance(this.vacancyId).then(() => {
+      this.updateData.emit();
+    });
   }
 
   getUser(): User | null {
