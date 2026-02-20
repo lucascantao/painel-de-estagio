@@ -150,28 +150,41 @@
 			</div>
 			<div class="field">
 				<label>Documentação de Estágio</label>
-				<div>
-					@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
-						<div style="display: flex; align-items: center; gap: 8px; color: green;">
-							Doucumentação Enviada
-							<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
-						</div>
-					}
-					<div 
-					class="actions__button icon"	
-					(click)="fileUpload.click()"
-					style="color: white; margin-top: 12px;"
-					>
+				@if(user.internship.internshipStatus.name === "Finalizado") {
+					<div style="display: flex; align-items: center; gap: 8px; color: green;">
+						Documentação deferida
+						<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+					</div>
+				} @else {
+					<div>
 						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
-							Reenviar
-							<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
-						} @else {
-							Enviar Documentação
-							<mat-icon svgIcon="upload" aria-hidden="false"></mat-icon>
+							<div style="display: flex; align-items: center; gap: 8px; color: green;">
+								Doucumentação enviada
+								<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+							</div>
 						}
-						<input #fileUpload type="file" accept="application/pdf" (change)="onFileSelected($event)" style="display: none;">
-					</div>	
-				</div>
+						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Em Andamento") {
+							<div style="display: flex; align-items: center; gap: 8px; color: red;">
+								Doucumentação não deferida
+								<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+							</div>
+						}
+						<div 
+						class="actions__button icon"	
+						(click)="fileUpload.click()"
+						style="color: white; margin-top: 12px;"
+						>
+							@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
+								Reenviar
+								<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
+							} @else {
+								Enviar Documentação
+								<mat-icon svgIcon="upload" aria-hidden="false"></mat-icon>
+							}
+							<input #fileUpload type="file" accept="application/pdf" (change)="onFileSelected($event)" style="display: none;">
+						</div>	
+					</div>
+				}
 			</div>
 			
 		</div>
