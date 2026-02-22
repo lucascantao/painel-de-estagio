@@ -3,14 +3,14 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 
 import { InputFieldComponent } from "../../../../shared/ui/components/input-field/input-field.component";
 import { Router, RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { NgIf, NgClass } from '@angular/common';
 import { AuthService } from 'src/app/shared/services/utils/auth.service';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { UserService } from 'src/app/shared/services/utils/user.service';
 
 @Component({
   selector: 'app-login-form',
-  imports: [ InputFieldComponent, ReactiveFormsModule, RouterLink, NgIf, MatProgressSpinner ],
+  imports: [InputFieldComponent, ReactiveFormsModule, RouterLink, NgIf, MatProgressSpinner, NgClass],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss'
 })

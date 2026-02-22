@@ -3,14 +3,16 @@
   width: 100%;
   // background-color: black;
   // background-color: #192743;
-  background-color: var(--app-dark-color);
+  // background-color: var(--app-dark-color);
+  background: url('src/assets/img/auth/auth-background_1.jpg');
+  background-size: cover;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // flex-direction: column;
+  // align-items: center;
+  justify-content: end;
 
-  &__logo {
-    height: 25%;
-    padding-top: 85px;
-  }
+  // &__logo {
+  //   height: 25%;
+  //   padding-top: 85px;
+  // }
 }
