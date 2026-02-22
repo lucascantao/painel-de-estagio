@@ -1,14 +1,14 @@
 .c-field-box {
   display: flex;
-  padding: 0;
   width: 100%;
   z-index: 999;
-  height: 36px;
-  border: solid 1px #58616C;
-  border-radius: 4px;
+  height: 64px;
+  border-radius: 2px;
   box-sizing: border-box;
   position: relative;
   align-items: center;
+
+  background-color: var(--app-main-light-color);
 
   &--disabled {
     opacity: 0.6;
@@ -18,7 +18,12 @@
   }
 
   &--with-error {
-    border: solid 1px #ff4516;
+    border-left: solid 2px #ff4516;
+    margin-bottom: 16px;
+
+    .c-field-box__input:focus {
+      border-left: 0 !important;
+    }
   }
 
   &__area {
@@ -27,17 +32,17 @@
 
   &__label {
     position: absolute;
-    background: var(--app-light-color);
-    top: -9px;
+    background: transparent;
+    top: 9px;
     z-index: 1000;
     padding: 0 4px;
     margin-left: 5px;
 
-    color: var(--app-dark-color);
+    color: var(--app-main-light-color3);
     font-family: 'Open Sans';
     letter-spacing: 0.25px;
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: normal;
+    font-size: 11px;
 
     &--disabled {
       color: #F8F9FA60;
@@ -45,7 +50,7 @@
   }
 
   &__input {
-    padding: 0 0 0 10px;
+    padding: 24px 0 0 10px;
     background: transparent;
     outline: 0 !important;
     border: 0;
@@ -55,7 +60,7 @@
 
     color: var(--app-primary-text-color);
     line-height: 24px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.25px;
     text-align: left;
@@ -69,8 +74,10 @@
     color: #00000055 !important;
   }
 
-  &__input::after {
-    content: none;
+  &__input:focus {
+    border-left: 3px solid var(--app-main-primary-color);
+    border-radius: 2px;
+    transition: border-left 0.1s ease;
   }
 
   &__error-message {
@@ -83,5 +90,3 @@
     color: #ff4516;
   }
 }
-
-

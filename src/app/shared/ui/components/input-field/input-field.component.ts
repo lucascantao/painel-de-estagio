@@ -31,7 +31,7 @@ export class InputFieldComponent implements ControlValueAccessor {
   @Input() type: string = 'text';
   @Input() min: number = 0;
   @Input() max: number = 100;
-  @Input() height: string = '36px';
+  @Input() height: string;
   @Input() alwaysTwoDigits: boolean = false;
   @Input() readOnly: boolean = false;
   @Input() labelColor = '';

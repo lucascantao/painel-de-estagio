@@ -30,7 +30,11 @@ import { APP_DATE_FORMATS, dateAdapter } from 'src/app/shared/utils/DataAdapter'
     <div class="c-date-select">
       <form class="c-date-select__form">
         <mat-label class="c-date-select__label">{{ label }}</mat-label>
-        <mat-form-field [id]="id">
+        <mat-form-field 
+          [id]="id" 
+          class="c-date-select__form-field"
+          [ngClass]="{'c-date-select__form-field--with-error': validateField()}"
+        >
           <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
           <mat-datepicker #datePicker></mat-datepicker>
           <input

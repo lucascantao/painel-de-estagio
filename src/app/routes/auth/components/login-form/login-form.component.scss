@@ -40,6 +40,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     span {
       color: #FF0000;
@@ -62,6 +63,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 24px;
 
     &--activated {
       background-color: var(--app-main-special-color);
@@ -85,23 +87,5 @@
 
   &__register-button:hover {
     font-weight: 400;
-  }
-}
-
-:host ::ng-deep .c-field-box {
-  border: solid 2px #bccad8 !important;
-  // border-radius: 25px !important;
-  margin-bottom: 28px !important;
-
-  &__label{
-    color: var(--app-main-primary-color) !important;
-    background: #ffffff !important;
-    margin-left: 20px !important;
-    font-weight: bold;
-  }
-
-  &__input {
-    padding: 0 0 0 24px !important;
-    border: var(--app-main-primary-color) !important;
   }
 }

@@ -10,11 +10,11 @@
     <span>Gestão de Estágio</span>
   
     <section class="c-login">
-      <form class="c-login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form class="c-login__form" [formGroup]="loginForm">
 
         <app-input-field
           formControlName="email"
-          [label]="'Endereço de e-mail'"
+          [label]="'E-mail'"
           [type]="'email'"
           [placeholder]="'Digite seu endereço de e-mail aqui'"
         ></app-input-field>
@@ -28,23 +28,24 @@
 
         <span *ngIf="!formDataValid">E-mail ou senha incorretos</span>
 
-        <button 
-          class="c-login__login-button" 
-          [ngClass]="{'c-login__login-button--activated': isLoading }"
-          [disabled]="isLoading" 
-          type="submit"
-        >
-          <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
-          <b *ngIf="!isLoading">Entrar</b>
-        </button>
-        
-        <a 
-          class="c-login__register-button"
-          [routerLink]="['../registro']"
-        >
-          <b>Criar conta</b>
-        </a>
       </form>
+      <button 
+        class="c-login__login-button" 
+        [ngClass]="{'c-login__login-button--activated': isLoading || isRedirecting}"
+        [disabled]="isLoading || isRedirecting" 
+        type="submit"
+        (click)="onSubmit()"
+      >
+        <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading || isRedirecting"></mat-progress-spinner>
+        <b *ngIf="!isLoading && !isRedirecting">Entrar</b>
+      </button>
+      
+      <a 
+        class="c-login__register-button"
+        [routerLink]="['../registro']"
+      >
+        <b>Criar conta</b>
+      </a>
     </section>
   </section>
 <!-- }

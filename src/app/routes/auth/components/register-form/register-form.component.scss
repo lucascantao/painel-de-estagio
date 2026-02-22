@@ -1,14 +1,15 @@
 .c-login-area {
   background: #ffffff;
-  padding: 48px 30px 99px;
+  padding: 0px 30px 99px;
   border-radius: 5px;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
 
   span {
-    color: var(--app-primary-color);
+    color: var(--app-main-primary-color);
     padding-top: 15px;
     font-size: 40px;
     font-weight: bold;
@@ -17,7 +18,11 @@
 
 .c-login {
   width: 100%;
-  padding-top: 40px;
+  height: 100%;
+  padding: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   span {
     color: #FFFFFF;
@@ -28,6 +33,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     span {
       color: #FF0000;
@@ -43,61 +49,32 @@
       justify-content: flex-end;
     }
 
-    button {
-      width: 100%;
-      color: #fff;
-      background-color: var(--app-primary-color);
-      border: 0px;
-      border-radius: 3px;
-      height: 35px;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
-      margin: auto;
-      font-size: 16px;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    button:hover {
-      background-color: #24326d;
-    }
-  }
-}
-
-:host ::ng-deep {
-  .c-field-box {
-    border: solid 2px #bccad8 !important;
-    margin-bottom: 28px !important;
   }
 
-  .c-selectable-field-box {
-    margin-bottom: 28px !important;
-    .ng-select-container {
-      border: solid 2px #bccad8 !important;   
+  &__create-account-button {
+    height: 48px;
+    width: 50%;
+    color: #fff;
+    background-color: var(--app-main-primary-color);
+    border: 0px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+
+    &--activated {
+      background-color: var(--app-main-special-color);
     }
   }
 
-  .mdc-text-field {
-    border: solid 2px #bccad8 !important;
-    // border-radius: 0px !important;
-  }
-
-  /* Local style */
-  .c-date-select {
-    margin-bottom: 9px !important;
-  }
-
-  &__label{
-    color: var(--app-primary-color) !important;
-    background: #ffffff !important;
-    margin-left: 20px !important;
-    font-weight: bold;
-  }
-
-  &__input {
-    padding: 0 0 0 24px !important;
-    border: var(--app-primary-color) !important;
+  &__create-account-button:hover {
+    background-color: var(--app-main-special-color);
+    box-shadow: 0px 0px 5px var(--app-main-special-color);
+    color: var(--app-main-dark-color);
   }
 }

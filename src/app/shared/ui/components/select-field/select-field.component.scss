@@ -1,5 +1,5 @@
 .c-selectable-field-box {
-  height: 36px;
+  height: 64px !important;
   width: 100%;
   position: relative;
   z-index: 999;
@@ -13,26 +13,25 @@
     &--with-error {
       ::ng-deep {
         .ng-select-container {
-          border: solid 1px #ff4516 !important;
+          border-left: solid 2px #ff4516 !important;
+          border-radius: 2px !important;
         }
       }
+      margin-bottom: 14px;
     }
 
     &__label {
       position: absolute;
-      // background: var(--app-blue-dark-light-color);
-      background: white;
-      top: -10px;
+      background: transparent;
+      top: 10px;
       z-index: 1000;
       padding: 0 4px;
       margin-left: 5px;
 
-      // color: var(--app-neutral-light-variant-color);
-      color: var(--app-dark-color);
-      font-family: 'Open Sans';
+      color: var(--app-main-light-color3);
       letter-spacing: 0.25px;
-      font-size: 12px;
-      font-weight: bold;
+      font-size: 11px;
+      font-weight: normal;
 
       &--especial {
         background-color: var(--app-blue-dark-light-color);
@@ -49,7 +48,7 @@
       display: flex;
       font-size: 12px;
       font-weight: 300;
-      bottom: -13px;
+      bottom: -16px;
       left: 3px;
       color: #ff4516;
     }
@@ -73,7 +72,7 @@
       }
 
       .ng-select.ng-select-opened+label {
-        color: var(--app-primary-color) !important;
+        color: var(--app-main-primary-color) !important;
       }
 
       .ng-select.ng-select-opened+label.c-selectable-field-box__label--especial {
@@ -81,7 +80,7 @@
       }
 
       .ng-select.ng-select-opened .ng-select-container:hover {
-        border-color: var(--app-primary-color) !important;
+        border-color: var(--app-main-primary-color) !important;
       }
 
       .mat-step-header:hover:not([aria-disabled]) {
@@ -89,11 +88,9 @@
       }
 
       .ng-placeholder {
-        // background-color: var(--app-blue-dark-light-color);
         transition: opacity 0.3s ease !important;
         transform: none !important;
-        // color: #F8F9FA60 !important;
-        color: var(--app-primary-text-color) !important;  
+        color: #00000055 !important;
 
         font-family: "Open Sans";
         font-size: 15px;
@@ -107,18 +104,18 @@
       }
 
       #bufferRegion .ng-select-container {
-        border: solid 1px var(--app-primary-color);
+        border: solid 1px var(--app-main-primary-color);
       }
 
       .ng-select-container {
-        border: solid 1px var(--app-neutral-light-color);
         border-radius: 4px;
         min-height: auto;
-        height: 100%;
+        height: 64px !important;
         padding-right: 10px;
         transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         align-items: center !important;
         gap: 4px;
+        background-color: var(--app-main-light-color);
 
         .ng-arrow-wrapper .ng-arrow {
           border-color: none !important;
@@ -206,7 +203,7 @@
 
       .ng-value-container {
         border-top: 0 !important;
-        padding: 0 0 0 10px !important;
+        padding: 24px 0 0 10px !important;
         align-items: center !important;
         display: flex !important;
         flex: 1 !important;
@@ -220,6 +217,7 @@
           width: 100% !important;
           flex: 1 !important;
           z-index: inherit !important;
+          
 
           line-height: 100% !important;
         }

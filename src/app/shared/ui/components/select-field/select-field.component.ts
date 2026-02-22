@@ -61,7 +61,7 @@ export class SelectFieldComponent {
   @Input() labelForId: string = '';
   @Input() clearable: boolean = true;
   @Input() searchable: boolean = true;
-  @Input() height: string = '36px';
+  @Input() height: string;
   @Input() disabled: boolean = false;
   @Input() dropdownPosition: 'auto' | 'top' | 'bottom' = 'auto';
   @Input() multiple: boolean = false;

@@ -2,7 +2,7 @@
   <span>Gestão de Estágio</span>
   <section class="c-login">
     <span>Crie uma conta.</span>
-    <form class="c-login__form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="c-login__form" [formGroup]="registerForm">
       <app-input-field
         formControlName="name"
         [label]="'Nome completo'"
@@ -53,10 +53,10 @@
         [placeholder]="'Crie uma senha'"
         [control]="registerForm.get('password')"
       ></app-input-field>
-      <button [disabled]="isLoading" type="submit">
-        <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
-        <b *ngIf="!isLoading">Criar conta</b>
-      </button>
     </form>
+    <button [disabled]="isLoading" type="submit" class="c-login__create-account-button" (click)="onSubmit()">
+      <mat-progress-spinner diameter=20 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+      <b *ngIf="!isLoading">Criar conta</b>
+    </button>
   </section>
 </section>
