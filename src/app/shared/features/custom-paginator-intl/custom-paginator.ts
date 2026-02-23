@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CustomPaginatorIntl extends MatPaginatorIntl {
-  override itemsPerPageLabel = 'Total de registros:';
+  override itemsPerPageLabel = 'Total:';
   override nextPageLabel     = 'Próxima página';
   override lastPageLabel = 'Ultima página';
   override previousPageLabel = 'Página anterior';

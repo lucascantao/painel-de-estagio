@@ -1,20 +1,20 @@
 #app-sidenav{
-  // background-color: #121926;
-  // background-color: #7592c6;
-  background-color: var(--app-dark-color);
-  color: var(--app-primary-color);
-  // border: 1px solid #58616C;
-  display: flex;
-  box-sizing: border-box;
-  flex-direction: column;
-  min-height: 56px;
   position: absolute;
+  background-color: #ffffff;
+  color: var(--app-primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  min-height: 56px;
   z-index: 999;
-  box-shadow: 0px 2px 2px 0px #BDD4FF;
+  padding-top: 72px;
+  box-shadow: 0px 2px 2px 0px var(--app-main-light-color3);
+}
 
-  // border-radius: 0 16px 16px 0;
-
-
+#app-sidenav::before {
+  content: '';
+  margin-bottom: 12px;
 }
 
 .title {
@@ -39,22 +39,20 @@
 
 .c-module-container {
   display: flex;
-  flex-direction: row;  
   position: relative;
   width: 40px;
   min-height: 40px;
   align-items: center;
   justify-content: center;
   padding: 6px 5px 6px 10px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: 6px;
   box-sizing: border-box;
   transition: all 0.2s ease !important;
   overflow: hidden;
 
   a {
     visibility: hidden;
-    color: var(--app-negative-text-color);
+    color: var(--app-main-light-color3);
     font-size: 12px;
     margin-left: 8px;
   }
@@ -66,19 +64,16 @@
 }
 
 .c-module-container--active {
-  background: #4058b9;
-  border-radius: 0px;
-  border-left: 3px solid var(--app-negative-text-color);
+  background: var(--app-main-light-color);
   pointer-events: none;
   
   img {
-      filter: brightness(0) saturate(100%) invert(100%) sepia(21%) saturate(1166%) hue-rotate(170deg) brightness(102%) contrast(102%);
+      filter: brightness(0) saturate(43%) invert(50%) sepia(61%) saturate(1113%) hue-rotate(188deg) brightness(52%) contrast(99%);
     }
     
   a {
-    color: var(--app-negative-text-color);
-    font-weight: bold;
-    // filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(170deg) brightness(102%) contrast(102%);
+    color: var(--app-main-primary-color);
+    font-weight: normal;
   }
 }
 
@@ -169,7 +164,7 @@
 
   .c-module-container {
     justify-content: flex-start;
-    width: 100%;
+    width: 90%;
 
     img {
       margin-left: 6px;
@@ -195,10 +190,10 @@
   cursor: pointer;
 
    img {
-    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(170deg) brightness(102%) contrast(102%);
+    filter: brightness(0) saturate(43%) invert(50%) sepia(61%) saturate(1113%) hue-rotate(188deg) brightness(52%) contrast(99%);
   }
 
   a {
-    filter: brightness(0) saturate(100%) invert(81%) sepia(21%) saturate(1166%) hue-rotate(170deg) brightness(102%) contrast(102%);
+    color: var(--app-main-primary-color);
   }
 }

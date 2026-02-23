@@ -34,26 +34,18 @@ body {
 
 .container {
   position: relative;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 72px);
   max-height: 100vh;
+  margin-top: 72px;
   display: flex;
   flex-direction: column;
   // width: 96.1%;
   // margin-left: 3.9%;
   width: 87%;
   margin-left: 13%;
-  background: var(--app-light-color);
-  // background: #fff;
+  background: var(--app-main-light-color);
+  // padding: 16px 18px;
 }
-
-// .container {
-//   flex-direction: column;
-//   box-sizing: border-box;
-//   display: flex;
-//   height: 100%;
-//   min-height: 100%;
-//   width: 100%;
-// }
 
 .custom-marker {
   width: 32px;

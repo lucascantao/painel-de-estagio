@@ -1,7 +1,10 @@
 <div class="header" *ngIf="appModule">
-  <span>{{ appModule.title }}</span>
-  <!-- <small>v2.0.0</small> -->
-  <!-- <img src="/assets/img/sidenavNew/about-icon.svg" matTooltip="Acesso ao controle de todos os kits do conexão" matTooltipPosition="right" /> -->
+  <!-- <span>{{ appModule.title }}</span> -->
+  <div class="logo-container">
+      <img class="icon" src="/assets/img/sidenav/ufpa-icon.png"/>
+      <span class="title">Gestão <br> de Estágio</span>
+      <!-- <img class="brand" src="/assets/img/sidenav/ufpa-brand.png"/> -->
+  </div>
   <mat-progress-spinner diameter=30 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
 
   <section class="user">
