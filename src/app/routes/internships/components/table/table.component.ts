@@ -80,8 +80,8 @@ export class InternshipsTableComponent {
     'schedule',
     'workload',
     'salary',
-    'startDate',
-    'endDate',
+    // 'startDate',
+    // 'endDate',
     // 'observation',
     'actions'
   ];
