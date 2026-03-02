@@ -115,7 +115,8 @@
         transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         align-items: center !important;
         gap: 4px;
-        background-color: var(--app-main-light-color);
+        background-color: var(--app-main-form-field-color);
+        // box-shadow: 0 0 2px var(--app-main-light-color3);
 
         .ng-arrow-wrapper .ng-arrow {
           border-color: none !important;

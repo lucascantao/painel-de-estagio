@@ -6,6 +6,7 @@
 .c-date-select {
   position: relative;
   min-width: 120px;
+  // box-shadow: 0 0 2px var(--app-main-light-color3);
 
   &__labelStart {
     position: absolute;
@@ -106,7 +107,7 @@
   }
 
   .mat-mdc-form-field-flex {
-    background-color: var(--app-main-light-color);
+    background-color: var(--app-main-form-field-color);
     padding: 24px 0 0 2px;
     height: 100%;
   }

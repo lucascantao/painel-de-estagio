@@ -7,30 +7,46 @@ import { NgStyle, NgClass } from "@angular/common";
 	imports: [NgStyle, NgClass],
 	styles: `
     .action-btn {
+			height: 48px;
+			// width: 50%;
+			color: #fff;
+			background-color: var(--app-main-primary-color);
+			border: 0px;
+			border-radius: 3px;
+			transition: background-color 0.3s ease;
+			cursor: pointer;
+			font-size: 16px;
+			font-weight: 300;
 			display: flex;
+			justify-content: center;
 			align-items: center;
-			padding: 8px 10px;
-			border: none;
-			border-radius: 2px;
-			background-color: var(--app-dark-color);
-			color: var(--app-negative-text-color);
-			font-weight: 600;
+			margin-top: 24px;
+
+			&:hover {
+				background-color: var(--app-main-special-color);
+				box-shadow: 0px 0px 5px var(--app-main-special-color);
+				color: var(--app-main-dark-color);
+			}
 
 			&-primary {
 				background-color: var(--app-dark-color);
+				&:hover {
+					background-color: var(--app-main-special-color);
+					box-shadow: 0px 0px 5px var(--app-main-special-color);
+					color: var(--app-main-dark-color);
+				}
 			}
 
 			&-secondary {
 				background-color: var(--app-neutral-color);
-				// color: var(--app-dark-color);
+				&:hover {
+					cursor: pointer;
+					background-color: #fff;
+					color: var(--app-dark-color);
+					border: 1px solid var(--app-dark-color);
+					box-shadow: none;
+				}
 			}
-    }
-
-    .action-btn:hover {
-			cursor: pointer;
-			background-color: #fff;
-			color: var(--app-dark-color);
-			border: 1px solid var(--app-dark-color);
     }
   `,
 	template: `

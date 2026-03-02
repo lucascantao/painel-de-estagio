@@ -4,7 +4,10 @@
   </div>
   <div class="c-internship-form">
 
-    <app-header-title title="Informações do Estágio"></app-header-title>
+    <!-- <app-header-title title="Informações do Estágio"></app-header-title>s -->
+    <div class="c-internship-form__header">
+      <span>Informações do Estágio</span>
+    </div>
 
     <div class="c-internship-form__form" [formGroup]="internshipForm">
       <div class="c-internship-form__form-row">
@@ -68,9 +71,12 @@
       </div>
     </div>
 
-    <app-header-title title="Informações da Empresa"></app-header-title>
+    <!-- <app-header-title title="Informações da Empresa"></app-header-title> -->
+    <div class="c-internship-form__header" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
+      <span>Informações da Empresa</span>
+    </div>
 
-    <div class="c-internship-form__company">
+    <div class="c-internship-form__company" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
       <div [formGroup]="companySelectForm">
         <app-select-field
           class="c-internship-form__form-field"
@@ -84,57 +90,60 @@
           [control]="companySelectForm.get('company')"
         ></app-select-field>
       </div>
-
-      <span class="new-company-checkbox">
-        <mat-checkbox
-          (change)="updateCheckNewCompany($event.checked)"
-          >
-          Cadastrar nova empresa
-        </mat-checkbox>
-      </span>
-
-      @if(newCompany) {
-        <div class="c-internship-form__form" [formGroup]="companyForm">
-          <app-input-field
-            class="c-internship-form__form-field"
-            [label]="'Nome da Empresa'"
-            [placeholder]="'Nome da empresa'"
-            formControlName="name"
-            [control]="companyForm.get('name')"
-          ></app-input-field>
-          <app-input-field
-            class="c-internship-form__form-field"
-            [label]="'Endereço'"
-            [placeholder]="'Endereço completo'"
-            formControlName="address"
-            [control]="companyForm.get('address')"
-          ></app-input-field>
-          <app-input-field
-            class="c-internship-form__form-field"
-            [label]="'CNPJ'"
-            [placeholder]="'00.000.000/0000-00'"
-            formControlName="cnpj"
-            [control]="companyForm.get('cnpj')"
-          ></app-input-field>
-          <app-input-field
-            class="c-internship-form__form-field"
-            [label]="'Email'"
-            [placeholder]="'email@empresa.com'"
-            formControlName="email"
-            [control]="companyForm.get('email')"
-          ></app-input-field>
-          <app-input-field
-            class="c-internship-form__form-field"
-            [label]="'Telefone'"
-            [placeholder]="'(99) 99999-9999'"
-            [isPhoneNumber]="true"
-            formControlName="phone"
-            [control]="companyForm.get('phone')"
-          ></app-input-field>
-        </div>
-      }
-      
     </div>
+
+    <span class="new-company-checkbox">
+      <mat-checkbox
+        (change)="updateCheckNewCompany($event.checked)"
+        >
+        Cadastrar nova empresa
+      </mat-checkbox>
+    </span>
+
+    @if(newCompany) {
+      <div class="c-internship-form__header">
+        <span>Nova Empresa</span>
+      </div>
+      <div class="c-internship-form__form" [formGroup]="companyForm">
+        <app-input-field
+          class="c-internship-form__form-field"
+          [label]="'Nome da Empresa'"
+          [placeholder]="'Nome da empresa'"
+          formControlName="name"
+          [control]="companyForm.get('name')"
+        ></app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          [label]="'Endereço'"
+          [placeholder]="'Endereço completo'"
+          formControlName="address"
+          [control]="companyForm.get('address')"
+        ></app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          [label]="'CNPJ'"
+          [placeholder]="'00.000.000/0000-00'"
+          formControlName="cnpj"
+          [control]="companyForm.get('cnpj')"
+        ></app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          [label]="'Email'"
+          [placeholder]="'email@empresa.com'"
+          formControlName="email"
+          [control]="companyForm.get('email')"
+        ></app-input-field>
+        <app-input-field
+          class="c-internship-form__form-field"
+          [label]="'Telefone'"
+          [placeholder]="'(99) 99999-9999'"
+          [isPhoneNumber]="true"
+          formControlName="phone"
+          [control]="companyForm.get('phone')"
+        ></app-input-field>
+      </div>
+    }
+
     <div class="c-internship-form__footer">
       <app-action-button
         (click)="submit()"

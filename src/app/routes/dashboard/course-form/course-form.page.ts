@@ -13,11 +13,12 @@ import { CourseApiService } from 'src/app/shared/services/api/course-api.service
 import { UserService } from 'src/app/shared/services/utils/user.service';
 import { SelectFieldComponent } from "src/app/shared/ui/components/select-field/select-field.component";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PageHeaderComponent } from "src/app/shared/ui/components/page-header/page-header.component";
 
 
 @Component({
   selector: 'app-course-form',
-  imports: [CommonModule, HeaderComponent, InputFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner, SelectFieldComponent],
+  imports: [CommonModule, HeaderComponent, InputFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner, SelectFieldComponent, PageHeaderComponent],
   templateUrl: './course-form.page.html',
   styleUrls: ['./course-form.page.scss'],
 })

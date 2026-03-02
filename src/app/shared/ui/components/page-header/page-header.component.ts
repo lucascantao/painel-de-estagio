@@ -1,13 +1,9 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, Input } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import { MatDialog } from "@angular/material/dialog";
 import { MatIconModule, MatIconRegistry } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { DomSanitizer } from "@angular/platform-browser";
-import { InternshipDetailsDialogComponent } from "../internship-details-dialog/internship-details-dialog.component";
-import { InternshipService } from "src/app/shared/services/utils/internship.service";
-import { Internship } from "src/app/shared/domain/interfaces/Internship.interface";
 
 @Component({
   selector: 'app-page-header',
@@ -22,6 +18,8 @@ import { Internship } from "src/app/shared/domain/interfaces/Internship.interfac
 })
 
 export class PageHeaderComponent {
+
+  @Input() title;
 
   iconRegistry: MatIconRegistry = inject(MatIconRegistry);
   sanitizer = inject(DomSanitizer);

@@ -3,225 +3,219 @@
 		<mat-spinner diameter="40"></mat-spinner>
 	</div>
 	<div class="user-container" *ngIf="user">
-	<div class="header">
-		<span class="title">Detalhes do Usuário</span>
-		<div class="underline"></div>
-	</div>
-	<div class="info-section">
-		<!-- Name -->
-		<div class="field">
-			<label>Nome</label>
-			<div>{{user.name}}</div>
-		</div>
-		<!-- Role -->
-		<div class="field">
-			<label>Perfil</label>
-			<div>{{user.role.name}}</div>
-		</div>
-		<!-- Birthdate -->
-		<div class="field">
-			<label>Data de nascimento</label>
-			<div>{{ formatDate(user.birthdate) ?? '--' }}</div>
-		</div>
-		<!-- Gender -->
-		<div class="field">
-			<label>Gênero</label>
-			<div>{{ user.gender ?? '--' }}</div>
-		</div>
-	</div>
 
-	<div class="header">
-		<span class="title">Informações de Contato</span>
-		<div class="underline"></div>
-	</div>
-	<div class="info-section">
-		<!-- Email -->
-		<div class="field">
-			<label>E-Mail</label>
-			<div>{{ user.email ?? '--'}}</div>
-		</div>
-		<!-- Phone -->
-		<div class="field">
-			<label>Telefone</label>
-			<div>{{ user.phone ?? '--' }}</div>
-		</div>
-		<!-- Address -->
-		<div class="field">
-			<label>Endereço</label>
-			<div>{{ user.address ?? '--' }}</div>
-		</div>
-	</div>
-
-	<!-- Área do ALuno -->
-	<div *ngIf="getUserRole() === 'Aluno'">
-
-		<!-- Curso -->
-		<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+		<!-- INFORMAÇÕES DO USUÁRIO -->
 		<div class="header">
-			<span class="title">Curso</span>
-			<div class="underline"></div>
+			<span class="title">Detalhes do Usuário</span>
 		</div>
-
-		<div 
-			[routerLink]="[MODULES['cadastrar-curso'].route]" 
-			class="actions__button icon"
-			*ngIf="!user.course"
-		>
-			<span>@if(user.course) { Editar Curso } @else { Cadastrar Curso }</span>
-			<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
-		</div>
-
-		<div class="info-section" *ngIf="user.course">
-			<!-- Status -->
+		<div class="info-section">
+			<!-- Name -->
 			<div class="field">
-				<label>Curso</label>
-				<div>{{ user.course.name ?? '--' }}</div>
+				<label>Nome</label>
+				<div>{{user.name}}</div>
 			</div>
-			<!-- Workload -->
+			<!-- Role -->
 			<div class="field">
-				<label>Matrícula</label>
-				<div>{{ user.studentNumber ?? '--' }}</div>
+				<label>Perfil</label>
+				<div>{{user.role.name}}</div>
+			</div>
+			<!-- Birthdate -->
+			<div class="field">
+				<label>Data de nascimento</label>
+				<div>{{ formatDate(user.birthdate) ?? '--' }}</div>
+			</div>
+			<!-- Gender -->
+			<div class="field">
+				<label>Gênero</label>
+				<div>{{ user.gender ?? '--' }}</div>
+			</div>
+			<!-- Email -->
+			<div class="field">
+				<label>E-Mail</label>
+				<div>{{ user.email ?? '--'}}</div>
+			</div>
+			<!-- Phone -->
+			<div class="field">
+				<label>Telefone</label>
+				<div>{{ user.phone ?? '--' }}</div>
+			</div>
+			<!-- Address -->
+			<div class="field last">
+				<label>Endereço</label>
+				<div>{{ user.address ?? '--' }}</div>
 			</div>
 		</div>
 
-		<!-- Estágio -->
-		<!-- ----------------------------------------------------------------------------------------------------------------------- -->
-		<div class="header">
-			<span class="title">Estágio</span>
-			<div class="underline"></div>
-			@if(!user.course) {
-				<div class="alert">
-					<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
-					Curso não selecionado!
+		<!-- PERFIL DE ALUNO -->
+		<div *ngIf="getUserRole() === 'Aluno'">
+
+			<!-- Curso -->
+			<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+			<div class="header">
+				<span class="title">Curso</span>
+				<div class="underline"></div>
+			</div>
+
+			<div 
+				[routerLink]="[MODULES['cadastrar-curso'].route]" 
+				class="action-button"
+				*ngIf="!user.course"
+			>
+				<span>@if(user.course) { Editar Curso } @else { Cadastrar Curso }</span>
+				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
+			</div>
+
+			<div class="info-section" *ngIf="user.course">
+				<!-- Status -->
+				<div class="field">
+					<label>Curso</label>
+					<div>{{ user.course.name ?? '--' }}</div>
 				</div>
-			}
-		</div>
-
-		<div 
-			[routerLink]="[MODULES['estagio-form'].route]" 
-			[ngClass]="{'no-course': !user.course}"
-			class="actions__button icon"
-			*ngIf="!user.internship"
-		>
-			<span>@if(user.internship) { Editar Estágio } @else { Cadastrar Estágio }</span>
-			<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
-		</div>	
-		<div class="info-section" *ngIf="user.internship">
-			<!-- Status -->
-			<div class="field">
-				<label>Status</label>
-				<div style="display: flex; align-items: center; gap: 8px;">
-					<span 
-						style="padding: 6px 10px; border-radius: 2px 8px; font-size: 12px;"
-						[ngStyle]="{color: user.internship.internshipStatus.text_color, backgroundColor: user.internship.internshipStatus.background_color}"
-					>
-						{{ user.internship.internshipStatus.name ?? '--' }} 
-					</span>
-					<img 
-						src="/assets/img/info-icon.svg" 
-						height="16px" 
-						style="opacity: 0.5;" 
-						alt="Info" 
-						*ngIf="user.internship.internshipStatus.description" 
-						matTooltip="{{ user.internship.internshipStatus.description }}" 
-						matTooltipPosition="above"
-					>
+				<!-- Workload -->
+				<div class="field last">
+					<label>Matrícula</label>
+					<div>{{ user.studentNumber ?? '--' }}</div>
 				</div>
 			</div>
-			<!-- Workload -->
-			<div class="field">
-				<label>Carga Horária</label>
-				<div>{{ user.internship.workload ?? '--' }}</div>
-			</div>
-			<!-- Schedule -->
-			<div class="field">
-				<label>Horário</label>
-				<div>{{ user.internship.schedule ?? '--' }}</div>
-			</div>
-			<!-- Salary -->
-			<div class="field">
-				<label>Salário</label>
-				<div>R${{ user.internship.salary ?? '--' }}</div>
-			</div>
-			<!-- Company -->
-			<div class="field">
-				<label>Empresa</label>
-				<div>{{ user.internship.company.name ?? '--' }}</div>
-			</div>
-			<div class="field">
-				<label>Documentação de Estágio</label>
-				@if(user.internship.internshipStatus.name === "Finalizado") {
-					<div style="display: flex; align-items: center; gap: 8px; color: green;">
-						Documentação deferida
-						<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
-					</div>
-				} @else {
-					<div>
-						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
-							<div style="display: flex; align-items: center; gap: 8px; color: green;">
-								Doucumentação enviada
-								<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
-							</div>
-						}
-						@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Em Andamento") {
-							<div style="display: flex; align-items: center; gap: 8px; color: red;">
-								Doucumentação não deferida
-								<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
-							</div>
-						}
-						<div 
-						class="actions__button icon"	
-						(click)="fileUpload.click()"
-						style="color: white; margin-top: 12px;"
-						>
-							@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
-								Reenviar
-								<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
-							} @else {
-								Enviar Documentação
-								<mat-icon svgIcon="upload" aria-hidden="false"></mat-icon>
-							}
-							<input #fileUpload type="file" accept="application/pdf" (change)="onFileSelected($event)" style="display: none;">
-						</div>	
+
+			<!-- Estágio -->
+			<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+			<div class="header">
+				<span class="title">Estágio</span>
+				<div class="underline"></div>
+				@if(!user.course) {
+					<div class="alert">
+						<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
+						Curso não selecionado!
 					</div>
 				}
 			</div>
-			
-		</div>
 
-		<!-- Perfil de Aluno -->
-		 <!-- ----------------------------------------------------------------------------------------------------------------------- -->
-		<div class="header">
-			<span class="title">Competências do Aluno</span>
-			<div class="underline"></div>
-			@if(!user.course) {
-				<div class="alert">
-					<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
-					Curso não selecionado!
+			<div 
+				[routerLink]="[MODULES['estagio-form'].route]" 
+				[ngClass]="{'no-course': !user.course}"
+				class="action-button"
+				*ngIf="!user.internship"
+			>
+				<span>@if(user.internship) { Editar Estágio } @else { Cadastrar Estágio }</span>
+				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
+			</div>	
+			<div class="info-section" *ngIf="user.internship">
+				<!-- Status -->
+				<div class="field">
+					<label>Status</label>
+					<div style="display: flex; align-items: center; gap: 8px;">
+						<span 
+							style="padding: 6px 10px; border-radius: 2px 8px; font-size: 12px;"
+							[ngStyle]="{color: user.internship.internshipStatus.text_color, backgroundColor: user.internship.internshipStatus.background_color}"
+						>
+							{{ user.internship.internshipStatus.name ?? '--' }} 
+						</span>
+						<img 
+							src="/assets/img/info-icon.svg" 
+							height="16px" 
+							style="opacity: 0.5;" 
+							alt="Info" 
+							*ngIf="user.internship.internshipStatus.description" 
+							matTooltip="{{ user.internship.internshipStatus.description }}" 
+							matTooltipPosition="above"
+						>
+					</div>
 				</div>
-			}
-		</div>
+				<!-- Workload -->
+				<div class="field">
+					<label>Carga Horária</label>
+					<div>{{ user.internship.workload ?? '--' }}</div>
+				</div>
+				<!-- Schedule -->
+				<div class="field">
+					<label>Horário</label>
+					<div>{{ user.internship.schedule ?? '--' }}</div>
+				</div>
+				<!-- Salary -->
+				<div class="field">
+					<label>Salário</label>
+					<div>R${{ user.internship.salary ?? '--' }}</div>
+				</div>
+				<!-- Company -->
+				<div class="field">
+					<label>Empresa</label>
+					<div>{{ user.internship.company.name ?? '--' }}</div>
+				</div>
+				<div class="field last">
+					<label>Documentação de Estágio</label>
+					@if(user.internship.internshipStatus.name === "Finalizado") {
+						<div style="display: flex; align-items: center; gap: 8px; color: green;">
+							Documentação deferida
+							<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+						</div>
+					} @else {
+						<div>
+							@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
+								<div style="display: flex; align-items: center; gap: 8px; color: green;">
+									Doucumentação enviada
+									<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+								</div>
+							}
+							@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Em Andamento") {
+								<div style="display: flex; align-items: center; gap: 8px; color: red;">
+									Doucumentação não deferida
+									<mat-icon svgIcon="circle-check" aria-hidden="false"></mat-icon>
+								</div>
+							}
+							<div 
+							class="action-button"	
+							(click)="fileUpload.click()"
+							style="color: white; margin-top: 12px;"
+							>
+								@if(user.internship.hasDocument && user.internship.internshipStatus.name === "Avaliando Documentação") {
+									Reenviar
+									<mat-icon svgIcon="re-send" aria-hidden="false"></mat-icon>
+								} @else {
+									Enviar Documentação
+									<mat-icon svgIcon="upload" aria-hidden="false"></mat-icon>
+								}
+								<input #fileUpload type="file" accept="application/pdf" (change)="onFileSelected($event)" style="display: none;">
+							</div>	
+						</div>
+					}
+				</div>
+				
+			</div>
 
-		<div class="actions" [ngClass]="{'no-course': !user.course}">
-			<!-- Adicionar -->
-			<span (click)="openSkillDialog()" class="actions__button icon">
+			<!-- Perfil de Aluno -->
+			<!-- ----------------------------------------------------------------------------------------------------------------------- -->
+			<div class="header">
+				<span class="title">Competências do Aluno</span>
+				<div class="underline"></div>
+				@if(!user.course) {
+					<div class="alert">
+						<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
+						Curso não selecionado!
+					</div>
+				}
+			</div>
+
+			<div class="info-section" [ngClass]="{'no-course': !user.course}">
+				@for(skill of userSkills; track skill.id) {
+					<div class="field">
+						<span>{{ skill.name }}</span>
+						<!-- <mat-icon svgIcon="trash" aria-hidden="false" (click)="removeSkill(skill)"></mat-icon> -->
+					</div>
+				} @empty {
+					<div class="field">
+						Nenhuma competência adicionada.
+					</div>
+				}
+				<div class="field last">
+					
+				</div>
+			</div>
+			
+			<span (click)="openSkillDialog()" class="action-button" [ngClass]="{'no-course': !user.course}">
 				<span>Cadastrar Competências</span>
 				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 			</span>
 		</div>
-
-		<div class="info-section skill-list" [ngClass]="{'no-course': !user.course}">
-			@for(skill of userSkills; track skill.id) {
-			<div class="skill-item">
-				<span>{{ skill.name }}</span>
-				<!-- <mat-icon svgIcon="trash" aria-hidden="false" (click)="removeSkill(skill)"></mat-icon> -->
-			</div>
-			} @empty {
-			<div class="no-skills">
-				Nenhuma competência adicionada.
-			</div>
-			}
-		</div>
 	</div>
-</div>
 </div>

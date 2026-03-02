@@ -1,20 +1,22 @@
 .page-container {
-	height: 100%;
-	width: 100%;
 	position: relative;
 	
 	.c-course-form {
 		position: relative;
-		height: 100%;
-		width: 60%;
-		padding: 8px;
+		background-color: #FFFFFF;
+		padding: 24px;
+		border-radius: 12px;
+		margin: 0 auto;
+		
+		border: 1px solid var(--app-main-light-color2);
 	
 		&__form {
 			display: flex;
 			flex-direction: column;
+			width: 60%;
+			gap: 4px;
 	
 			&-field {
-				margin-bottom: 24px;
 				width: 100%;
 			}
 	

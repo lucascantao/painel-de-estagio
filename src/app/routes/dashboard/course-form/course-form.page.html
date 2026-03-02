@@ -2,10 +2,10 @@
 	<div class="loading-overlay" *ngIf="submitting">
 		<mat-spinner diameter="40"></mat-spinner>
 	</div>
+	<app-page-header
+    	[title]="'Curso do usuário'"
+    ></app-page-header>
 	<div class="c-course-form">
-
-		<app-header-title title="Detalhes do Curso"></app-header-title>
-
 		<div class="c-course-form__form" [formGroup]="form">
 			<app-input-field
 				class="c-course-form__form-field"
@@ -24,13 +24,6 @@
 				[useValueOptionKeyAsLabel]="true"
 			></app-select-field>
 		</div>
-
-		<!-- <button 
-			style="margin-left: 12px;" 
-			class="action-btn"
-		>
-			Salvar
-		</button> -->
 
 		<div class="c-course-form__footer">
 			<app-action-button

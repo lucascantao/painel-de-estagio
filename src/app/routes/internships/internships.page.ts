@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ModulesService } from 'src/app/shared/services/utils/modules.service';
 import { InternshipsTableComponent } from "./components/table/table.component";
-import { PageHeaderComponent } from "./components/page-header/page-header.component";
+import { PageHeaderComponent } from 'src/app/shared/ui/components/page-header/page-header.component';
 
 @Component({
   selector: 'app-internships',
