@@ -4,12 +4,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ModulesService } from 'src/app/shared/services/utils/modules.service';
 import { MatIconRegistry, MatIcon } from '@angular/material/icon';
 import { RouterModule } from "@angular/router";
+import { PageHeaderComponent } from "src/app/shared/ui/components/page-header/page-header.component";
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PageHeaderComponent
 ],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss']
