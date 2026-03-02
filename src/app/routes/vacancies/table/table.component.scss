@@ -6,23 +6,9 @@
   height: 100%;
   padding: 16px;
 
-  .action-btn {
-    display: flex;
-    align-items: center;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 2px;
-    background-color: var(--app-dark-color);
-    color: var(--app-negative-text-color);
-    font-weight: 600;
-  }
-
-  .action-btn:hover {
-    cursor: pointer;
-    background-color: #fff;
-    color: var(--app-dark-color);
-    border: 1px solid var(--app-dark-color);
-  }
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid var(--app-main-light-color2);
 }
 
 /* Status Menu */
@@ -34,6 +20,24 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 24px;
+      background-color: var(--app-dark-color);
+      color: var(--app-negative-text-color);
+      font-weight: 600;
+    }
+
+    .action-btn:hover {
+      cursor: pointer;
+      background-color: #fff;
+      color: var(--app-dark-color);
+      border: 1px solid var(--app-dark-color);
+    }
   }
 
   &__search {
@@ -109,7 +113,8 @@
   position: relative;
   flex: 1;
   overflow-y: auto;
-  margin-top: 24px;
+
+  padding: 24px;
 
   .loading-overlay {
     position: absolute;
@@ -120,6 +125,8 @@
     width: 100%;
     overflow: hidden;
     z-index: 1000;
+    top: 0;
+    left: 0;
   }
 
   .text-overlay {
@@ -144,13 +151,10 @@
   }
 
   &__header-row {
-    // background-color: var(--app-secondary-color);
-    color: var(--app-header-text-color);
-    font-size: 14px;
+    color: rgb(75, 75, 75);
+    font-size: 16px;
     font-weight: 600;
     height: 40px;
-    border-radius: 8px;
-    border: 1px solid #5D6A83;
   }
 
   &__row {
@@ -158,53 +162,28 @@
   }
 
   &__cell{
-    font-family: "Inter", sans-serif !important;
-    color: var(--app-primary-text-color);
+    font-family: "Roboto", sans-serif !important;
     font-size: 12px;
     font-weight: 400;
-
-    // &__status {
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   padding: 0px 11px;
-    //   width: 110px;
-    //   height: 16px;
-    //   border-radius: 16px;
-    //   font-size: 10px;
-    // }
-
-    // &__observation{
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   padding: 0px 12px;
-    //   height: 16px;
-    //   border-radius: 16px;
-    //   font-size: 10px;
-    //   background-color: #FEF9C3;
-    //   color: #854D0E;
-    // }
   }
 
 }
 
 /* Footer */
 .c-vacancies-footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   height: 22px;
   align-items: center;
-  margin-top: 16px;
-  margin-bottom: 40px;
-  // border: 1px solid #5D6A83;
-  border-radius: 8px;
-  width: 100%;
-  padding: 12px  6px;
+  margin-bottom: 20px;
+  border-radius: 0 0 8px 8px;
+  padding: 28px  6px;
 
   font-size: 14px;
   color: #fff;
-  // background-color: var(--app-dark-color);
+
+  border-top: 1px solid var(--app-main-light-color);
 
   &__info {
     display: flex;
@@ -247,22 +226,24 @@
   }
 }
 
-// Buttons 
-
-.c-vacancies-container__ {
-  
-}
-
 :host ::ng-deep {
   .mat-mdc-paginator {
     position: absolute;
     border: none;
     bottom: initial;
     right: 16px;
+
+    .mat-mdc-select-value {
+      color: var(--app-main-primary-color) !important;
+    }
   }
 
-  .mat-mdc-header-cell,
+  .mat-mdc-header-cell {
+    border: none;
+  }
+  
   .mat-mdc-cell {
-    border-bottom: none !important;
+    height: 48px;
+    border-bottom: 1px solid var(--app-main-light-color);
   }
 }

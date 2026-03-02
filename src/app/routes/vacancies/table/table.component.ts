@@ -114,6 +114,7 @@ export class VacanciesTableComponent {
   selectedStatus: {value: number, name: string} = this.statuses[0];
 
   constructor() {
+    this.isLoading = true;
     this.iconRegistry.addSvgIcon('search', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/search-icon.svg'));
     this.iconRegistry.addSvgIcon('filter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/funnel-icon.svg'));
     this.iconRegistry.addSvgIcon('add', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/plus-icon.svg'));

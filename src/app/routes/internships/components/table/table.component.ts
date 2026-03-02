@@ -118,6 +118,7 @@ export class InternshipsTableComponent {
   selectedStatus: {value: number, name: string} = this.statuses[0];
 
   constructor() {
+    this.isLoading = true;
     // this.iconRegistry.addSvgIcon('more-vertical', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/more_vertical-icon.svg'));
     // this.iconRegistry.addSvgIcon('search', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/search-icon.svg'));
     // this.iconRegistry.addSvgIcon('filter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/filter-icon.svg'));
