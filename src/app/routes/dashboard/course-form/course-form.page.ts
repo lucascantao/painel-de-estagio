@@ -18,7 +18,7 @@ import { PageHeaderComponent } from "src/app/shared/ui/components/page-header/pa
 
 @Component({
   selector: 'app-course-form',
-  imports: [CommonModule, HeaderComponent, InputFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner, SelectFieldComponent, PageHeaderComponent],
+  imports: [CommonModule, InputFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner, SelectFieldComponent, PageHeaderComponent],
   templateUrl: './course-form.page.html',
   styleUrls: ['./course-form.page.scss'],
 })

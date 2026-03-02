@@ -14,7 +14,7 @@ import { MatProgressSpinner } from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-vacance-form',
-  imports: [CommonModule, HeaderComponent, InputFieldComponent, DateSelectFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner],
+  imports: [CommonModule, InputFieldComponent, DateSelectFieldComponent, ReactiveFormsModule, ActionButtonComponent, RouterLinkWithHref, MatProgressSpinner],
   templateUrl: './vacance-form.page.html',
   styleUrls: ['./vacance-form.page.scss'],
 })

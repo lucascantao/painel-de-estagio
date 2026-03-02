@@ -27,7 +27,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     InputFieldComponent,
     ReactiveFormsModule,
     MatProgressSpinner,
-    HeaderComponent,
     DateSelectFieldComponent,
     SelectFieldComponent,
     MatCheckbox,
