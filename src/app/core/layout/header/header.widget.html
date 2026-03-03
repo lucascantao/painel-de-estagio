@@ -1,9 +1,7 @@
 <div class="header" *ngIf="appModule">
-  <!-- <span>{{ appModule.title }}</span> -->
   <div class="logo-container">
       <img class="icon" src="/assets/img/sidenav/ufpa-icon.png"/>
       <span class="title">Gestão <br> de Estágio</span>
-      <!-- <img class="brand" src="/assets/img/sidenav/ufpa-brand.png"/> -->
   </div>
   <mat-progress-spinner diameter=30 mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
 
@@ -14,12 +12,17 @@
     >
       {{ userName() }}
     </a> -->
-    <ngx-avatars
+    <!-- <ngx-avatars
       class="user__avatar"
       [name]="userName()"
       (click)="goToProfile()"
       size="40"
-    ></ngx-avatars>
+    ></ngx-avatars> -->
+    <mat-icon
+      class="user__avatar"
+      (click)="goToProfile()"
+      svgIcon="user"
+    ></mat-icon>
     <span class="user__trigger" [matMenuTriggerFor]="menu">
       <mat-icon>keyboard_arrow_down</mat-icon>
     </span>

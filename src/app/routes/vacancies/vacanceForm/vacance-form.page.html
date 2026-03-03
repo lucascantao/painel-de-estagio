@@ -10,30 +10,30 @@
 		</div>
 
 		<div class="c-vacancies-form__form" [formGroup]="form">
-			<app-input-field
-				class="c-vacancies-form__form-field"
-				[label]="'Título'"
-				[placeholder]="'Descreva o título da vaga'"
-				formControlName="title"
-				[control]="form.get('title')"
-			></app-input-field>
-			<app-input-field
-				class="c-vacancies-form__form-field"
-				[label]="'Descrição'"
-				[placeholder]="'Descreva a vaga...'"
-				formControlName="description"
-				[textArea]="true"
-				[control]="form.get('description')"
-			></app-input-field>
-			<app-input-field
-				class="c-vacancies-form__form-field"
-				[label]="'Requisitos'"
-				[placeholder]="'Requisitos'"
-				formControlName="requirements"
-				[textArea]="true"
-				[control]="form.get('requirements')"
-			></app-input-field>
-			<div class="c-vacancies-form__form-row">
+			<div class="c-vacancies-form__form-column">
+				<app-input-field
+					class="c-vacancies-form__form-field"
+					[label]="'Título'"
+					[placeholder]="'Descreva o título da vaga'"
+					formControlName="title"
+					[control]="form.get('title')"
+				></app-input-field>
+				<app-input-field
+					class="c-vacancies-form__form-field"
+					[label]="'Descrição'"
+					[placeholder]="'Descreva a vaga...'"
+					formControlName="description"
+					[textArea]="true"
+					[control]="form.get('description')"
+				></app-input-field>
+				<app-input-field
+					class="c-vacancies-form__form-field"
+					[label]="'Requisitos'"
+					[placeholder]="'Requisitos'"
+					formControlName="requirements"
+					[textArea]="true"
+					[control]="form.get('requirements')"
+				></app-input-field>
 				<app-input-field
 					class="c-vacancies-form__form-field"
 					[label]="'Salário'"
@@ -50,8 +50,10 @@
 					formControlName="numberOfPositions"
 					[control]="form.get('numberOfPositions')"
 				></app-input-field>
+				<!-- <div class="c-vacancies-form__form-row">
+				</div> -->
 				<app-date-select-field
-					class="c-vacancies-form__form-date-field"
+					class="c-vacancies-form__form-field"
 					[label]="'Data limite'"
 					[placeholder]="'DD/MM/YYYY'"
 					formControlName="applicationDeadline"

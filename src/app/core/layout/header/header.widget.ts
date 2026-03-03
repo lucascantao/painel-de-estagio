@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, computed, effect, inject, signal, Signal } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Title } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { AvatarModule } from 'ngx-avatars';
 
@@ -38,12 +38,16 @@ export class HeaderWidget {
   private readonly title = inject(Title)
   private readonly router = inject(Router);
 
+  iconRegistry: MatIconRegistry = inject(MatIconRegistry);
+  sanitizer = inject(DomSanitizer);
+
   appModule: Module;
   moduleName: Signal<ModuleName> = signal<ModuleName>(null);
   userName: Signal<string | null>;
   isLoading: boolean = false;
 
   constructor() {
+    this.iconRegistry.addSvgIcon('user', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/user-round-icon.svg'));
     effect(() => {
       const mod = this.moduleService.moduleName()
       if (mod) {

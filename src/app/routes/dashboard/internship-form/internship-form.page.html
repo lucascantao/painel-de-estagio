@@ -4,13 +4,12 @@
   </div>
   <div class="c-internship-form">
 
-    <!-- <app-header-title title="Informações do Estágio"></app-header-title>s -->
     <div class="c-internship-form__header">
       <span>Informações do Estágio</span>
     </div>
 
     <div class="c-internship-form__form" [formGroup]="internshipForm">
-      <div class="c-internship-form__form-row">
+      <div class="c-internship-form__form-column">
         <app-input-field 
           class="c-internship-form__form-field"
           [label]="'Carga horária'" 
@@ -28,9 +27,6 @@
           formControlName="schedule"
           [control]="internshipForm.get('schedule')"
         ></app-select-field>
-      </div>
-
-      <div class="c-internship-form__form-row">
         <app-input-field 
           class="c-internship-form__form-field"
           [label]="'Supervisor'" 
@@ -46,12 +42,9 @@
           formControlName="salary" 
           [control]="internshipForm.get('salary')"
         ></app-input-field>
-      </div>
-      <div class="c-internship-form__form-row">
         <div class="date-container">
           <app-date-select-field
             class="c-internship-form__form-field"
-            class="c-vacancies-form__form-date-field"
             [label]="'Data Início'"
             [placeholder]="'DD/MM/YYYY'"
             [name]="'startDate'"
@@ -60,7 +53,6 @@
           ></app-date-select-field>
           <app-date-select-field
             class="c-internship-form__form-field"
-            class="c-vacancies-form__form-date-field"
             [label]="'Data Fim'"
             [placeholder]="'DD/MM/YYYY'"
             [name]="'endDate'"
@@ -70,25 +62,25 @@
         </div>
       </div>
     </div>
-
-    <!-- <app-header-title title="Informações da Empresa"></app-header-title> -->
     <div class="c-internship-form__header" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
       <span>Informações da Empresa</span>
     </div>
 
     <div class="c-internship-form__company" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
       <div [formGroup]="companySelectForm">
-        <app-select-field
-          class="c-internship-form__form-field"
-          [label]="'Empresa'"
-          [placeholder]="'Selecione a empresa'"
-          [options]="companies"
-          [useValueOptionKeyAsLabel]="true"
-          (valueChange)="onChangeCompany($event)"
-          [disabled]="newCompany"
-          [formControlName]="'company'"
-          [control]="companySelectForm.get('company')"
-        ></app-select-field>
+        <div class="c-internship-form__form-column">
+          <app-select-field
+            class="c-internship-form__form-field"
+            [label]="'Empresa'"
+            [placeholder]="'Selecione a empresa'"
+            [options]="companies"
+            [useValueOptionKeyAsLabel]="true"
+            (valueChange)="onChangeCompany($event)"
+            [disabled]="newCompany"
+            [formControlName]="'company'"
+            [control]="companySelectForm.get('company')"
+          ></app-select-field>
+        </div>
       </div>
     </div>
 
@@ -105,42 +97,45 @@
         <span>Nova Empresa</span>
       </div>
       <div class="c-internship-form__form" [formGroup]="companyForm">
-        <app-input-field
-          class="c-internship-form__form-field"
-          [label]="'Nome da Empresa'"
-          [placeholder]="'Nome da empresa'"
-          formControlName="name"
-          [control]="companyForm.get('name')"
-        ></app-input-field>
-        <app-input-field
-          class="c-internship-form__form-field"
-          [label]="'Endereço'"
-          [placeholder]="'Endereço completo'"
-          formControlName="address"
-          [control]="companyForm.get('address')"
-        ></app-input-field>
-        <app-input-field
-          class="c-internship-form__form-field"
-          [label]="'CNPJ'"
-          [placeholder]="'00.000.000/0000-00'"
-          formControlName="cnpj"
-          [control]="companyForm.get('cnpj')"
-        ></app-input-field>
-        <app-input-field
-          class="c-internship-form__form-field"
-          [label]="'Email'"
-          [placeholder]="'email@empresa.com'"
-          formControlName="email"
-          [control]="companyForm.get('email')"
-        ></app-input-field>
-        <app-input-field
-          class="c-internship-form__form-field"
-          [label]="'Telefone'"
-          [placeholder]="'(99) 99999-9999'"
-          [isPhoneNumber]="true"
-          formControlName="phone"
-          [control]="companyForm.get('phone')"
-        ></app-input-field>
+        <div class="c-internship-form__form-column">
+
+          <app-input-field
+            class="c-internship-form__form-field"
+            [label]="'Nome da Empresa'"
+            [placeholder]="'Nome da empresa'"
+            formControlName="name"
+            [control]="companyForm.get('name')"
+          ></app-input-field>
+          <app-input-field
+            class="c-internship-form__form-field"
+            [label]="'Endereço'"
+            [placeholder]="'Endereço completo'"
+            formControlName="address"
+            [control]="companyForm.get('address')"
+          ></app-input-field>
+          <app-input-field
+            class="c-internship-form__form-field"
+            [label]="'CNPJ'"
+            [placeholder]="'00.000.000/0000-00'"
+            formControlName="cnpj"
+            [control]="companyForm.get('cnpj')"
+          ></app-input-field>
+          <app-input-field
+            class="c-internship-form__form-field"
+            [label]="'Email'"
+            [placeholder]="'email@empresa.com'"
+            formControlName="email"
+            [control]="companyForm.get('email')"
+          ></app-input-field>
+          <app-input-field
+            class="c-internship-form__form-field"
+            [label]="'Telefone'"
+            [placeholder]="'(99) 99999-9999'"
+            [isPhoneNumber]="true"
+            formControlName="phone"
+            [control]="companyForm.get('phone')"
+          ></app-input-field>
+        </div>
       </div>
     }
 

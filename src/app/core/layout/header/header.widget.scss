@@ -64,11 +64,24 @@
 
   &__avatar {
     cursor: pointer;
-    border: 7px solid transparent;
+    border: 1px solid var(--app-main-special-color);
+    border-radius: 100%;
+    padding: 8px;
+    margin-right: 12px;
+    color: var(--app-main-special-color);
+    
+    &:hover {
+      border: 1px solid transparent;
+      background-color: #FFFFFF;
+      color: var(--app-main-primary-color);
+      transition: all 0.1s ease-in-out;
+    }
+
+    &:active {
+      border: 1px solid transparent;
+      background-color: var(--app-main-special-color);
+      color: #FFFFFF;
+    }
   }
 
-  &__avatar:hover {
-    border: 7px solid #17182f38;
-    transition: border 0.3s ease-in-out;
-  }
 }
