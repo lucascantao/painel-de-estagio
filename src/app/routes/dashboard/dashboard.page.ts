@@ -11,7 +11,7 @@ import { PageHeaderComponent } from "src/app/shared/ui/components/page-header/pa
   imports: [
     CommonModule,
     RouterModule,
-    PageHeaderComponent
+    // PageHeaderComponent
 ],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss']
