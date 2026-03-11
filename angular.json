@@ -52,6 +52,17 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.prod.ts",
+                  "with": "src/environments/environment.local.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +75,9 @@
             },
             "development": {
               "buildTarget": "painel-de-estagio:build:development"
+            },
+            "local": {
+              "buildTarget": "painel-de-estagio:build:local"
             }
           },
           "defaultConfiguration": "development"

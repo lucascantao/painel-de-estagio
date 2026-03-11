@@ -5,7 +5,7 @@ export const environment: {
   URL_ME?: string
 } = {
   production: false,
-  name: 'main',
+  name: 'local',
   hmr: false,
 };
 
