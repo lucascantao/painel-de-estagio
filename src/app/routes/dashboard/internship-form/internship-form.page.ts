@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { InputFieldComponent } from "src/app/shared/ui/components/input-field/input-field.component";
 import { MatProgressSpinner } from "@angular/material/progress-spinner";
 import { HeaderComponent } from "src/app/shared/ui/components/header-title/header.component";
-import { Router, RouterLinkWithHref } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
 import { DateSelectFieldComponent } from "src/app/shared/ui/components/datepicker/date-select-field.component";
 import { CompanyApiService } from 'src/app/shared/services/api/company-api.service';
 import { SelectFieldComponent } from "src/app/shared/ui/components/select-field/select-field.component";
@@ -48,6 +48,7 @@ export class InternshipFormPage {
   internshipService: InternshipService = inject(InternshipService);
 
   internshipForm: FormGroup;
+  internshipId: any;
   companyForm: FormGroup;
   companySelectForm: FormGroup;
 
@@ -60,37 +61,38 @@ export class InternshipFormPage {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     // this.iconRegistry.addSvgIcon('exclamation', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/exclamation-icon.svg'));
+    this.initializeForms();
   }
 
-  ngOnInit(): void {
-    this.companyApiService.companyList().then(companies => {
+  async ngOnInit() {
+    this.submitting = true;
+    await this.companyApiService.companyList().then(companies => {
       this.companies = companies.data;
       this.cdr.markForCheck();
     });
 
-    this.internshipForm = new FormGroup({
-      workload: new FormControl('', [Validators.required]),
-      schedule: new FormControl(null, [Validators.required]),
-      salary: new FormControl('', [Validators.required]),
-      supervisor: new FormControl('', [Validators.required]),
-      startDate:  new FormControl('', [Validators.required]),
-      endDate:  new FormControl('', [Validators.required]),
-    });
+    this.internshipId = this.activatedRoute.snapshot.paramMap.get('internshipId');
+    if(this.internshipId) {
+      await this.internshipService.getInternshipById(this.internshipId).subscribe(res => {
+        const decimalSalary = parseFloat(res.data.salary).toFixed(2).toString().replace('.', ',');
+        const salalyFormatted = 'R$' + decimalSalary.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        this.internshipForm.get('workload').setValue(res.data.workload);
+        this.internshipForm.get('schedule').setValue(this.schedules.find(s => s.name === res.data.schedule));
+        this.internshipForm.get('salary').setValue(salalyFormatted);
+        this.internshipForm.get('supervisor').setValue(res.data.supervisor);
+        this.internshipForm.get('startDate').setValue(res.data.startDate);
+        this.internshipForm.get('endDate').setValue(res.data.endDate);
 
-    this.companyForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      cnpj: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required]),
-    });
+        this.companySelectForm.get('company').setValue(this.companies.find(c => c.id === res.data.company.id));
 
-    this.companySelectForm = new FormGroup({
-      company: new FormControl(null, [Validators.required]),
-    })
+        this.submitting = false;
+        this.cdr.markForCheck();
+      })
+    }
   }
 
   submit() {
@@ -154,6 +156,29 @@ export class InternshipFormPage {
     }
 
     
+  }
+
+  initializeForms() {
+    this.internshipForm = new FormGroup({
+      workload: new FormControl('', [Validators.required]),
+      schedule: new FormControl(null, [Validators.required]),
+      salary: new FormControl('', [Validators.required]),
+      supervisor: new FormControl('', [Validators.required]),
+      startDate:  new FormControl('', [Validators.required]),
+      endDate:  new FormControl('', [Validators.required]),
+    });
+
+    this.companyForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
+      cnpj: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
+    });
+
+    this.companySelectForm = new FormGroup({
+      company: new FormControl(null, [Validators.required]),
+    })
   }
 
   onChangeCompany(event: any) {

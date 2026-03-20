@@ -15,6 +15,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./internship-form/internship-form.page').then(m => m.InternshipFormPage)
             },
             {
+                path: 'estagio-form/editar/:internshipId',
+                loadComponent: () => import('./internship-form/internship-form.page').then(m => m.InternshipFormPage)
+            },
+            {
                 path: 'cadastrar-curso',
                 loadComponent: () => import('./course-form/course-form.page').then(m => m.CourseFormPage)
             }

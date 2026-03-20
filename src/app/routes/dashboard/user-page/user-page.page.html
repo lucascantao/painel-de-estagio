@@ -53,6 +53,12 @@
 			<!-- ----------------------------------------------------------------------------------------------------------------------- -->
 			<div class="header">
 				<span class="title">Curso</span>
+				@if(user.course) { 
+					<span class="edit" [routerLink]="[MODULES['cadastrar-curso'].route]" >
+						Atualizar 
+						<mat-icon svgIcon="pencil" aria-hidden="false"/> 
+					</span> 
+				}
 				<div class="underline"></div>
 			</div>
 
@@ -61,7 +67,7 @@
 				class="action-button"
 				*ngIf="!user.course"
 			>
-				<span>@if(user.course) { Editar Curso } @else { Cadastrar Curso }</span>
+				<span> @if(user.course) { Editar Curso } @else { Cadastrar Curso }</span>
 				<mat-icon svgIcon="pencil" aria-hidden="false"></mat-icon>
 			</div>
 
@@ -88,6 +94,13 @@
 						<mat-icon svgIcon="alert" aria-hidden="false"></mat-icon>
 						Curso não selecionado!
 					</div>
+				}
+				
+				@if (user.internship) {
+					<span class="edit" (click)="editInternship()">
+						Atualizar 
+						<mat-icon svgIcon="pencil" aria-hidden="false"/> 
+					</span>
 				}
 			</div>
 

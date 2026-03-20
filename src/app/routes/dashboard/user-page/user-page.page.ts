@@ -137,4 +137,8 @@ export class UserPage {
     }
   }
 
+  public editInternship() {
+    this.router.navigate(['dashboard/estagio-form/editar', this.user.internship.id]);
+  }
+
 }
