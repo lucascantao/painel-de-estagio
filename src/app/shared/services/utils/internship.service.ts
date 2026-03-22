@@ -35,6 +35,10 @@ export class InternshipService {
     return this.internshipsApiService.saveIntership(internship);
   }
 
+  public updateInternship(internship: any, internshipId: number) {
+    return this.internshipsApiService.updateIntership(internship, internshipId);
+  }
+
   public uploadDocument(file: any) {
     return this.internshipsApiService.uploadDocument(file);
   }

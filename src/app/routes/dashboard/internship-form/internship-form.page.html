@@ -62,35 +62,41 @@
         </div>
       </div>
     </div>
-    <div class="c-internship-form__header" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
-      <span>Informações da Empresa</span>
-    </div>
+    
 
-    <div class="c-internship-form__company" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
-      <div [formGroup]="companySelectForm">
-        <div class="c-internship-form__form-column">
-          <app-select-field
-            class="c-internship-form__form-field"
-            [label]="'Empresa'"
-            [placeholder]="'Selecione a empresa'"
-            [options]="companies"
-            [useValueOptionKeyAsLabel]="true"
-            (valueChange)="onChangeCompany($event)"
-            [disabled]="newCompany"
-            [formControlName]="'company'"
-            [control]="companySelectForm.get('company')"
-          ></app-select-field>
+    @if(!internshipId) {
+
+      <div class="c-internship-form__header" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
+        <span>Informações da Empresa</span>
+      </div>
+      
+      <div class="c-internship-form__company" [ngStyle]="{'opacity': newCompany ? '50%' : '100%'}">
+        <div [formGroup]="companySelectForm">
+          <div class="c-internship-form__form-column">
+            <app-select-field
+              class="c-internship-form__form-field"
+              [label]="'Empresa'"
+              [placeholder]="'Selecione a empresa'"
+              [options]="companies"
+              [useValueOptionKeyAsLabel]="true"
+              (valueChange)="onChangeCompany($event)"
+              [disabled]="newCompany"
+              [formControlName]="'company'"
+              [control]="companySelectForm.get('company')"
+            ></app-select-field>
+          </div>
         </div>
       </div>
-    </div>
+  
+      <span class="new-company-checkbox">
+        <mat-checkbox
+          (change)="updateCheckNewCompany($event.checked)"
+          >
+          Cadastrar nova empresa
+        </mat-checkbox>
+      </span>
 
-    <span class="new-company-checkbox">
-      <mat-checkbox
-        (change)="updateCheckNewCompany($event.checked)"
-        >
-        Cadastrar nova empresa
-      </mat-checkbox>
-    </span>
+    }
 
     @if(newCompany) {
       <div class="c-internship-form__header">

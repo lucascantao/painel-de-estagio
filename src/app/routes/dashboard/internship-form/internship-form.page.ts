@@ -87,7 +87,7 @@ export class InternshipFormPage {
         this.internshipForm.get('startDate').setValue(res.data.startDate);
         this.internshipForm.get('endDate').setValue(res.data.endDate);
 
-        this.companySelectForm.get('company').setValue(this.companies.find(c => c.id === res.data.company.id));
+        // this.companySelectForm.get('company').setValue(this.companies.find(c => c.id === res.data.company.id));
 
         this.submitting = false;
         this.cdr.markForCheck();
@@ -102,23 +102,35 @@ export class InternshipFormPage {
     const salaryFormatted = salary.replace('R$', '').replace(/[.]/g, '').replace(',', '.');
 
     if((this.internshipForm.valid && this.companySelectForm.valid && !this.newCompany) 
-      || (this.internshipForm.valid && this.newCompany && this.companyForm.valid)) {
+      || (this.internshipForm.valid && this.newCompany && this.companyForm.valid)
+      || (this.internshipForm.valid && this.internshipId !== null)) {
       const internship = {
         ...this.internshipForm.value,
         salary: parseFloat(salaryFormatted),
         schedule: this.internshipForm.get('schedule').value.name,
-        userId: this.userService.getUserId(),
+        // userId: this.userService.getUserId(),
         companyId: null,
         company: null,
       }
 
-      if(this.newCompany) {
-        internship.company = this.companyForm.value;  
-      } else {
-        internship.companyId = this.companyId;
+      if(!this.internshipId) {
+        if(this.newCompany) {
+          internship.company = this.companyForm.value;  
+        } else {
+          internship.companyId = this.companyId;
+        }
       }
 
-      this.internshipService.saveInternship(internship).then(
+      let promise: Promise<any>;
+
+      if(this.internshipId) {
+        internship.userId = this.userService.getUserId(),
+        promise = this.internshipService.updateInternship(internship, this.internshipId);
+      } else {
+        promise = this.internshipService.saveInternship(internship);
+      }
+
+      promise.then(
         async res => {
           await this.userService.fetchAuthenticatedUser();
           this.submitting = false;

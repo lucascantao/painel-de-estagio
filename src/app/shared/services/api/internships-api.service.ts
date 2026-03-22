@@ -57,6 +57,10 @@ export class InternshipsApiService {
     return firstValueFrom(this.http.post<any>(`${API_BASE_URL}/${this.PATH}`, payload));
   }
 
+  public updateIntership(payload: any, internshipId: number): Promise<any> {
+    return firstValueFrom(this.http.put<any>(`${API_BASE_URL}/${this.PATH}/${internshipId}`, payload));
+  }
+
   public uploadDocument(file: any) {
     return this.http.post<any>(`${API_BASE_URL}/${this.PATH}/submit-docs`, file);
   }
