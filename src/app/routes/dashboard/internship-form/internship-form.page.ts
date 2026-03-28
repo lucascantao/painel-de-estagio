@@ -72,7 +72,7 @@ export class InternshipFormPage {
     this.submitting = true;
     await this.companyApiService.companyList().then(companies => {
       this.companies = companies.data;
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
     });
 
     this.internshipId = this.activatedRoute.snapshot.paramMap.get('internshipId');
@@ -90,8 +90,11 @@ export class InternshipFormPage {
         // this.companySelectForm.get('company').setValue(this.companies.find(c => c.id === res.data.company.id));
 
         this.submitting = false;
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
       })
+    } else {
+      this.submitting = false;
+      this.cdr.detectChanges();
     }
   }
 
@@ -124,9 +127,9 @@ export class InternshipFormPage {
       let promise: Promise<any>;
 
       if(this.internshipId) {
-        internship.userId = this.userService.getUserId(),
         promise = this.internshipService.updateInternship(internship, this.internshipId);
       } else {
+        internship.userId = this.userService.getUserId(),
         promise = this.internshipService.saveInternship(internship);
       }
 
