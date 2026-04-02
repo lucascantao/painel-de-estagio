@@ -13,6 +13,7 @@
 
 /* Status Menu */
 .c-users-header{
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -21,39 +22,47 @@
     display: flex;
     justify-content: space-between;
 
-    .action-btn {
-      display: flex;
-      align-items: center;
-      padding: 8px 10px;
-      border: 1px solid transparent;
-      border-radius: 24px;
-      background-color: var(--app-dark-color);
-      color: var(--app-negative-text-color);
-      font-weight: 600;
-    }
+    // .action-btn {
+    //   display: flex;
+    //   align-items: center;
+    //   padding: 8px 10px;
+    //   border: 1px solid transparent;
+    //   border-radius: 24px;
+    //   background-color: var(--app-dark-color);
+    //   color: var(--app-negative-text-color);
+    //   font-weight: 600;
+    // }
 
-    .action-btn:hover {
-      cursor: pointer;
-      background-color: #fff;
-      color: var(--app-dark-color);
-      border: 1px solid var(--app-dark-color);
-    }
+    // .action-btn:hover {
+    //   cursor: pointer;
+    //   background-color: #fff;
+    //   color: var(--app-dark-color);
+    //   border: 1px solid var(--app-dark-color);
+    // }
   }
 
   &__search {
     display: flex;
     align-items: center;
     // background: #232c36;
-    border: 1px solid #404653;
-    border-radius: 3px;
+    border: 1.5px solid #cecece;
+    border-radius: 50px;
     padding: 4px 12px;
-    width: 250px;
+    width: 100%;
     height: 28px;
     gap: 8px;
+
+    &:focus-within {
+      border: 1.5px solid var(--app-main-primary-color) !important;
+    }
 
     &-icon {
       margin-right: 8px;
       margin-top: 5px;
+      mat-icon {
+        height: 16px !important;
+        width: 16px !important;
+      }
     }
 
     &-input {
@@ -69,10 +78,10 @@
     &-filter {
       display: flex;
       align-items: center;
-      background: var(--app-dark-color);
-      border: 1.5px solid #404653;
+      background: var(--app-main-primary-color);
+      border: 1px solid var(--app-main-primary-color);;
       color: var(--app-negative-text-color);
-      border-radius: 3px;
+      border-radius: 50px;
       padding: 2px 14px;
       font-weight: 500;
       font-size: 14px;

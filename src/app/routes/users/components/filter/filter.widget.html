@@ -1,0 +1,31 @@
+<div class="c-internship-detail-dialog">
+  <div class="c-internship-detail-dialog__header">
+    <span class="c-device-dialog__header-title">
+      Selecionar Filtros
+    </span>
+    <mat-icon svgIcon="close" aria-hidden="false" (click)="closePanel()"></mat-icon>
+  </div>
+  <div class="c-internship-detail-dialog__divider"></div>
+  <div class="c-internship-detail-dialog__content" [formGroup]="form">
+    @if(loading) {
+      <div class="loading-overlay">
+        <mat-spinner diameter="40"></mat-spinner>
+      </div>
+    } @else {
+      <app-select-field
+        label="Competências"
+        [options]="skills"
+        [multiple]="true"
+        formControlName="skills"
+        [control]="form.get('skills')"
+      />
+      <app-select-field
+        label="Cursos"
+        [options]="courses"
+        [multiple]="true"
+        formControlName="courses"
+        [control]="form.get('courses')"
+      />
+    }
+  </div>
+</div>

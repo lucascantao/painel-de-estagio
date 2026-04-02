@@ -21,6 +21,7 @@ import { MappedModule } from 'src/app/shared/domain/types';
 import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { ActionsMenuComponent } from "../components/actions-menu/actions-menu.component";
 import { User } from 'src/app/shared/domain/interfaces/User.interface';
+import { FilterWidget } from '../components/filter/filter.widget';
 
 @Component({
   selector: 'app-users-table',
@@ -163,17 +164,17 @@ export class UsersTableComponent {
   }
 
   openFilterDialog() {
-    // const dialogRef = this.dialog.open(FilterModalComponent, {
-    //   width: '568px',
-    //   data: {
-    //     filters: this.filters,
-    //   }
-    // });
+    const dialogRef = this.dialog.open(FilterWidget, {
+      width: '320px',
+      data: {
+        filters: this.filters,
+      }
+    });
 
-    // dialogRef.afterClosed().subscribe(filter => {
-    //   if(filter)
-    //     this.applyFilter(filter);
-    // });
+    dialogRef.afterClosed().subscribe(filter => {
+      if(filter)
+        this.applyFilter(filter);
+    });
   }
 
   applyFilter(filters: any) {

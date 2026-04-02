@@ -7,8 +7,7 @@
   <div class="c-users-header">
     <!-- Actions -->
     <div class="c-users-header__actions">
-      <div style="display: flex;">
-        <!-- <div class="c-users-header__search">
+        <div class="c-users-header__search">
           <span class="c-users-header__search-icon">
             <mat-icon svgIcon="search" aria-hidden="false"></mat-icon>
           </span>
@@ -18,6 +17,7 @@
             class="c-users-header__search-input"
             placeholder="Procurar..."
             (keyup.enter)="searchTextFilter()"
+            (ngModelChange)="searchTextFilter()"
           />
           <span class="clear-filter" (click)="clearFilter()" *ngIf="!isFilterEmpty()">
             <mat-icon svgIcon="close" aria-hidden="false"></mat-icon>
@@ -30,8 +30,7 @@
         >
           <mat-icon svgIcon="filter" aria-hidden="false"></mat-icon>
           <span>Filtrar</span>
-        </button> -->
-      </div>
+        </button>
     </div>
   </div>
 
@@ -86,13 +85,13 @@
             Curso
           </th>
           <td mat-cell *matCellDef="let user" class="c-users-list__cell">
-           {{ user.course ?? 'Sem Dados' }}
+           {{ user.course.name ?? 'Sem Dados' }}
           </td>
         </ng-container>
 
         <!-- actions Column -->
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header sticky class="c-users-list__header-cell">
+          <th mat-header-cell *matHeaderCellDef sticky class="c-users-list__header-cell">
             Ação
           </th>
           <td mat-cell *matCellDef="let user" class="c-users-list__cell">

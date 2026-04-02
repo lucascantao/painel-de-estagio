@@ -36,10 +36,12 @@ export class UserApiService {
     }
 
     const body = {
-      search: search || '',
-      ...filters
+      filters: {
+        ...filters,
+        search: search || '',
+      }
     }
-    return this.http.post<ApiResponse<User>>(`${API_BASE_URL}/${this.PATH}/students`, body, { params });
+    return this.http.post<ApiResponse<User>>(`${API_BASE_URL}/${this.PATH}/students`, body, { params: params });
   }
 
   public async me(): Promise<User> {
