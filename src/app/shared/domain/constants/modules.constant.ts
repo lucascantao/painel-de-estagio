@@ -37,6 +37,12 @@ export const MODULES: MappedModule = {
     browserTitle: "Nova Vaga",
     route: "/vagas/criar"
   },
+  "alunos": {
+    title: "Alunos",
+    sidenavTitle: "Alunos",
+    browserTitle: "Alunos",
+    route: "/alunos"
+  },
 //   "access-control": {
 //     title: "Usuários",
 //     sidenavTitle: "Configurações",

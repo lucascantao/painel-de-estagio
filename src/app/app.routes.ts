@@ -32,6 +32,11 @@ export const routes: Routes = [
         canActivate: [authGuard, permissionGuard],
         loadChildren: () => import('./routes/vacancies/vacancies.page.routes').then(m => m.routes)
       },
+      {
+        path: 'alunos',
+        canActivate: [authGuard, permissionGuard],
+        loadChildren: () => import('./routes/users/users.page.routes').then(m => m.routes)
+      }
     ]
   },
   {

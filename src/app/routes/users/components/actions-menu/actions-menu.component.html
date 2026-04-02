@@ -1,0 +1,37 @@
+<div class="c-actions-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="c-actions-menu__trigger">
+    <mat-icon svgIcon="ellipsis"></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item class="c-actions-menu__item"
+      (click)="openVacanceDialog()"
+    >
+      <div class="c-actions-menu__item-content">
+        <mat-icon svgIcon="eye"></mat-icon>
+        <span>Visualizar Detalhes</span>
+      </div>
+    </button>
+    @if(getUser()?.role.name === 'Administrador') {
+      <button
+        mat-menu-item class="c-actions-menu__item"
+        (click)="edit()"
+      >
+        <div class="c-actions-menu__item-content">
+          
+          <mat-icon svgIcon="pencil"></mat-icon>
+          <span>Editar</span>
+        </div>
+      </button>
+      <button
+        mat-menu-item class="c-actions-menu__item"
+        (click)="delete()"
+      >
+        <div class="c-actions-menu__item-content">
+          <mat-icon svgIcon="trash"></mat-icon>
+          <span>Excluir</span>
+        </div>
+      </button>
+    }
+  </mat-menu>
+</div>

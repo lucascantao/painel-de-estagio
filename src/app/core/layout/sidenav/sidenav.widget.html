@@ -19,7 +19,7 @@
       <div
         class="c-module-container"
         [ngClass]="{'c-module-container--active': isActiveModule('estagios')}"
-        (click)="onModuleClick('estagios', true)"
+        (click)="onModuleClick('estagios')"
         [routerLink]="[MODULES['estagios'].route]"
         >
         <img src="/assets/img/sidenav/internships-icon.svg"/>
@@ -29,11 +29,20 @@
     <div
       class="c-module-container"
       [ngClass]="{'c-module-container--active': isActiveModule('vagas')}"
-      (click)="onModuleClick('vagas', true)"
+      (click)="onModuleClick('vagas')"
       [routerLink]="[MODULES['vagas'].route]"
       >
       <img src="/assets/img/sidenav/campaign-icon.svg"/>
       <a>{{  MODULES['vagas'].sidenavTitle }}</a>
+    </div>
+    <div
+      class="c-module-container"
+      [ngClass]="{'c-module-container--active': isActiveModule('alunos')}"
+      (click)="onModuleClick('alunos')"
+      [routerLink]="[MODULES['alunos'].route]"
+      >
+      <img src="/assets/img/sidenav/users-icon.svg"/>
+      <a>{{  MODULES['alunos'].sidenavTitle }}</a>
     </div>
     <!-- Bottom buttons -->
     <!-- <div class="c-modules-tools">

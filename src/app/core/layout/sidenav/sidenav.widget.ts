@@ -64,7 +64,7 @@ export class SidenavWidget {
 //       this.dialog.open(ProjectInformationDialogComponent, {width: '50%', autoFocus: false});
 //   }
 
-  onModuleClick(moduleName: ModuleName, isAlertsModule: boolean) {
-    this.modulesService.changeCurrentModule(moduleName, isAlertsModule);
+  onModuleClick(moduleName: ModuleName) {
+    this.modulesService.changeCurrentModule(moduleName);
   }
 }

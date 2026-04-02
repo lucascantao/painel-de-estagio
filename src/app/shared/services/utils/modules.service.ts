@@ -13,40 +13,17 @@ import { ModuleName } from '../../domain/types';
 })
 export class ModulesService {
 
-//   private readonly alertMetadataService: AlertMetadataService = inject(AlertMetadataService);
-//   private readonly mapControlsService: MapControlsService = inject(MapControlsService);
-//   private readonly mapLayersService: MapLayersService = inject(MapLayersService);
   private readonly router: Router = inject(Router);
 
   moduleName: WritableSignal<ModuleName> = signal<ModuleName>(null);
   sideNavToggle = signal<boolean>(false);
-//   selectedAlert: Alert;
 
   constructor() {
-    // effect(() => {
-    //   this.selectedAlert = this.alertMetadataService.selectedAlert();
-    // })
   }
 
   // TODO: REVISAR ISSO AQUI
-  changeCurrentModule(moduleName: ModuleName, isAlertsModule: boolean) {
+  changeCurrentModule(moduleName: ModuleName) {
         this.router.navigate([MODULES[moduleName].route]);
-    /* If the current module is upload or dashboard, there is no need to reset the layers */
-    // if (!isAlertsModule) {
-    //   this.router.navigate([MODULES[moduleName].route]);
-    // } else if (moduleName in MODULES) {
-    //   /* Deselect the current validation control */
-    //   this.mapControlsService.activatedControlChange(null);
-    //   ///////////////////////////////////////////////////////////////////////////////////////////this.mapLayersService.resetLayers();
-    //   /* If there is an alert selected, redirect to it on the other module */
-    //   if (isAlertsModule && this.selectedAlert) {
-    //     this.router.navigate([MODULES[moduleName].route, this.selectedAlert.alertId]);
-    //   }
-    //   else {
-    //     /* Deselect the current validation control */
-    //     this.router.navigate([MODULES[moduleName].route]);
-    //   }
-    // }
   }
 
   getSideNavToggle(){

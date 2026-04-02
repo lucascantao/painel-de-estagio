@@ -1,0 +1,50 @@
+::ng-deep .mat-mdc-menu-panel {
+  background-color: #121926 !important;
+}
+
+.c-actions-menu {
+
+  &__item:hover {
+    background-color: #24314A !important;
+  }
+
+  &__item--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__item--disabled:hover {
+    cursor: not-allowed;
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 8px;
+    }
+
+    span, mat-icon {
+      color: #fff;
+    }
+
+    mat-icon {
+      height: 16px;
+      width: 16px;
+    }
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: #5D6A83;
+    margin: 12px 22px;
+  }
+
+  &__trigger {
+    mat-icon {
+      color: var(--app-dark-color);
+    }
+  }
+
+}
