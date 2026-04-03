@@ -69,6 +69,16 @@
           </td>
         </ng-container>
 
+        <!-- studentNumber Column -->
+        <ng-container matColumnDef="studentNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sticky class="c-users-list__header-cell">
+            Matrícula
+          </th>
+          <td mat-cell *matCellDef="let user" class="c-users-list__cell">
+            {{ user.studentNumber }}
+          </td>
+        </ng-container>
+
         <!-- email Column -->
         <ng-container matColumnDef="email">
           <th mat-header-cell *matHeaderCellDef mat-sort-header sticky class="c-users-list__header-cell">

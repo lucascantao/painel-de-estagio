@@ -70,6 +70,7 @@ export class UsersTableComponent {
   users: User[] = [];
   displayedColumns: string[] = [
     'name',
+    'studentNumber',
     'email',
     'course',
     'actions',
