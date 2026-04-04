@@ -25,6 +25,7 @@
         </div>
         <button
           class="c-users-header__search-filter"
+          [ngClass]="{'c-users-header__search-filter--active': !isFilterEmpty()}"
           (click)="openFilterDialog()"
           style="margin-left: 12px;"
         >

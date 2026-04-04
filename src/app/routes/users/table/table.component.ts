@@ -22,6 +22,7 @@ import { MODULES } from 'src/app/shared/domain/constants/modules.constant';
 import { ActionsMenuComponent } from "../components/actions-menu/actions-menu.component";
 import { User } from 'src/app/shared/domain/interfaces/User.interface';
 import { FilterWidget } from '../components/filter/filter.widget';
+import { StorageRepositoryService } from 'src/app/shared/services/utils/storage.repository.service';
 
 @Component({
   selector: 'app-users-table',
@@ -54,6 +55,7 @@ export class UsersTableComponent {
   sanitizer = inject(DomSanitizer);
   dialog = inject(MatDialog);
   userService = inject(UserService);
+  private readonly storageService = inject(StorageRepositoryService);
 
   MODULES: MappedModule = MODULES;
 
@@ -85,9 +87,9 @@ export class UsersTableComponent {
   sortColumn: string | null = null;
   direction: 'asc' | 'desc' | null = null;
   checkedItems: number[] = [];
-  filters: any = {
-    skills: null,
-    courses: null,
+  filters: { skills: number[], courses: number[] } = {
+    skills: [],
+    courses: [],
   };
 
   @ViewChild(MatSort) sort: MatSort;
@@ -98,9 +100,6 @@ export class UsersTableComponent {
     this.iconRegistry.addSvgIcon('search', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/search-icon.svg'));
     this.iconRegistry.addSvgIcon('filter', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/funnel-icon.svg'));
     this.iconRegistry.addSvgIcon('add', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/plus-icon.svg'));
-    // this.iconRegistry.addSvgIcon('create-request', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/logistics/create-request-icon.svg'));
-    // this.iconRegistry.addSvgIcon('exclamation', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/exclamation-icon.svg'));
-    // this.iconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('/assets/img/close-icon.svg'));
   }
 
   ngOnInit() {
@@ -133,6 +132,7 @@ export class UsersTableComponent {
   }
 
   async updateData(search: string = null) {
+    this.filters = this.storageService.load('userFilters', 'local', null) || { skills: [], courses: [] };
     this.pageRequest$.next({
       page: this.currentPage,
       perPage: this.perPage,
@@ -172,22 +172,14 @@ export class UsersTableComponent {
       }
     });
 
-    dialogRef.afterClosed().subscribe(filter => {
-      if(filter)
-        this.applyFilter(filter);
+    dialogRef.afterClosed().subscribe(update => {
+      if(update)
+        this.updateData();
     });
   }
 
-  applyFilter(filters: any) {
-    this.filters = filters;
-    this.updateData();
-    this.currentPage = 1;
-  }
-
   clearFilter() {
-    if(this.isFilterEmpty() && !this.searchText) return;
-    this.currentPage = 1;
-    this.searchText = '';
+    this.storageService.remove('userFilters', 'local');
     this.filters = {
       skills: null,
       courses: null
@@ -202,7 +194,7 @@ export class UsersTableComponent {
 
   isFilterEmpty(): boolean {
     const f_arr = Object.values(this.filters);
-    return f_arr.every(filter => filter === null);
+    return f_arr.every(filter => filter.length === 0);
   }
 
   async onPageChange(event: PageEvent) {
@@ -212,47 +204,25 @@ export class UsersTableComponent {
     await this.updateData(this.searchText);
   }
 
-  onCheckItem(id: number) {
+  // onCheckItem(id: number) {
 
-    if (this.isChecked(id)) {
-      this.checkedItems = this.checkedItems.filter(item => item !== id);
-    } else {
-      this.checkedItems.push(id);
-    }
-  }
+  //   if (this.isChecked(id)) {
+  //     this.checkedItems = this.checkedItems.filter(item => item !== id);
+  //   } else {
+  //     this.checkedItems.push(id);
+  //   }
+  // }
 
-  isChecked(id: number): boolean {
-    return this.checkedItems.includes(id);
-  }
+  // isChecked(id: number): boolean {
+  //   return this.checkedItems.includes(id);
+  // }
 
-  onCheckAll() {
-    this.isAllSelected() ? this.checkedItems = [] : this.checkedItems = this.users.map(request => request.id);
-  }
+  // onCheckAll() {
+  //   this.isAllSelected() ? this.checkedItems = [] : this.checkedItems = this.users.map(request => request.id);
+  // }
 
-  isAllSelected() {
-    return this.checkedItems.length === this.users.length && this.checkedItems.length > 0;
-  }
-
-  getFilterIds() {
-    // Convertendo pro formato da api
-    // const api_format = {
-    //   partners_id: this.filters.partner?.id,
-    //   observation: this.filters.observation?.id,
-    //   state_id: this.filters.state?.id,
-    //   city_id: this.filters.city?.id,
-    //   territories_id: this.filters.territoryType?.id,
-    //   territory_name: this.filters.territoryName?.name,
-    //   start_date: this.filters.dateStart,
-    //   end_date: this.filters.dateEnd
-    // }
-
-    // for (const key in api_format) {
-    //   if(!api_format[key]) {
-    //     delete api_format[key];
-    //   }
-    // }
-
-    // return api_format
-  }
+  // isAllSelected() {
+  //   return this.checkedItems.length === this.users.length && this.checkedItems.length > 0;
+  // }
 
 }
